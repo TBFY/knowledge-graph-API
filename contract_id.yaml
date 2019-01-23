@@ -67,7 +67,7 @@ definitions:
       id:
         type: integer
         format: int64
-      awardid:
+      awardId:
         type: integer
         format: int64
       title:
