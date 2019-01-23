@@ -1,1 +1,1 @@
-# This repository is dedicated to the core API of the TheyBuyForYou project
+# API documentation (Swagger)
