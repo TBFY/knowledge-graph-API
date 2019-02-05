@@ -83,8 +83,7 @@ paths:
           in: path
           description: ID of contracting process to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -107,8 +106,7 @@ paths:
           in: path
           description: ID of contracting process to return
           required: true
-          type: integer
-          format: int64
+          type: string
         - $ref: '#/parameters/before'
         - $ref: '#/parameters/after'
       responses:
@@ -129,8 +127,7 @@ paths:
           in: path
           description: ID of contracting process to return
           required: true
-          type: integer
-          format: int64
+          type: string
         - $ref: '#/parameters/before'
         - $ref: '#/parameters/after'
       responses:
@@ -164,8 +161,7 @@ paths:
           in: path
           description: ID of contract to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -188,8 +184,7 @@ paths:
           in: path
           description: ID of contract to return
           required: true
-          type: integer
-          format: int64
+          type: string
         - $ref: '#/parameters/before'
         - $ref: '#/parameters/after'
       responses:
@@ -210,8 +205,7 @@ paths:
           in: path
           description: ID of contract to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -230,8 +224,7 @@ paths:
           in: path
           description: ID of contract to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -271,8 +264,7 @@ paths:
           in: path
           description: ID of organisation to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -296,8 +288,7 @@ paths:
           in: path
           description: ID of organisation to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -333,8 +324,7 @@ paths:
           in: path
           description: ID of organisation to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -344,8 +334,7 @@ paths:
               type: object
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
         '400':
@@ -391,8 +380,7 @@ paths:
           in: path
           description: ID of award to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -416,8 +404,7 @@ paths:
           in: path
           description: ID of award to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -429,8 +416,7 @@ paths:
                 - id
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 rationale:
                   type: string
                 datetime:
@@ -453,8 +439,7 @@ paths:
           in: path
           description: ID of award to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -466,8 +451,7 @@ paths:
                 - id
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 description:
                   type: string
         '400':
@@ -488,8 +472,7 @@ paths:
           in: path
           description: ID of award to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -501,8 +484,7 @@ paths:
                 - id
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 legalname:
                   type: string
                 uri:
@@ -525,8 +507,7 @@ paths:
           in: path
           description: ID of award to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -538,8 +519,7 @@ paths:
                 - id
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 description:
                   type: string
                 uri:
@@ -558,16 +538,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: id
-          in: query
-          description: ID of award to return
-          required: false
-          type: string
-          enum:
-          - pending
-          - active
-          - cancelled
-          - terminated
+        - $ref: '#/parameters/status'
       responses:
         '200':
           description: OK
@@ -597,8 +568,7 @@ paths:
           in: path
           description: ID of a tender to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -621,8 +591,7 @@ paths:
           in: path
           description: ID of tender to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -642,8 +611,7 @@ paths:
           in: path
           description: ID of tender to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: OK
@@ -653,8 +621,7 @@ paths:
               type: object
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
         '400':
@@ -674,8 +641,7 @@ paths:
           in: path
           description: ID of tender to return
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: successful operation
@@ -694,8 +660,7 @@ definitions:
         type: integer
         format: int64
       id:
-        type: integer
-        format: int64
+        type: string
       datetime:
         $ref: '#/definitions/DateTime'
       tag:
@@ -757,16 +722,14 @@ definitions:
       - title
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       title:
         type: string
       award:
         type: object
         properties:
           id:
-            type: integer
-            format: int64
+            type: string
           uri:
             type: string
       description:
@@ -798,8 +761,7 @@ definitions:
       - title
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       datetime:
         $ref: '#/definitions/DateTime'
       rationale:
@@ -824,8 +786,7 @@ definitions:
       - id
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       documenttype:
         type: string
       title:
@@ -850,8 +811,7 @@ definitions:
       - id
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       description:
         type: string
       classification:
@@ -860,8 +820,7 @@ definitions:
           scheme:
             type: string
           id:
-            type: integer
-            format: int64
+            type: string
           description:
             type: string
           uri:
@@ -877,8 +836,7 @@ definitions:
       - id
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       name:
         type: string
       identifier:
@@ -957,8 +915,7 @@ definitions:
       - id
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       title:
         type: string
       description:
@@ -988,7 +945,7 @@ definitions:
             - id
           properties:
             id:
-              type: integer
+              type: string
             title:
               type: string
       amendments:
@@ -999,7 +956,7 @@ definitions:
             - id
           properties:
             id:
-              type: integer
+              type: string
             rationale:
               type: string
             datetime:
@@ -1010,8 +967,7 @@ definitions:
       - id
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       title:
         type: string
       description:
@@ -1021,8 +977,7 @@ definitions:
       procuringEntity:
         properties:
           id:
-            type: integer
-            format: int64
+            type: string
           legalname:
             type: string
           uri:
@@ -1035,8 +990,7 @@ definitions:
             - id
           properties:
             id:
-              type: integer
-              format: int64
+              type: string
             description:
               type: string
       value:
@@ -1102,8 +1056,7 @@ definitions:
       - id
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
       title:
         type: string
       type:
