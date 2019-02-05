@@ -20,6 +20,30 @@ tags:
 schemes:
   - https
   - http
+parameters:
+  before:  
+    in: query
+    name: before
+    required: false
+    type: string
+    description: ISO 8601
+  status:  
+    in: query
+    name: status
+    required: false
+    type: string
+    description: contracting status
+    enum:
+      - pending
+      - active
+      - cancelled
+      - terminated
+  after:
+    in: query
+    name: after
+    required: false
+    type: string
+    description: ISO 8601
 paths:
   /release:
     get:
@@ -27,8 +51,8 @@ paths:
         - contracting-process
       summary: Gets a list of contracting processes.
       parameters:
-        - $ref: '#/components/parameters/before'
-        - $ref: '#/components/parameters/after'
+        - $ref: '#/parameters/before'
+        - $ref: '#/parameters/after'
       responses:
         '200':
           description: OK
@@ -45,7 +69,7 @@ paths:
                   format: int64
                 date:
                   $ref: '#/definitions/DateTime'
-  /release/{id}:
+  '/release/{id}':
     get:
       tags:
         - contracting-process
@@ -70,7 +94,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Contracting process not found
-  /release/{id}/award:  
+  '/release/{id}/award':
     get:
       tags:
         - contracting-process
@@ -85,14 +109,14 @@ paths:
           required: true
           type: integer
           format: int64
-        - $ref: '#/components/parameters/before'
-        - $ref: '#/components/parameters/after'
+        - $ref: '#/parameters/before'
+        - $ref: '#/parameters/after'
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/Award'
-  /release/{id}/contract:  
+  '/release/{id}/contract':
     get:
       tags:
         - contracting-process
@@ -107,8 +131,8 @@ paths:
           required: true
           type: integer
           format: int64
-        - $ref: '#/components/parameters/before'
-        - $ref: '#/components/parameters/after'
+        - $ref: '#/parameters/before'
+        - $ref: '#/parameters/after'
       responses:
         '200':
           description: successful operation
@@ -120,13 +144,13 @@ paths:
         - contract
       summary: Gets a list of contracts.
       parameters:
-        - $ref: '#/components/parameters/status'
-        - $ref: '#/components/parameters/before'
-        - $ref: '#/components/parameters/after'
+        - $ref: '#/parameters/status'
+        - $ref: '#/parameters/before'
+        - $ref: '#/parameters/after'
       responses:
         '200':
           description: OK
-  /contract/{id}:
+  '/contract/{id}':
     get:
       tags:
         - contract
@@ -151,7 +175,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Contract not found
-  /contract/{id}/amendment:  
+  '/contract/{id}/amendment':
     get:
       tags:
         - contract
@@ -166,14 +190,14 @@ paths:
           required: true
           type: integer
           format: int64
-        - $ref: '#/components/parameters/before'
-        - $ref: '#/components/parameters/after'
+        - $ref: '#/parameters/before'
+        - $ref: '#/parameters/after'
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/Amendment'
-  /contract/{id}/document:  
+  '/contract/{id}/document':
     get:
       tags:
         - contract
@@ -193,7 +217,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Document'
-  /contract/{id}/item:  
+  '/contract/{id}/item':
     get:
       tags:
         - contract
@@ -233,7 +257,7 @@ paths:
                   type: string
                 uri:
                   type: string
-  /organisation/{id}:
+  '/organisation/{id}':
     get:
       tags:
         - organisation
@@ -258,7 +282,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  /organisation/{id}/release:
+  '/organisation/{id}/release':
     get:
       tags:
         - organisation
@@ -291,7 +315,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  /organisation/{id}/award:
+  '/organisation/{id}/award':
     get:
       tags:
         - organisation
@@ -346,7 +370,7 @@ paths:
                   type: string
                 date:
                   $ref: '#/definitions/DateTime'
-  /award/{id}:
+  '/award/{id}':
     get:
       tags:
         - award
@@ -371,7 +395,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  /award/{id}/amendment:
+  '/award/{id}/amendment':
     get:
       tags:
         - award
@@ -395,7 +419,7 @@ paths:
             items:
               type: object
               required:
-              - id
+                - id
               properties:
                 id:
                   type: integer
@@ -408,7 +432,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  /award/{id}/item:
+  '/award/{id}/item':
     get:
       tags:
         - award
@@ -432,7 +456,7 @@ paths:
             items:
               type: object
               required:
-              - id
+                - id
               properties:
                 id:
                   type: integer
@@ -443,7 +467,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Award not found
-  /award/{id}/supplier:
+  '/award/{id}/supplier':
     get:
       tags:
         - award
@@ -467,7 +491,7 @@ paths:
             items:
               type: object
               required:
-              - id
+                - id
               properties:
                 id:
                   type: integer
@@ -480,7 +504,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Award not found
-  /award/{id}/document:
+  '/award/{id}/document':
     get:
       tags:
         - award
@@ -504,7 +528,7 @@ paths:
             items:
               type: object
               required:
-              - id
+                - id
               properties:
                 id:
                   type: integer
@@ -537,7 +561,7 @@ paths:
                   type: string
                 description:
                   type: string
-  /tender/{id}:
+  '/tender/{id}':
     get:
       tags:
         - tender
@@ -562,7 +586,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Tender not found
-  /tender/{id}/item:  
+  '/tender/{id}/item':
     get:
       tags:
         - tender
@@ -582,7 +606,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Item'
-  /tender/{id}/release:
+  '/tender/{id}/release':
     get:
       tags:
         - tender
@@ -615,7 +639,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  /tender/{id}/document:  
+  '/tender/{id}/document':
     get:
       tags:
         - tender
@@ -635,29 +659,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Document'
-components:
-  parameters:
-    status:
-      in: query
-      name: status
-      required: false
-      schema:
-        $ref: '#/definitions/Status'
-      description: The status of contracts.
-    before:
-      in: query
-      name: before
-      required: false
-      schema:
-        type: string
-      description: ISO 8601
-    after:
-      in: query
-      name: after
-      required: false
-      schema:
-        type: string
-      description: ISO 8601
 definitions:
   ContractingProcess:
     type: object
@@ -674,23 +675,23 @@ definitions:
         type: integer
         format: int64
       date:
-        $ref: '#/definitions/DateTime'    
+        $ref: '#/definitions/DateTime'
       tag:
         type: array
         items:
-          type: object 
+          type: object
           properties:
             releasetag:
-              type: string    
+              type: string
       initiationtype:
         type: string
       parties:
         type: array
         items:
-          type: object 
+          type: object
           properties:
             id:
-              type: integer   
+              type: integer
             legalname:
               type: string
       buyer:
@@ -702,19 +703,19 @@ definitions:
       awards:
         type: array
         items:
-          type: object 
+          type: object
           properties:
             id:
-              type: integer   
+              type: integer
             title:
               type: string
       contracts:
         type: array
         items:
-          type: object 
+          type: object
           properties:
             id:
-              type: integer   
+              type: integer
             title:
               type: string
       language:
@@ -722,10 +723,10 @@ definitions:
       relatedprocesses:
         type: array
         items:
-          type: object 
+          type: object
           properties:
             id:
-              type: integer   
+              type: integer
             title:
               type: string
   Contract:
@@ -770,70 +771,70 @@ definitions:
     xml:
       name: Contract
   Amendment:
-    type: object 
-    required: 
+    type: object
+    required:
       - title
     properties:
       id:
         type: integer
-        format: int64   
+        format: int64
       date:
         $ref: '#/definitions/DateTime'
       rationale:
-        type: string 
+        type: string
       description:
-        type: string    
+        type: string
       amendsReleaseID:
-        type: string 
+        type: string
       releaseID:
-        type: string 
+        type: string
       changes:
-        type: array 
+        type: array
         items:
-          type: object 
+          type: object
           properties:
             name:
-              type: string 
+              type: string
   Document:
-    type: object 
-    required: 
+    type: object
+    required:
       - title
       - id
     properties:
       id:
         type: integer
-        format: int64 
+        format: int64
       documenttype:
-        type: string 
+        type: string
       title:
-        type: string 
+        type: string
       description:
-        type: string 
+        type: string
       url:
-        type: string 
+        type: string
         format: uri
       datepublished:
         $ref: '#/definitions/DateTime'
       datemodified:
         $ref: '#/definitions/DateTime'
       format:
-        type: string    
+        type: string
       language:
-        type: string  
+        type: string
   Item:
-    type: object 
-    required: 
+    type: object
+    required:
       - description
       - id
     properties:
       id:
         type: integer
-        format: int64 
+        format: int64
       description:
-        type: string 
+        type: string
       classification:
-        type: object 
-        properties: 
+        type: object
+        properties:
           scheme:
             type: string
           id:
@@ -844,12 +845,12 @@ definitions:
           uri:
             type: string
       quantity:
-        type: number 
+        type: number
       unit:
         type: string
   Organisation:
-    type: object 
-    required: 
+    type: object
+    required:
       - name
       - id
     properties:
@@ -899,9 +900,9 @@ definitions:
           region:
             type: string
           postalcode:
-            type: string     
+            type: string
           countryname:
-            type: string      
+            type: string
       contactpoint:
         type: object
         required:
@@ -914,22 +915,22 @@ definitions:
           telephone:
             type: string
           faxnumber:
-            type: string     
+            type: string
           url:
-            type: string 
+            type: string
             format: uri
       roles:
-        type: array 
+        type: array
         items:
-          type: object 
+          type: object
           properties:
             partyroles:
-              type: string 
+              type: string
       details:
         type: object
   Award:
     type: object
-    required: 
+    required:
       - title
       - id
     properties:
@@ -947,12 +948,12 @@ definitions:
       value:
         $ref: '#/definitions/Value'
       suppliers:
-        type: array 
+        type: array
         items:
-          type: object 
+          type: object
           properties:
             suppliers:
-              type: string 
+              type: string
       items:
         $ref: '#/definitions/Item'
       contractperiod:
@@ -960,9 +961,9 @@ definitions:
       documents:
         type: array
         items:
-          type: object 
+          type: object
           required:
-          - id
+            - id
           properties:
             id:
               type: integer
@@ -971,19 +972,19 @@ definitions:
       amendments:
         type: array
         items:
-          type: object 
+          type: object
           required:
-          - id
+            - id
           properties:
             id:
               type: integer
             rationale:
-              type: string  
+              type: string
             date:
-              $ref: '#/definitions/DateTime'    
+              $ref: '#/definitions/DateTime'
   Tender:
     type: object
-    required: 
+    required:
       - id
     properties:
       id:
@@ -992,42 +993,42 @@ definitions:
       title:
         type: string
       description:
-        type: string      
+        type: string
       status:
-        $ref: '#/definitions/Status' 
+        $ref: '#/definitions/Status'
       procuringEntity:
         properties:
           id:
             type: integer
             format: int64
           legalname:
-            type: string        
+            type: string
           uri:
-            type: string        
+            type: string
       items:
         type: array
         items:
           type: object
           required:
-          - id
+            - id
           properties:
             id:
               type: integer
-              format: int64            
+              format: int64
             description:
               type: string
       value:
-        $ref: '#/definitions/Value'      
+        $ref: '#/definitions/Value'
       minValue:
-        $ref: '#/definitions/Value' 
+        $ref: '#/definitions/Value'
       procurementMethod:
-        $ref: '#/definitions/Method'   
+        $ref: '#/definitions/Method'
       procurementMethodDetails:
         type: string
       procurementMethodRationale:
         type: string
       mainProcurementCategory:
-        type: string      
+        type: string
       additionalProcurementCategories:
         type: array
         items:
@@ -1039,46 +1040,46 @@ definitions:
       submissionMethod:
         type: array
         items:
-          $ref: '#/definitions/SubmissionMethod'  
+          $ref: '#/definitions/SubmissionMethod'
       submissionMethodDetails:
         type: string
       tenderPeriod:
-          $ref: '#/definitions/Period'   
+        $ref: '#/definitions/Period'
       enquiryPeriod:
-          $ref: '#/definitions/Period'
+        $ref: '#/definitions/Period'
       hasEnquiries:
         type: boolean
       eligibilityCriteria:
         type: string
       awardPeriod:
-          $ref: '#/definitions/Period'       
+        $ref: '#/definitions/Period'
       contractPeriod:
-          $ref: '#/definitions/Period'     
+        $ref: '#/definitions/Period'
       numberOfTenderers:
         type: integer
         format: int64
       tenderers:
         type: array
         items:
-          $ref: '#/definitions/Organisation'    
+          $ref: '#/definitions/Organisation'
       documents:
         type: array
         items:
-          $ref: '#/definitions/Document'  
+          $ref: '#/definitions/Document'
       milestones:
         type: array
         items:
-          $ref: '#/definitions/Milestone' 
+          $ref: '#/definitions/Milestone'
       amendments:
         type: array
         items:
           $ref: '#/definitions/Amendment'
   Milestone:
     type: object
-    required: 
+    required:
       - id
     properties:
-      id: 
+      id:
         type: integer
         format: int64
       title:
@@ -1096,11 +1097,11 @@ definitions:
       dateModified:
         $ref: '#/definitions/DateTime'
       status:
-        $ref: '#/definitions/Status'  
+        $ref: '#/definitions/Status'
       documents:
         type: array
         items:
-          $ref: '#/definitions/Document' 
+          $ref: '#/definitions/Document'
   Period:
     type: object
     properties:
@@ -1139,18 +1140,18 @@ definitions:
       - priceOnly
       - costOnly
       - qualityOnly
-      - ratedCriteria   
+      - ratedCriteria
       - lowestCost
       - bestProposal
       - bestValueToGovernment
-      - singleBidOnly 
+      - singleBidOnly
   ExtendedProcurementCategory:
     type: string
     enum:
       - goods
       - works
       - services
-      - consultingServices    
+      - consultingServices
   Value:
     type: object
     properties:
