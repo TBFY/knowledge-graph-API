@@ -69,9 +69,7 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 **Release by Id**
 
-->  
-	https://<knowledge-graph-api>/release/10 
-<-
+->  https://<knowledge-graph-api>/release/10 <-
 
 {
 
@@ -161,9 +159,7 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 **All contracts from organization 1001**
 
-->
-	https://<knowledge-graph-api>/organisation/1001/release
-<-
+-> https://<knowledge-graph-api>/organisation/1001/release <-
 
 [
 
@@ -209,9 +205,7 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 **Awards in a period (start=XXXX and end=YYYY)**
 
-->
-	https://<knowledge-graph-api>/award?12120202
-<-
+-> https://<knowledge-graph-api>/award?12120202 <-
 
 [
 
@@ -257,9 +251,7 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 **Tenders by status (status = cancelled)**
 
-->
-	https://<knowledge-graph-api>/tender?status=cancelled
-<-
+-> https://<knowledge-graph-api>/tender?status=cancelled <-
 
 [
 
