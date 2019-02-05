@@ -65,13 +65,11 @@ GET /tender/{id}/document - Documents of a tender to return
 
 The API returns JSON a JSON file. Here you are some examples of how the API works:
 
-#EXAMPLE 1:
+# EXAMPLE 1:
 
 **Release by Id**
 ->  
-
 	https://<knowledge-graph-api>/release/10 
-
 <-
 
 {
@@ -158,14 +156,12 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 }
 
-#EXAMPLE 2:
+# EXAMPLE 2:
 
 **All contracts from organization 1001**
 
 ->
-
 	https://<knowledge-graph-api>/organisation/1001/release
-
 <-
 
 [
@@ -208,14 +204,12 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 ]
 
-#EXAMPLE 3:
+# EXAMPLE 3:
 
 **Awards in a period (start=XXXX and end=YYYY)**
 
 ->
-
 	https://<knowledge-graph-api>/award?12120202
-
 <-
 
 [
@@ -258,14 +252,12 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 
 ]
 
-#EXAMPLE 4:
+# EXAMPLE 4:
 
 **Tenders by status (status = cancelled)**
 
 ->
-
 	https://<knowledge-graph-api>/tender?status=cancelled
-
 <-
 
 [
