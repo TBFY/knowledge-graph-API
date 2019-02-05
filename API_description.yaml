@@ -49,7 +49,7 @@ paths:
     get:
       tags:
         - contracting-process
-      summary: Gets a list of contracting processes.
+      summary: Gets a list of contracting processes
       parameters:
         - $ref: '#/parameters/before'
         - $ref: '#/parameters/after'
@@ -67,7 +67,7 @@ paths:
                 id:
                   type: integer
                   format: int64
-                date:
+                datetime:
                   $ref: '#/definitions/DateTime'
   '/release/{id}':
     get:
@@ -142,7 +142,7 @@ paths:
     get:
       tags:
         - contract
-      summary: Gets a list of contracts.
+      summary: Gets a list of contracts
       parameters:
         - $ref: '#/parameters/status'
         - $ref: '#/parameters/before'
@@ -309,7 +309,11 @@ paths:
                 id:
                   type: integer
                   format: int64
-                date:
+                title:
+                  type: string
+                description:
+                  type: string
+                datetime:
                   $ref: '#/definitions/DateTime'
         '400':
           description: Invalid ID supplied
@@ -342,7 +346,7 @@ paths:
                 id:
                   type: integer
                   format: int64
-                date:
+                datetime:
                   $ref: '#/definitions/DateTime'
         '400':
           description: Invalid ID supplied
@@ -353,6 +357,9 @@ paths:
       tags:
         - award
       summary: Gets a list of awards
+      parameters:
+        - $ref: '#/parameters/before'
+        - $ref: '#/parameters/after'
       responses:
         '200':
           description: OK
@@ -368,7 +375,7 @@ paths:
                   type: string
                 description:
                   type: string
-                date:
+                datetime:
                   $ref: '#/definitions/DateTime'
   '/award/{id}':
     get:
@@ -426,7 +433,7 @@ paths:
                   format: int64
                 rationale:
                   type: string
-                date:
+                datetime:
                   $ref: '#/definitions/DateTime'
         '400':
           description: Invalid ID supplied
@@ -546,6 +553,21 @@ paths:
       tags:
         - tender
       summary: Gets a list of tenders
+      description: Returns a list of tenders by status
+      operationId: getTendersByStatus
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: query
+          description: ID of award to return
+          required: false
+          type: string
+          enum:
+          - pending
+          - active
+          - cancelled
+          - terminated
       responses:
         '200':
           description: OK
@@ -633,7 +655,7 @@ paths:
                 id:
                   type: integer
                   format: int64
-                date:
+                datetime:
                   $ref: '#/definitions/DateTime'
         '400':
           description: Invalid ID supplied
@@ -674,7 +696,7 @@ definitions:
       id:
         type: integer
         format: int64
-      date:
+      datetime:
         $ref: '#/definitions/DateTime'
       tag:
         type: array
@@ -778,7 +800,7 @@ definitions:
       id:
         type: integer
         format: int64
-      date:
+      datetime:
         $ref: '#/definitions/DateTime'
       rationale:
         type: string
@@ -943,7 +965,7 @@ definitions:
         type: string
       status:
         $ref: '#/definitions/Status'
-      date:
+      datetime:
         $ref: '#/definitions/DateTime'
       value:
         $ref: '#/definitions/Value'
@@ -980,7 +1002,7 @@ definitions:
               type: integer
             rationale:
               type: string
-            date:
+            datetime:
               $ref: '#/definitions/DateTime'
   Tender:
     type: object
