@@ -68,6 +68,7 @@ The API returns JSON a JSON file. Here you are some examples of how the API work
 # EXAMPLE 1:
 
 **Release by Id**
+
 ->  
 	https://<knowledge-graph-api>/release/10 
 <-
