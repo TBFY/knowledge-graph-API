@@ -21,13 +21,13 @@ schemes:
   - https
   - http
 parameters:
-  before:  
+  before:
     in: query
     name: before
     required: false
     type: string
     description: ISO 8601
-  status:  
+  status:
     in: query
     name: status
     required: false
@@ -62,11 +62,11 @@ paths:
               type: object
               properties:
                 ocid:
-                  type: integer
-                  format: int64
+                  type: string
                 id:
-                  type: integer
-                  format: int64
+                  type: string
+                name:
+                  type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
   '/release/{id}':
@@ -113,7 +113,18 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/Award'
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
+                datetime:
+                  $ref: '#/definitions/DateTime'
   '/release/{id}/contract':
     get:
       tags:
@@ -134,7 +145,16 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/Contract'
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
   /contract:
     get:
       tags:
@@ -147,6 +167,17 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
   '/contract/{id}':
     get:
       tags:
@@ -244,8 +275,7 @@ paths:
               type: object
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 legalname:
                   type: string
                 uri:
@@ -297,12 +327,11 @@ paths:
             items:
               type: object
               properties:
-                id:
-                  type: integer
-                  format: int64
-                title:
+                ocid:
                   type: string
-                description:
+                id:
+                  type: string
+                name:
                   type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
@@ -334,6 +363,11 @@ paths:
               type: object
               properties:
                 id:
+                  type: integer
+                  format: int64
+                title:
+                  type: string
+                description:
                   type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
@@ -358,8 +392,7 @@ paths:
               type: object
               properties:
                 id:
-                  type: integer
-                  format: int64
+                  type: string
                 title:
                   type: string
                 description:
@@ -409,18 +442,7 @@ paths:
         '200':
           description: OK
           schema:
-            type: array
-            items:
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  type: string
-                rationale:
-                  type: string
-                datetime:
-                  $ref: '#/definitions/DateTime'
+            $ref: '#/definitions/Amendment'
         '400':
           description: Invalid ID supplied
         '404':
@@ -444,16 +466,7 @@ paths:
         '200':
           description: OK
           schema:
-            type: array
-            items:
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  type: string
-                description:
-                  type: string
+            $ref: '#/definitions/Item'
         '400':
           description: Invalid ID supplied
         '404':
@@ -512,18 +525,7 @@ paths:
         '200':
           description: OK
           schema:
-            type: array
-            items:
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  type: string
-                description:
-                  type: string
-                uri:
-                  type: string
+            $ref: '#/definitions/Document'
         '400':
           description: Invalid ID supplied
         '404':
@@ -620,7 +622,11 @@ paths:
             items:
               type: object
               properties:
+                ocid:
+                  type: string
                 id:
+                  type: string
+                name:
                   type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
@@ -682,11 +688,11 @@ definitions:
             legalname:
               type: string
       buyer:
-        type: object
+        $ref: '#/definitions/Organisation'
       planning:
-        type: object
+        $ref: '#/definitions/Planning'
       tender:
-        type: object
+        $ref: '#/definitions/Tender'
       awards:
         type: array
         items:
@@ -743,16 +749,52 @@ definitions:
             $ref: '#/definitions/DateTime'
           end:
             $ref: '#/definitions/DateTime'
-      dateSigned:
-        $ref: '#/definitions/DateTime'
       value:
         type: object
         properties:
           amount:
-            type: integer
+            type: string
           currency:
             description: ISO-4217
             type: string
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            description:
+              type: string
+      dateSigned:
+        $ref: '#/definitions/DateTime'
+      documents:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string 
+      milestones:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string  
+      amendments:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            description:
+              type: string 
     xml:
       name: Contract
   Amendment:
@@ -1088,6 +1130,32 @@ definitions:
         $ref: '#/definitions/DateTime'
       duarationInDays:
         type: integer
+  Planning:
+    type: object
+    properties:
+      rationale:
+        type: string
+      budget:
+        $ref: '#/definitions/Budget'
+      documents:
+        $ref: '#/definitions/Document'
+      milestones:
+        $ref: '#/definitions/Milestone'
+  Budget:
+    type: object
+    properties:
+      id:
+        type: string
+      description:
+        type: string    
+      amount:
+        $ref: '#/definitions/Value'
+      project:
+        type: string  
+      projectID:
+        type: string 
+      uri:
+        type: string 
   Status:
     type: string
     enum:
