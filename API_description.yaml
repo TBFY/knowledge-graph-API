@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: API documentation.
   version: 1.0.0
-  title: Swagger TBFY API
+  title: TBFY - Knowledge-Graph API
   termsOfService: 'http://swagger.io/terms/'
   contact:
     email: fyedro@fi.upm.es
@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 host: contract.swagger.io
-basePath: /v2
+basePath: /kg-api
 tags:
   - name: contract
     description: Public procurement contracts
