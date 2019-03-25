@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: API documentation.
   version: 1.0.0
-  title: TBFY - Knowledge-Graph API
+  title: Swagger TBFY API
   termsOfService: 'http://swagger.io/terms/'
   contact:
     email: fyedro@fi.upm.es
@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 host: contract.swagger.io
-basePath: /kg-api
+basePath: /v2
 tags:
   - name: contract
     description: Public procurement contracts
@@ -45,7 +45,7 @@ parameters:
     type: string
     description: ISO 8601
 paths:
-  /release:
+  /contracting-process:
     get:
       tags:
         - contracting-process
@@ -69,7 +69,7 @@ paths:
                   type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
-  '/release/{id}':
+  '/contracting-process/{id}':
     get:
       tags:
         - contracting-process
@@ -93,7 +93,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Contracting process not found
-  '/release/{id}/award':
+  '/contracting-process/{id}/award':
     get:
       tags:
         - contracting-process
@@ -125,7 +125,7 @@ paths:
                   type: string
                 datetime:
                   $ref: '#/definitions/DateTime'
-  '/release/{id}/contract':
+  '/contracting-process/{id}/contract':
     get:
       tags:
         - contracting-process
@@ -304,7 +304,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Organisation not found
-  '/organisation/{id}/release':
+  '/organisation/{id}/contracting-process':
     get:
       tags:
         - organisation
@@ -599,7 +599,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Item'
-  '/tender/{id}/release':
+  '/tender/{id}/contracting-process':
     get:
       tags:
         - tender
@@ -776,7 +776,7 @@ definitions:
             id:
               type: string
             title:
-              type: string 
+              type: string
       milestones:
         type: array
         items:
@@ -785,7 +785,7 @@ definitions:
             id:
               type: string
             title:
-              type: string  
+              type: string
       amendments:
         type: array
         items:
@@ -794,7 +794,7 @@ definitions:
             id:
               type: string
             description:
-              type: string 
+              type: string
     xml:
       name: Contract
   Amendment:
@@ -1147,15 +1147,15 @@ definitions:
       id:
         type: string
       description:
-        type: string    
+        type: string
       amount:
         $ref: '#/definitions/Value'
       project:
-        type: string  
+        type: string
       projectID:
-        type: string 
+        type: string
       uri:
-        type: string 
+        type: string
   Status:
     type: string
     enum:
