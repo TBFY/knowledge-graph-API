@@ -9,8 +9,8 @@ info:
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-host: contract.swagger.io
-basePath: /v2
+host: tbfy.librairy.linkeddata.es
+basePath: /kg-api
 tags:
   - name: contract
     description: Public procurement contracts
@@ -18,7 +18,6 @@ tags:
       description: Find out more
       url: 'http://swagger.io'
 schemes:
-  - https
   - http
 parameters:
   before:
