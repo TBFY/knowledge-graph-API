@@ -1,0 +1,8 @@
+if [ -z "$1" ]
+  then
+    echo -e "\nVERSION required!\n"
+    echo -e "\nPlease call '$0 <version>' to run this command\n"
+    exit 1
+fi
+docker build -t tbfy/kg-api:$1 .
+docker push tbfy/kg-api:$1
