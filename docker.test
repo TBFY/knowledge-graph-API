@@ -7,6 +7,6 @@ fi
 docker pull cbadenes/r4r:latest
 docker run -it --rm  \
     -p 8080:7777  \
-    -e "SPARQL_ENDPOINT=http://52.19.213.234:7200/repositories/TBFY" \
-    -e "RESOURCE_NAMESPACE=https://theybuyforyou.eu/ontology/ocds/" \
+    -e "SPARQL_ENDPOINT=http://data.businessgraph.io/repositories/tbfy" \
+    -e "RESOURCE_NAMESPACE=http://www.sintef.no/ontology/ocds/" \
     tbfy/kg-api:$1
