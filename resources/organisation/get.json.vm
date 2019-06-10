@@ -1,17 +1,11 @@
 [
-  {
-    "id": "17087984",
-    "legalname": "Vermogensconsultancy Borst B.V.",
-    "uri": "https://www.kvk.nl/zoeken/handelsregister/#!uitgebreid-zoeken&handelsnaam=&kvknummer=17087984&straat=&postcode=&huisnummer=&plaats=&hoofdvestiging=true&rechtspersoon=true&nevenvestiging=false&zoekvervallen=1&zoekuitgeschreven=1&start=0&initial=0&searchfield=uitgebreidzoeken"
-  },
-  {
-    "id": "17087985",
-    "legalname": "Bover B.V.",
-    "uri": "https://www.kvk.nl/zoeken/handelsregister/#!uitgebreid-zoeken&handelsnaam=&kvknummer=17087985&straat=&postcode=&huisnummer=&plaats=&hoofdvestiging=true&rechtspersoon=true&nevenvestiging=false&zoekvervallen=1&zoekuitgeschreven=1&start=0&initial=0&searchfield=uitgebreidzoeken"
-  },
-  {
-    "id": "17087986",
-    "legalname": "Smolders Holding B.V.",
-    "uri": "https://server.db.kvk.nl/TST-BIN/FU/TSWS001@?BUTT=17087986"
-  }
+  #foreach( $org in $results )
+      {
+          "uri" : "$org.s"
+       }
+       #if ( $velocityCount < ${results.size()} )
+          ,
+       #end
+  #end
+
 ]

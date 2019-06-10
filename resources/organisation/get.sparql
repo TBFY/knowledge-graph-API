@@ -6,7 +6,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX ocds: <http://www.sintef.no/ontology/ocds/>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
-SELECT distinct ?p WHERE {
+SELECT distinct ?s WHERE {
     ?s a tbfy:Organisation .
-    ?s ?p ?o
-}
+} 
