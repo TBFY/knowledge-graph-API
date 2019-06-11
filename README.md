@@ -19,17 +19,17 @@ GET /contract/{id}/item - Items of a contract to return
 
 **contracting-process**
 
-GET /release - Gets a list of contracting processes
+GET /contacting-process - Gets a list of contracting processes
 
-GET /release/{id} - Find contracting process by ID
+GET /contacting-process/{id} - Find contracting process by ID
 
-GET /release/{id}/award - Awards of a contracting process to return
+GET /contacting-process/{id}/award - Awards of a contracting process to return
 
-GET /release/{id}/contract - Contracts of a contracting process to return
+GET /contacting-process/{id}/contract - Contracts of a contracting process to return
 
 **organisation**
 
-GET /organisation
+GET /organisation - Gets a list of organisations - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/queries/organisation/get.sparql)
 
 GET /organisation/{id} - Find an organisation by ID
 
@@ -39,7 +39,7 @@ GET /organisation/{id}/award - Awards of an organisation to return
 
 **award**
 
-GET /award - Gets a list of awards
+GET /award - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/queries/award/get.sparql)
 
 GET /award/{id} - Find an award by ID
 
