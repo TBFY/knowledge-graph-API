@@ -1,11 +1,11 @@
 [
-  #foreach( $org in $results )
-      {
-          "uri" : "$org.s"
-       }
-       #if ( $velocityCount < ${results.size()} )
-          ,
-       #end
-  #end
-
+    #foreach( $organisation in $results )
+        {
+            "name" : "$organisation.n"
+            "uri" : "$organisation.s"
+         }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
 ]
