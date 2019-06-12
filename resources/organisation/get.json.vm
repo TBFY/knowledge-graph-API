@@ -1,8 +1,9 @@
 [
     #foreach( $organisation in $results )
         {
-            "name" : "$organisation.n"
-            "uri" : "$organisation.s"
+            "id" : "$organisation.id",
+            "name" : "$organisation.ln",
+            "uri" : "$organisation.uri"
          }
          #if ( $velocityCount < ${results.size()} )
             ,
