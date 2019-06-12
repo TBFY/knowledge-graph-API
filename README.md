@@ -29,7 +29,7 @@ GET /contacting-process/{id}/contract - Contracts of a contracting process to re
 
 **organisation**
 
-GET /organisation - Gets a list of organisations - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/queries/organisation/get.sparql)
+GET /organisation - Gets a list of organisations - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/get.sparql)
 
 GET /organisation/{id} - Find an organisation by ID
 
@@ -39,7 +39,7 @@ GET /organisation/{id}/award - Awards of an organisation to return
 
 **award**
 
-GET /award - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/queries/award/get.sparql)
+GET /award - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/award/get.sparql)
 
 GET /award/{id} - Find an award by ID
 
