@@ -1,4 +1,5 @@
 docker pull cbadenes/r4r:latest
+echo "R4FR docker updated"
 docker run -it --rm  \
     -p 8080:7777  \
     -v "$(pwd)/resources:/resources" \
