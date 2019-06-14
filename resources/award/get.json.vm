@@ -1,15 +1,27 @@
 [
     #foreach( $awards in $results )
-        #set( $control_coma = true )
         {
+            #set( $control_coma = false )
             #if ( $awards.id )
-                "id" : "$awards.id",
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$awards.id"
+              #set( $control_coma = true )
             #end
             #if ( $awards.tit )
-                "title" : "$awards.tit",
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$awards.tit"
+              #set( $control_coma = true )
             #end
             #if ( $awards.des )
-                "description" : "$awards.des"
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$awards.des"
+              #set( $control_coma = true )
             #end
         }
          #if ( $velocityCount < ${results.size()} )
