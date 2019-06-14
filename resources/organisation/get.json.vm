@@ -1,9 +1,12 @@
 [
     #foreach( $organisation in $results )
         {
-            "id" : "$organisation.id",
-            "name" : "$organisation.ln",
-            "uri" : "$organisation.uri"
+            #if ($organisation.id)
+             "id": "$organisation.id",
+            #if ($organisation.name)
+             "name": "$organisation.name",
+            #if ($organisation.uri)
+             "uri" : "$organisation.uri"
          }
          #if ( $velocityCount < ${results.size()} )
             ,

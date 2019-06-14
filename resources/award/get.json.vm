@@ -1,10 +1,20 @@
 [
     #foreach( $awards in $results )
+        #set( $control_coma = true )
         {
-            "id" : "$awards.id",
-            "title" : "$awards.tit",
-            "description" : "$awards.des"
-         }
+              "id" : "$awards.id",
+              "title" : "$awards.tit∫",
+              "description" : "$awards.des"
+            #if ( $awards.id )
+                "id" : "$awards.id",
+            #end
+            #if ( $awards.tit )
+                "title" : "$awards.tit",
+            #end
+            #if ( $awards.des )
+                "description" : "$awards.des"
+            #end
+        }
          #if ( $velocityCount < ${results.size()} )
             ,
          #end
