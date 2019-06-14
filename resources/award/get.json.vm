@@ -2,9 +2,6 @@
     #foreach( $awards in $results )
         #set( $control_coma = true )
         {
-              "id" : "$awards.id",
-              "title" : "$awards.tit∫",
-              "description" : "$awards.des"
             #if ( $awards.id )
                 "id" : "$awards.id",
             #end
