@@ -1,12 +1,31 @@
 [
-  {
-    "id": "ocds-213czf-000-00001-01-tender",
-    "title": "Planned cycle lane improvements",
-    "description": "Tenders solicited for work to build new cycle lanes in the center of town."
-  },
-  {
-    "id": "ocds-213czf-000-00001-02-tender",
-    "title": "New closing date",
-    "description": "The closing date for tender submissions has been extended to 2017-04-08"
-  }
+    #foreach( $tenders in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $tenders.id )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$tenders.id"
+              #set( $control_coma = true )
+            #end
+            #if ( $tenders.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$tenders.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $tenders.des )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$tenders.des"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
 ]
