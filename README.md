@@ -19,7 +19,7 @@ GET /contract/{id}/item - Items of a contract to return
 
 **contracting-process**
 
-GET /contacting-process - Gets a list of contracting processes
+[GET /contacting-process](http://tbfy.librairy.linkeddata.es/kg-api/contracting-process) - Gets a list of contracting processes - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contracting-process/get.sparql)
 
 GET /contacting-process/{id} - Find contracting process by ID
 
