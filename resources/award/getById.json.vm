@@ -1,17 +1,17 @@
 {
   #set( $control_coma = false )
-  #if ( $m_uri )
+  #if ( $id )
     #if ( $control_coma )
       ,
     #end
-    "id" : "$m_uri"
+    "id" : "$id"
     #set( $control_coma = true )
   #end
-  #if ( $astat )
+  #if ( $tit )
     #if ( $control_coma )
       ,
     #end
-    "status" : "$astat"
+    "status" : "$tit"
     #set( $control_coma = true )
   #end
 }
