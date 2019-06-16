@@ -4,7 +4,7 @@ This repository contains the API documentation of the TheyBuyForYou project. In 
 
 So far, 24 GET calls have been identified for the API:
 
-# **CALLS**
+# **SERVICES**
 **contract**
 
 GET /contract - Gets a list of contracts
