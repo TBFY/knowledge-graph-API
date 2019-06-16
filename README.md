@@ -7,7 +7,7 @@ So far, 24 GET calls have been identified for the API:
 # **SERVICES**
 **contract**
 
-GET /contract - Gets a list of contracts
+[GET /contract](http://tbfy.librairy.linkeddata.es/kg-api/contract) - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
 
 GET /contract/{id} - Find contract by ID.
 
