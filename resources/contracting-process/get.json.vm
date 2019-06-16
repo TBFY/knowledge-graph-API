@@ -1,0 +1,31 @@
+[
+    #foreach( $contractingp in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $contractingp.id )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$contractingp.id"
+              #set( $control_coma = true )
+            #end
+            #if ( $contractingp.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$contractingp.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $contractingp.des )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$contractingp.des"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
