@@ -6,6 +6,5 @@ PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 SELECT ( ?id AS ?m_uri ) ?tit
 WHERE {
-  	?s tbfy:awardId ?id .
-  	OPTIONAL { ?s dcterms:title ?tit } .
+  	OPTIONAL { ?id dcterms:title ?tit } .
 }
