@@ -1,10 +1,10 @@
 {
   #set( $control_coma = false )
-  #if ( $ident )
+  #if ( $m_uri )
     #if ( $control_coma )
       ,
     #end
-    "id" : "$ident"
+    "id" : "$m_uri"
     #set( $control_coma = true )
   #end
   #if ( $astat )
