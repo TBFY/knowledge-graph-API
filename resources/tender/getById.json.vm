@@ -1,0 +1,17 @@
+{
+  #set( $control_coma = false )
+  #if ( $ident )
+    #if ( $control_coma )
+      ,
+    #end
+    "id" : "$ident"
+    #set( $control_coma = true )
+  #end
+  #if ( $act )
+    #if ( $control_coma )
+      ,
+    #end
+    "status" : "$act"
+    #set( $control_coma = true )
+  #end
+}
