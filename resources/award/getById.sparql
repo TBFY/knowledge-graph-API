@@ -1,0 +1,12 @@
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+SELECT ( ?id AS ?m_uri ) ?tit
+WHERE {
+  ?s tbfy:awardId ?id
+	?id dbo:director ?d_uri .
+	?d_uri foaf:name ?d_name .
+  OPTIONAL { ?s dcterms:title ?tit } .
+}

@@ -1,0 +1,15 @@
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+SELECT ( ?id AS ?m_uri ) ?d_name ?m_country ?m_name ?m_abstract ?m_budget ?m_released
+WHERE {
+	?id dbo:director ?d_uri .
+	?d_uri foaf:name ?d_name .
+	OPTIONAL {?id dbp:country ?m_country} .
+	OPTIONAL {?id dbo:budget ?m_budget} .
+	OPTIONAL {?id foaf:name ?m_name} .
+	OPTIONAL {?id dbp:released ?m_released} .
+	OPTIONAL {?id dbo:abstract ?m_abstract . FILTER (lang(?m_abstract) = 'en')} .
+}
