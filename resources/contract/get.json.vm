@@ -1,7 +1,12 @@
 [
-  {
-    "id": "ocds-213czf-000-00001-contract-01",
-    "title": "Contract to build new cycle lanes in the center of town.",
-    "description": "A contract has been signed between the Council and AnyCorp Ltd for construction of new cycle lanes in the center of town."
-  }
+    #foreach( $contracts in $results )
+        {
+            "id" : "$contracts.id",
+            "title" : "$contracts.tit",
+            "description" : "$contracts.des"
+         }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
 ]

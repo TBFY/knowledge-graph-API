@@ -1,13 +1,29 @@
 [
-    #foreach( $organisation in $results )
+    #foreach( $organisations in $results )
         {
-            #if ($organisation.id)
-             "id": "$organisation.id",
-            #if ($organisation.name)
-             "name": "$organisation.name",
-            #if ($organisation.uri)
-             "uri" : "$organisation.uri"
-         }
+            #set( $control_coma = false )
+            #if ( $organisations.id )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$organisations.id"
+              #set( $control_coma = true )
+            #end
+            #if ( $organisations.ln )
+              #if ( $control_coma )
+                ,
+              #end
+              "legal Name" : "$organisations.ln"
+              #set( $control_coma = true )
+            #end
+            #if ( $organisations.uri )
+              #if ( $control_coma )
+                ,
+              #end
+              "URI" : "$organisations.uri"
+              #set( $control_coma = true )
+            #end
+        }
          #if ( $velocityCount < ${results.size()} )
             ,
          #end
