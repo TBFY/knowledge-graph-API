@@ -6,19 +6,12 @@
     #end
     "id" : "$ident"
     #set( $control_coma = true )
-    #if ( $adate )
-      #if ( $control_coma )
-        ,
-      #end
-      "date" : "$adate"
-      #set( $control_coma = true )
+  #end
+  #if ( $astat )
+    #if ( $control_coma )
+      ,
     #end
-    #if ( $astat )
-      #if ( $control_coma )
-        ,
-      #end
-      "status" : "$astat"
-      #set( $control_coma = true )
-    #end
+    "status" : "$astat"
+    #set( $control_coma = true )
   #end
 }
