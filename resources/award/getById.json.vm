@@ -13,5 +13,12 @@
       "date" : "$adate"
       #set( $control_coma = true )
     #end
+    #if ( $astat )
+      #if ( $control_coma )
+        ,
+      #end
+      "status" : "$astat"
+      #set( $control_coma = true )
+    #end
   #end
 }
