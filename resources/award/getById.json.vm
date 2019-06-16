@@ -1,0 +1,7 @@
+{
+    "id" : "$id",
+    "director" : "$d_name",
+    #if ($adate)
+      "date" : "$adate"
+    #end
+}
