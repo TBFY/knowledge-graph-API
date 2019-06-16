@@ -1,5 +1,5 @@
 {
-    "id" : "$id",
+    "id" : "$ident",
     "director" : "$d_name",
     #if ($adate)
       "date" : "$adate"
