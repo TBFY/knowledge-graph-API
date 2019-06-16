@@ -53,7 +53,7 @@ GET /award/{id}/document - Documents of an award to return
 
 **tender**
 
-GET /tender - Gets a list of tenders
+[GET /tender](http://tbfy.librairy.linkeddata.es/kg-api/tender/) - Gets a list of tenders - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/get.sparql)
 
 GET /tender/{id} - Find tender by ID
 
