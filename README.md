@@ -1,4 +1,4 @@
-# API documentation (Swagger)
+# API documentation
 
 This repository contains the API documentation of the TheyBuyForYou project. In order to see how the API will look like, you can go to https://editor.swagger.io/ and select File/Import from URL with the rawgit URL of the corresponding file (e.g., https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/API_description.yaml)
 
@@ -53,7 +53,7 @@ GET /award/{id}/document - Documents of an award to return
 
 **tender**
 
-GET /tender - Gets a list of tenders
+[GET /tender](http://tbfy.librairy.linkeddata.es/kg-api/tender/) - Gets a list of tenders - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/get.sparql)
 
 GET /tender/{id} - Find tender by ID
 
