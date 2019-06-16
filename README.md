@@ -4,7 +4,7 @@ This repository contains the API documentation of the TheyBuyForYou project. In 
 
 So far, 24 GET calls have been identified for the API:
 
-# **CALLS**
+# **SERVICES**
 **contract**
 
 GET /contract - Gets a list of contracts
@@ -29,7 +29,7 @@ GET /contacting-process/{id}/contract - Contracts of a contracting process to re
 
 **organisation**
 
-GET /organisation - Gets a list of organisations - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/get.sparql)
+[GET /organisation](http://tbfy.librairy.linkeddata.es/kg-api/organisation) - Gets a list of organisations - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/get.sparql)
 
 GET /organisation/{id} - Find an organisation by ID
 
@@ -39,7 +39,7 @@ GET /organisation/{id}/award - Awards of an organisation to return
 
 **award**
 
-GET /award - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/award/get.sparql)
+[GET /award](http://tbfy.librairy.linkeddata.es/kg-api/award) - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/award/get.sparql)
 
 GET /award/{id} - Find an award by ID
 
