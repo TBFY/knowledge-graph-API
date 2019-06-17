@@ -7,11 +7,11 @@
     "id" : "$m_uri"
     #set( $control_coma = true )
   #end
-  #if ( $tit )
+  #if ( $des )
     #if ( $control_coma )
       ,
     #end
-    "title" : "$tit"
+    "description" : "$des"
     #set( $control_coma = true )
   #end
 }
