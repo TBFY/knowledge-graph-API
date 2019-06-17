@@ -7,6 +7,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 SELECT DISTINCT ( ?id AS ?m_uri ) ?tit ?des
 WHERE {
     ?s a tbfy:Award .
+    ?s tbfy:awardId ?id .
   	OPTIONAL { ?s dcterms:title ?tit } .
   	OPTIONAL { ?s dcterms:description ?des } .
 }
