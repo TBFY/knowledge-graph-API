@@ -31,7 +31,7 @@ GET /contacting-process/{id}/contract - Contracts of a contracting process to re
 
 [GET /organisation](http://tbfy.librairy.linkeddata.es/kg-api/organisation) - Gets a list of organisations - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/get.sparql)
 
-[GET /organisation/{id}](ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Buyer) - Find an organisation by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/getById.sparql)
+[GET /organisation/{id}](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Buyer) - Find an organisation by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/getById.sparql)
 
 GET /organisation/{id}/release - Contracting-processes of an organisation to return
 
