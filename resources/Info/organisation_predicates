@@ -1,0 +1,9 @@
+1	http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+2	https://theybuyforyou.eu/ontology/ocds/hasContactPoint
+3	https://theybuyforyou.eu/ontology/ocds/isBuyerFor
+4	https://theybuyforyou.eu/ontology/ocds/hasAddress
+5	https://theybuyforyou.eu/ontology/ocds/playsRoleIn
+6	https://theybuyforyou.eu/ontology/ocds/hasName
+7	https://theybuyforyou.eu/ontology/ocds/isSupplierFor
+8	https://theybuyforyou.eu/ontology/ocds/legalName
+9	http://www.w3.org/2002/07/owl#sameAs

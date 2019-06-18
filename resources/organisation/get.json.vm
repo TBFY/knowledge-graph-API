@@ -2,11 +2,14 @@
     #foreach( $organisations in $results )
         {
             #set( $control_coma = false )
-            #if ( $organisations.id )
+            #if ( $organisations.s )
+              #set ( $index = $organisations.s.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $organisations.s.substring($index, $organisations.s.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$organisations.id"
+              "id" : "$id"
               #set( $control_coma = true )
             #end
             #if ( $organisations.ln )

@@ -2,25 +2,18 @@
     #foreach( $contracts in $results )
         {
             #set( $control_coma = false )
-            #if ( $contracts.id )
+            #if ( $contracts.s )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$contracts.id"
+              "id" : "$contracts.s"
               #set( $control_coma = true )
             #end
-            #if ( $contracts.tit )
+            #if ( $contracts.val )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$contracts.tit"
-              #set( $control_coma = true )
-            #end
-            #if ( $contracts.des )
-              #if ( $control_coma )
-                ,
-              #end
-              "description" : "$contracts.des"
+              "value" : "$contracts.val"
               #set( $control_coma = true )
             #end
         }

@@ -1,0 +1,17 @@
+{
+  #set( $control_coma = false )
+  #if ( $id )
+    #if ( $control_coma )
+      ,
+    #end
+    "id" : "$id"
+    #set( $control_coma = true )
+  #end
+  #if ( $val )
+    #if ( $control_coma )
+      ,
+    #end
+    "value" : "$val"
+    #set( $control_coma = true )
+  #end
+}

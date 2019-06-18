@@ -1,0 +1,16 @@
+1	http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+2	https://theybuyforyou.eu/ontology/ocds/hasMilestone
+3	https://theybuyforyou.eu/ontology/ocds/hasDocument
+4	https://theybuyforyou.eu/ontology/ocds/hasTenderPeriod
+5	https://theybuyforyou.eu/ontology/ocds/tenderId
+6	https://theybuyforyou.eu/ontology/ocds/hasReceivedBid
+7	https://theybuyforyou.eu/ontology/ocds/hasMaxEstimatedValue
+8	https://theybuyforyou.eu/ontology/ocds/hasEnquiry
+9	https://theybuyforyou.eu/ontology/ocds/tenderStatus
+10	https://theybuyforyou.eu/ontology/ocds/hasRequirement
+11	https://theybuyforyou.eu/ontology/ocds/hasMinEstimatedValue
+12	http://purl.org/dc/terms/description
+13	https://theybuyforyou.eu/ontology/ocds/hasEnquiryPeriod
+14	https://theybuyforyou.eu/ontology/ocds/hasItemToBeProcured
+15	https://theybuyforyou.eu/ontology/ocds/hasEstimatedContractPeriod
+16	https://theybuyforyou.eu/ontology/ocds/hasLot

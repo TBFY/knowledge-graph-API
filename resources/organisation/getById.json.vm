@@ -1,79 +1,83 @@
 {
+  #set ( $index = $oid.lastIndexOf("/") )
+  #set ( $index = $index + 1 )
+  #set ( $ident = $oid.substring($index, $oid.length()) )
   #set( $control_coma = false )
-  #if ( $suri )
+  #if ( $ident )
     #if ( $control_coma )
       ,
     #end
-    "id" : "$suri"
+    "id" : "$ident"
     #set( $control_coma = true )
   #end
-  #if ( $des )
+  #if ( $ln )
     #if ( $control_coma )
       ,
     #end
-    "description" : "$des"
+    "legal name" : "$ln"
     #set( $control_coma = true )
   #end
-  #if ( $s )
+  #if ( $sad )
     #if ( $control_coma )
       ,
     #end
-    "uri" : "$s"
+    "street address" : "$sad"
     #set( $control_coma = true )
   #end
-  #if ( $tit )
+  #if ( $loc )
     #if ( $control_coma )
       ,
     #end
-    "title" : "$tit"
+    "locality" : "$loc"
     #set( $control_coma = true )
   #end
-  #if ( $dat )
+  #if ( $cp )
     #if ( $control_coma )
       ,
     #end
-    "date" : "$dat"
+    "postal code" : "$cp"
     #set( $control_coma = true )
   #end
-  #if ( $stat )
+  #if ( $adc )
     #if ( $control_coma )
       ,
     #end
-    "status" : "$stat"
+    "county" : "$adc"
     #set( $control_coma = true )
   #end
-  #if ( $val )
+  #if ( $reg )
     #if ( $control_coma )
       ,
     #end
-    "value" : "$val"
+    "region" : "$reg"
     #set( $control_coma = true )
   #end
-  #if ( $cur )
+  #if ( $eml )
     #if ( $control_coma )
       ,
     #end
-    "currency" : "$cur"
+    "email" : "$eml"
     #set( $control_coma = true )
   #end
-  #if ( $valr )
+  #if ( $url )
     #if ( $control_coma )
       ,
     #end
-    "valueuri" : "$valr"
+    "URL" : "$url"
     #set( $control_coma = true )
   #end
-  #if ( $acp )
+  #if ( $tel )
     #if ( $control_coma )
       ,
     #end
-    "contract period" : "$acp"
+    "telephone" : "$tel"
     #set( $control_coma = true )
   #end
-  #if ( $acps )
+  #if ( $pco )
     #if ( $control_coma )
       ,
     #end
-    "start date" : "$acps"
+    "address locality" : "$adl"
     #set( $control_coma = true )
-  #end}
+  #end
+}

@@ -1,0 +1,6 @@
+prefix ocds:<http://www.sintef.no/ontology/ocds/>
+
+select distinct ?s ?n where {
+    ?s a ocds:Organisation .
+    ?s ocds:hasName ?n
+}

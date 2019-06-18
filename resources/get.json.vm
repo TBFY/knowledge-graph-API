@@ -1,0 +1,10 @@
+[
+    #foreach( $organisation in $results )
+        {
+            "name" : "$organisation.s"
+         }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
