@@ -12,18 +12,14 @@
               "id" : "$ident"
               #set( $control_coma = true )
             #end
-            #if ( $docs.tit )
+            #if ( $docs.s )
+            #set ( $index = $docs.s.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $org = $docs.s.substring($index, $docs.s.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$docs.tit"
-              #set( $control_coma = true )
-            #end
-            #if ( $docs.doc )
-              #if ( $control_coma )
-                ,
-              #end
-              "document" : "$docs.doc"
+              "organisation" : "$org"
               #set( $control_coma = true )
             #end
         }
