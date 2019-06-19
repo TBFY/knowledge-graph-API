@@ -7,7 +7,7 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 
 These five services will show all the information related to the contracts. All the examples have been generated with the contract id "ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
 
-[GET /contract]<a href="http://tbfy.librairy.linkeddata.es/kg-api/contract" target="_blank") - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
+[GET /contract]<a href="http://tbfy.librairy.linkeddata.es/kg-api/contract" target="_blank"> - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
 
 [GET /contract/{id}](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract){:target="_blank"} - Find contract by ID.
 
