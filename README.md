@@ -7,15 +7,15 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 
 These five services will show all the information related to the contracts. All the examples have been generated with the contract id "ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
 
-<a href="http://tbfy.librairy.linkeddata.es/kg-api/contract" target="_blank">GET /contract</a> - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
+[GET /contract](http://tbfy.librairy.linkeddata.es/kg-api/contract) - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
 
-[GET /contract/{id}](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract){:target="_blank"} - Find contract by ID.
+[GET /contract/{id}](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract) - Find contract by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/getById.sparql)
 
-[GET /contract/{id}/amendment](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/amendment){:target="_blank"} - Amendments of a contract to return
+[GET /contract/{id}/amendment](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/amendment) - Amendments of a contract to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/amendment/get.sparql)
 
-[GET /contract/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/document){:target="_blank"} - Documents of a contract to return
+[GET /contract/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/document) - Documents of a contract to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/document/get.sparql)
 
-[GET /contract/{id}/item](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/item){:target="_blank"} - Items of a contract to return
+[GET /contract/{id}/item](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/item) - Items of a contract to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/item/get.sparql)
 
 **contracting-process**
 
@@ -38,7 +38,6 @@ GET /organisation/{id}/release - Contracting-processes of an organisation to ret
 GET /organisation/{id}/award - Awards of an organisation to return
 
 **award**
-
 [GET /award](http://tbfy.librairy.linkeddata.es/kg-api/award) - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/award/get.sparql)
 
 GET /award/{id} - Find an award by ID
@@ -63,223 +62,4 @@ GET /tender/{id}/release - Contracting-processes of a tender to return
 
 GET /tender/{id}/document - Documents of a tender to return
 
-The API returns JSON a JSON file. Here you are some examples of how the API works:
-
-# EXAMPLE 1:
-
-**Release by Id**
-
-->  https://<knowledge-graph-api>/release/10 <-
-
-{
-
-  "ocid": 0,
-
-  "id": 0,
-
-  "datetime": {
-
-    "date": "string",
-
-    "time": 0
-
-  },
-
-  "tag": [
-
-    {
-
-      "releasetag": "string"
-
-    }
-
-  ],
-
-  "initiationtype": "string",
-
-  "parties": [
-
-    {
-
-      "id": 0,
-
-      "legalname": "string"
-
-    }
-
-  ],
-
-  "buyer": {},
-
-  "planning": {},
-
-  "tender": {},
-
-  "awards": [
-
-    {
-
-      "id": 0,
-
-      "title": "string"
-
-    }
-
-  ],
-
-  "contracts": [
-
-    {
-
-      "id": 0,
-
-      "title": "string"
-
-    }
-
-  ],
-
-  "language": "string",
-
-  "relatedprocesses": [
-
-    {
-
-      "id": 0,
-
-      "title": "string"
-
-    }
-
-  ]
-
-}
-
-# EXAMPLE 2:
-
-**All contracts from organization 1001**
-
--> https://<knowledge-graph-api>/organisation/1001/release <-
-
-[
-
-  {
-
-    "id": 0,
-
-    "title": "string",
-
-    "description": "string",
-
-    "datetime": {
-
-      "date": "string",
-
-      "time": 0
-
-    }
-
-  },
-
-  {
-
-    "id": 1,
-
-    "title": "string",
-
-    "description": "string",
-
-    "datetime": {
-
-      "date": "string",
-
-      "time": 0
-
-    }
-
-  }
-
-]
-
-# EXAMPLE 3:
-
-**Awards in a period (start=XXXX and end=YYYY)**
-
--> https://<knowledge-graph-api>/award?12120202 <-
-
-[
-
-  {
-
-    "id": 0,
-
-    "title": "string",
-
-    "description": "string",
-
-    "datetime": {
-
-      "date": "string",
-
-      "time": 0
-
-    }
-
-  },
-
-  {
-
-    "id": 1,
-
-    "title": "string",
-
-    "description": "string",
-
-    "datetime": {
-
-      "date": "string",
-
-      "time": 0
-
-    }
-
-  }
-
-]
-
-# EXAMPLE 4:
-
-**Tenders by status (status = cancelled)**
-
--> https://<knowledge-graph-api>/tender?status=cancelled <-
-
-[
-
-  {
-
-    "id": 0,
-
-    "title": "string",
-
-    "description": "string"
-
-  }
-
-]
-
-[
-
-  {
-
-    "id": 1,
-
-    "title": "string",
-
-    "description": "string"
-
-  }
-
-]
-
-
-This file will be updated as the API is developed.
+The API returns JSON a JSON file. 
