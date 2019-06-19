@@ -1,21 +1,21 @@
 # API documentation
 
-This repository contains the API documentation of the TheyBuyForYou project. In order to see how the API will look like, you can go to https://editor.swagger.io/ and select File/Import from URL with the rawgit URL of the corresponding file (e.g., https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/API_description.yaml)
-
-So far, 24 GET calls have been identified for the API:
+This repository contains the API documentation of the TheyBuyForYou project. So far, 24 GET services have been identified for the API divided into 5 main categories: Contract, Contracting Process, Tender, Award and Organisation. These services gather all the information from the knowledge graph built within TheyBuyForYou project.
 
 # **SERVICES**
 **contract**
 
-[GET /contract](http://tbfy.librairy.linkeddata.es/kg-api/contract) - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
+These five services will show all the information related to the contracts. All the examples have been generated with the contract id "ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
 
-GET /contract/{id} - Find contract by ID.
+[GET /contract]<a href="http://tbfy.librairy.linkeddata.es/kg-api/contract" target="_blank") - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
 
-GET /contract/{id}/amendment - Amendments of a contract to return
+[GET /contract/{id}](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract){:target="_blank"} - Find contract by ID.
 
-GET /contract/{id}/document - Documents of a contract to return
+[GET /contract/{id}/amendment](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/amendment){:target="_blank"} - Amendments of a contract to return
 
-GET /contract/{id}/item - Items of a contract to return
+[GET /contract/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/document){:target="_blank"} - Documents of a contract to return
+
+[GET /contract/{id}/item](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Contract/item){:target="_blank"} - Items of a contract to return
 
 **contracting-process**
 
