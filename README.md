@@ -71,4 +71,4 @@ These five services will show all the information related to the tenders. All th
 
 [GET /tender/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736/document) - Documents of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/document/get.sparql)
 
-The API returns JSON a JSON file. 
+The API returns a JSON file for each service. 
