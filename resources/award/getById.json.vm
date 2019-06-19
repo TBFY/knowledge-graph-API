@@ -1,24 +1,13 @@
 {
+  #set ( $index = $oid.lastIndexOf("/") )
+  #set ( $index = $index + 1 )
+  #set ( $ident = $oid.substring($index, $oid.length()) )
   #set( $control_coma = false )
-  #if ( $suri )
+  #if ( $ident )
     #if ( $control_coma )
       ,
     #end
-    "id" : "$suri"
-    #set( $control_coma = true )
-  #end
-  #if ( $des )
-    #if ( $control_coma )
-      ,
-    #end
-    "description" : "$des"
-    #set( $control_coma = true )
-  #end
-  #if ( $s )
-    #if ( $control_coma )
-      ,
-    #end
-    "uri" : "$s"
+    "id" : "$ident"
     #set( $control_coma = true )
   #end
   #if ( $tit )
@@ -26,6 +15,13 @@
       ,
     #end
     "title" : "$tit"
+    #set( $control_coma = true )
+  #end
+  #if ( $des )
+    #if ( $control_coma )
+      ,
+    #end
+    "description" : "$des"
     #set( $control_coma = true )
   #end
   #if ( $dat )
@@ -54,20 +50,6 @@
       ,
     #end
     "currency" : "$cur"
-    #set( $control_coma = true )
-  #end
-  #if ( $valr )
-    #if ( $control_coma )
-      ,
-    #end
-    "valueuri" : "$valr"
-    #set( $control_coma = true )
-  #end
-  #if ( $acp )
-    #if ( $control_coma )
-      ,
-    #end
-    "contract period" : "$acp"
     #set( $control_coma = true )
   #end
   #if ( $acps )

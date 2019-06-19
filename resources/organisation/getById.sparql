@@ -7,7 +7,7 @@ PREFIX schema: <http://schema.org/>
 SELECT DISTINCT ( ?id as ?oid ) ?ln ?sad ?loc ?adc ?reg ?cp ?url ?eml ?tel ?adl
 WHERE {
   ?id a tbfy:Organisation .
-  ?id tbfy:legalName ?ln .
+  OPTIONAL { ?id tbfy:legalName ?ln } .
   ?id tbfy:hasAddress ?adr .
   OPTIONAL { ?adr schema:streetAddress ?sad } .
   OPTIONAL { ?adr schema:addressLocality ?loc } .

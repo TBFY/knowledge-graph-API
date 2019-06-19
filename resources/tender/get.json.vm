@@ -19,15 +19,6 @@
               "status" : "$tenders.status"
               #set( $control_coma = true )
             #end
-#*
-            #if ( $tenders.des )
-              #if ( $control_coma )
-                ,
-              #end
-              "description" : "$tenders.des"
-              #set( $control_coma = true )
-            #end
-*#
         }
          #if ( $velocityCount < ${results.size()} )
             ,

@@ -23,3 +23,15 @@ docker run -it --rm  \
         -e "SPARQL_ENDPOINT=http://data.tbfy.eu/repositories/TBFY" \
         -e "RESOURCE_NAMESPACE=https://theybuyforyou.eu/ontology/ocds/" \
         cbadenes/r4r:latest
+
+ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Buyer
+Esta organizacion me funciona en localhost pero luego no devuelve nada
+cuando se sube a github.
+Esto es lo que da en localhost:
+
+id: "ocds-0c46vo-0001-8c774d64-72fe-4558-a610-38247330e2c4_Buyer",
+street address: "Rye Hill House Rye Hill Campus, Scotswood Road",
+locality: "Newcastle upon Tyne",
+postal code: "NE4 7SA",
+email: "Noel.Proudfoot@ncgrp.co.uk",
+telephone: "+44 1912004091"

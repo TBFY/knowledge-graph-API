@@ -7,6 +7,6 @@ SELECT DISTINCT ?s ?status ?des WHERE {
 	  ?s a tbfy:Tender .
     ?s tbfy:tenderStatus ?status .
     ?s dcterms:description ?des .
-#  	OPTIONAL { ?s tbfy:tenderId ?id } .
-#  	OPTIONAL { ?s dcterms:title ?tit } .
+    OPTIONAL { ?s tbfy:tenderId ?id } .
+  	OPTIONAL { ?s dcterms:title ?tit } .
 }
