@@ -2,21 +2,15 @@
     #foreach( $contractingp in $results )
         {
             #set( $control_coma = false )
-            #if ( $contractingp.s )
-              #set ( $index = $contractingp.s.lastIndexOf("/") )
-              #set ( $index = $index + 1 )
-              #set ( $id = $contractingp.s.substring($index, $contractingp.s.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "id" : "$id"
+            #if ( $contractingp.contract )
+              "contract" : "$contract"
               #set( $control_coma = true )
             #end
-            #if ( $contractingp.funded )
+            #if ( $contractingp.impl )
               #if ( $control_coma )
                 ,
               #end
-              "is funded by" : "$contractingp.funded"
+              "implementation" : "$contractingp.impl"
               #set( $control_coma = true )
             #end
         }
