@@ -1,0 +1,34 @@
+[
+    #foreach( $amendments in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $amendments.oid )
+            #set ( $index = $amendments.oid.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $ident = $amendments.oid.substring($index, $amendments.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$ident"
+              #set( $control_coma = true )
+            #end
+            #if ( $amendments.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$amendments.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $amendments.amend )
+              #if ( $control_coma )
+                ,
+              #end
+              "amendment" : "$amendments.amend"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]

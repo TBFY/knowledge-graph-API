@@ -1,0 +1,34 @@
+[
+    #foreach( $items in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $items.oid )
+            #set ( $index = $items.oid.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $ident = $items.oid.substring($index, $items.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$ident"
+              #set( $control_coma = true )
+            #end
+            #if ( $items.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$items.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $items.itid )
+              #if ( $control_coma )
+                ,
+              #end
+              "item" : "$items.itid"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]

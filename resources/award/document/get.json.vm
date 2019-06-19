@@ -1,0 +1,34 @@
+[
+    #foreach( $docs in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $docs.oid )
+            #set ( $index = $docs.oid.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $ident = $docs.oid.substring($index, $docs.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$ident"
+              #set( $control_coma = true )
+            #end
+            #if ( $docs.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$docs.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $docs.doc )
+              #if ( $control_coma )
+                ,
+              #end
+              "document" : "$docs.doc"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
