@@ -37,7 +37,7 @@ These four services will show all the information related to the organiations. A
 
 [GET /organisation/{id}](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-509cac8d-c115-4587-af06-8e94214ba148_Award_068aaf69-f37c-4121-a334-a9c8649225b4_Supplier_Peugeot%20Motor%20Company%20PLC) - Find an organisation by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/getById.sparql)
 
-[GET /organisation/{id}/contracting-process](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-509cac8d-c115-4587-af06-8e94214ba148_Award_068aaf69-f37c-4121-a334-a9c8649225b4_Supplier_Peugeot%20Motor%20Company%20PLC/release) - Contracting-processes of an organisation to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/contracting-process/get.sparql)
+[GET /organisation/{id}/contracting-process](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-509cac8d-c115-4587-af06-8e94214ba148_Award_068aaf69-f37c-4121-a334-a9c8649225b4_Supplier_Peugeot%20Motor%20Company%20PLC/contracting-process) - Contracting-processes of an organisation to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/contracting-process/get.sparql)
 
 [GET /organisation/{id}/award](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-509cac8d-c115-4587-af06-8e94214ba148_Award_068aaf69-f37c-4121-a334-a9c8649225b4_Supplier_Peugeot%20Motor%20Company%20PLC/award) - Awards of an organisation to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/award/get.sparql)
 
@@ -71,4 +71,4 @@ These five services will show all the information related to the tenders. All th
 
 [GET /tender/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736/document) - Documents of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/document/get.sparql)
 
-The API returns JSON a JSON file. 
+The API returns a JSON file for each service. 
