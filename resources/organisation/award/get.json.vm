@@ -2,21 +2,28 @@
     #foreach( $awards in $results )
         {
             #set( $control_coma = false )
-            #if ( $awards.s )
-              #set ( $index = $awards.s.lastIndexOf("/") )
+            #if ( $awards.oid )
+              #set ( $index = $awards.oid.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $id = $awards.s.substring($index, $awards.s.length()) )
+              #set ( $id = $awards.oid.substring($index, $awards.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
               "id" : "$id"
               #set( $control_coma = true )
             #end
-            #if ( $awards.awid )
+            #if ( $awards.isf )
               #if ( $control_coma )
                 ,
               #end
-              "award id" : "$awards.awid"
+              "is supplier for" : "$awards.isf"
+              #set( $control_coma = true )
+            #end
+            #if ( $awards.dat )
+              #if ( $control_coma )
+                ,
+              #end
+              "date" : "$awards.dat"
               #set( $control_coma = true )
             #end
         }

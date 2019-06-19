@@ -1,29 +1,22 @@
 [
-    #foreach( $tenders in $results )
+    #foreach( $awards in $results )
         {
             #set( $control_coma = false )
-            #if ( $tenders.s )
-              #set ( $index = $tenders.s.lastIndexOf("/") )
+            #if ( $awards.oid )
+              #set ( $index = $awards.oid.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $id = $tenders.s.substring($index, $tenders.s.length()) )
+              #set ( $id = $awards.oid.substring($index, $awards.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
               "id" : "$id"
               #set( $control_coma = true )
             #end
-            #if ( $tenders.status )
+            #if ( $awards.pri )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$tenders.status"
-              #set( $control_coma = true )
-            #end
-            #if ( $tenders.tit )
-              #if ( $control_coma )
-                ,
-              #end
-              "title" : "$tenders.tit"
+              "plays role in" : "$awards.pri"
               #set( $control_coma = true )
             #end
         }
