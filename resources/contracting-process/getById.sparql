@@ -1,0 +1,14 @@
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ( ?id as ?cpid ) ?contract ?plan ?tender ?award
+WHERE {
+?id a tbfy:ContractingProcess .
+OPTIONAL { ?id tbfy:hasContract ?contract }.
+OPTIONAL { ?id tbfy:hasPlan ?plan } .
+OPTIONAL { ?id tbfy:hasTender ?tender } .
+OPTIONAL { ?id tbfy:hasAward ?award }
+}
