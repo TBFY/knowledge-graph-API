@@ -3,7 +3,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-SELECT (?id as ?oid) ?tit ?itm ?itid ?lot ?clas ?class ?enq ?cl1
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT (?id as ?oid) ?tit ?itm ?itid ?lot ?clas ?class ?enq ?cl1
 WHERE {
 	?id a tbfy:Award .
 	OPTIONAL { ?id dcterms:title ?tit } .
