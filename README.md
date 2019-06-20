@@ -23,11 +23,11 @@ These five services will show all the information related to the contracting pro
 
 [GET /contacting-process](http://tbfy.librairy.linkeddata.es/kg-api/contracting-process) - Gets a list of contracting processes - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contracting-process/get.sparql)
 
-GET /contacting-process/{id} - Find contracting process by ID
+[GET /contacting-process/{id}](http://tbfy.librairy.linkeddata.es/kg-api/contracting-process/ocds-0c46vo-0001-270e7ae7-baba-4d08-8b5c-ab2e5b5cefa0_ContractingProcess) - Find contracting process by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contracting-process/getById.sparql)
 
-GET /contacting-process/{id}/award - Awards of a contracting process to return
+[GET /contacting-process/{id}/award](http://tbfy.librairy.linkeddata.es/kg-api/contracting-process/ocds-0c46vo-0001-270e7ae7-baba-4d08-8b5c-ab2e5b5cefa0_ContractingProcess/award) - Awards of a contracting process to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contracting-process/award/get.sparql)
 
-GET /contacting-process/{id}/contract - Contracts of a contracting process to return
+[GET /contacting-process/{id}/contract](http://tbfy.librairy.linkeddata.es/kg-api/contracting-process/ocds-0c46vo-0001-270e7ae7-baba-4d08-8b5c-ab2e5b5cefa0_ContractingProcess/contract) - Contracts of a contracting process to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contracting-process/contract/get.sparql)
 
 **organisation**
 
