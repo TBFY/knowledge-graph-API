@@ -59,16 +59,16 @@ These six services will show all the information related to the awards. All the 
 
 **tender**
 
-These five services will show all the information related to the tenders. All the examples have been generated with the tender id "ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
+These five services will show all the information related to the tenders. All the examples have been generated with the tender id "ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
 
 [GET /tender](http://tbfy.librairy.linkeddata.es/kg-api/tender/) - Gets a list of tenders - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/get.sparql)
 
-[GET /tender/{id}](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736) - Find tender by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/getById.sparql)
+[GET /tender/{id}](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td) - Find tender by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/getById.sparql)
 
-[GET /tender/{id}/item](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736/item) - Items of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/item/get.sparql)
+[GET /tender/{id}/item](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td/item) - Items of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/item/get.sparql)
 
-[GET /tender/{id}/contracting-process](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736/contracting-process) - Contracting-processes of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/contracting-process/get.sparql)
+[GET /tender/{id}/contracting-process](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td/contracting-process) - Contracting-processes of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/contracting-process/get.sparql)
 
-[GET /tender/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0001-84bd53b2-6882-4948-a792-dd6043638214_Tender_ocds-b5fd17-bdd0d995-79db-4c14-91d8-72904cb0209f-bip367419736/document) - Documents of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/document/get.sparql)
+[GET /tender/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td/document) - Documents of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/document/get.sparql)
 
 The API returns a JSON file for each service. 
