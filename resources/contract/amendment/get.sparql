@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT (?id as ?oid) ?tit ?doc
+SELECT DISTINCT (?id as ?oid) ?tit ?amend
 WHERE {
 	?id a tbfy:Contract .
   OPTIONAL { ?id dcterms:title ?tit } .

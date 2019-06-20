@@ -1,21 +1,21 @@
 [
-    #foreach( $docs in $results )
+    #foreach( $suppliers in $results )
         {
             #set( $control_coma = false )
-            #if ( $docs.oid )
-            #set ( $index = $docs.oid.lastIndexOf("/") )
+            #if ( $suppliers.oid )
+            #set ( $index = $suppliers.oid.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $ident = $docs.oid.substring($index, $docs.oid.length()) )
+            #set ( $ident = $suppliers.oid.substring($index, $suppliers.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
               "id" : "$ident"
               #set( $control_coma = true )
             #end
-            #if ( $docs.s )
-            #set ( $index = $docs.s.lastIndexOf("/") )
+            #if ( $suppliers.s )
+            #set ( $index = $suppliers.s.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $org = $docs.s.substring($index, $docs.s.length()) )
+            #set ( $org = $suppliers.s.substring($index, $suppliers.s.length()) )
               #if ( $control_coma )
                 ,
               #end

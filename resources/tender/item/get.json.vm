@@ -21,7 +21,7 @@
               "title" : "$items.tit"
               #set( $control_coma = true )
             #end
-            
+
             #if ( $items.itm )
               #set ( $index = $items.itm.lastIndexOf("/") )
               #set ( $index = $index + 1 )
@@ -33,35 +33,35 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $lot )
+            #if ( $items.lot )
               #if ( $control_coma )
                 ,
               #end
-              "is related to lot" : "$lot"
+              "is related to lot" : "$items.lot"
               #set( $control_coma = true )
             #end
 
-            #if ( $cl1 )
+            #if ( $items.cl1 )
               #if ( $control_coma )
                 ,
               #end
-              "classificaton" : "$cl1"
+              "classificaton" : "$items.cl1"
               #set( $control_coma = true )
             #end
 
-            #if ( $clas )
+            #if ( $items.clas )
               #if ( $control_coma )
                 ,
               #end
-              "item classificaton" : "$clas"
+              "item classificaton" : "$items.clas"
               #set( $control_coma = true )
             #end
 
-            #if ( $class )
+            #if ( $items.class )
               #if ( $control_coma )
                 ,
               #end
-              "additional item classificaton" : "$class"
+              "additional item classificaton" : "$items.class"
               #set( $control_coma = true )
             #end
 

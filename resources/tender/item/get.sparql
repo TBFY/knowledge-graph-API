@@ -10,7 +10,6 @@ WHERE {
 	?id a tbfy:Tender .
   OPTIONAL { ?id dcterms:title ?tit } .
   ?id tbfy:hasItemToBeProcured ?itm .
-#  ?itm tbfy:itemId ?itid .
 	OPTIONAL { ?itm a tbfy:Item } .
 	OPTIONAL { ?itm tbfy:isRelatedToLot ?lot } .
 	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?clas } .
