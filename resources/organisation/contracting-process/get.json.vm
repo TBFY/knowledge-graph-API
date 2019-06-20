@@ -1,22 +1,71 @@
 [
-    #foreach( $awards in $results )
+    #foreach( $contractingp in $results )
         {
             #set( $control_coma = false )
-            #if ( $awards.oid )
-              #set ( $index = $awards.oid.lastIndexOf("/") )
+
+            #if ( $contractingp.oid )
+              #set ( $index = $contractingp.oid.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $id = $awards.oid.substring($index, $awards.oid.length()) )
+              #set ( $id = $contractingp.oid.substring($index, $contractingp.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
               "id" : "$id"
               #set( $control_coma = true )
             #end
-            #if ( $awards.pri )
+
+            #if ( $contractingp.pri )
               #if ( $control_coma )
                 ,
               #end
-              "plays role in" : "$awards.pri"
+              #set ( $cin = $contractingp.pri.lastIndexOf("/") )
+              #set ( $cin = $index + 1 )
+              #set ( $id = $contractingp.pri.substring($cin, $contractingp.pri.length()) )
+              "contracting porcess" : "$id"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contractingp.contract )
+              #set ( $indexc = $contractingp.contract.lastIndexOf("/") )
+              #set ( $indexc = $indexc + 1 )
+              #set ( $contract = $contractingp.contract.substring($indexc, $contractingp.contract.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "contract" : "$contract"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contractingp.plan )
+              #set ( $indexp = $contractingp.plan.lastIndexOf("/") )
+              #set ( $indexp = $indexp + 1 )
+              #set ( $plan = $contractingp.plan.substring($indexp, $contractingp.plan.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "plan" : "$plan"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contractingp.tender )
+              #set ( $indext = $contractingp.tender.lastIndexOf("/") )
+              #set ( $indext = $indext + 1 )
+              #set ( $tender = $contractingp.tender.substring($indext, $contractingp.tender.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "tender" : "$tender"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contractingp.award )
+              #set ( $indexa = $contractingp.award.lastIndexOf("/") )
+              #set ( $indexa = $indexa + 1 )
+              #set ( $award = $contractingp.award.substring($indexa, $contractingp.award.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "award" : "$award"
               #set( $control_coma = true )
             #end
         }

@@ -2,6 +2,7 @@
     #foreach( $items in $results )
         {
             #set( $control_coma = false )
+
             #if ( $items.oid )
             #set ( $index = $items.oid.lastIndexOf("/") )
             #set ( $index = $index + 1 )
@@ -9,9 +10,10 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$ident"
+              "tender id" : "$ident"
               #set( $control_coma = true )
             #end
+
             #if ( $items.tit )
               #if ( $control_coma )
                 ,
@@ -19,13 +21,50 @@
               "title" : "$items.tit"
               #set( $control_coma = true )
             #end
-            #if ( $items.itid )
+
+            #if ( $items.itm )
+              #set ( $index = $items.itm.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $ident = $items.itm.substring($index, $items.itm.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "item" : "$items.itid"
+              "item id" : "$ident"
               #set( $control_coma = true )
             #end
+
+            #if ( $lot )
+              #if ( $control_coma )
+                ,
+              #end
+              "is related to lot" : "$lot"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $cl1 )
+              #if ( $control_coma )
+                ,
+              #end
+              "classificaton" : "$cl1"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $clas )
+              #if ( $control_coma )
+                ,
+              #end
+              "item classificaton" : "$clas"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $class )
+              #if ( $control_coma )
+                ,
+              #end
+              "additional item classificaton" : "$class"
+              #set( $control_coma = true )
+            #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,

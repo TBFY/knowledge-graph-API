@@ -8,5 +8,10 @@ WHERE {
 	?id a tbfy:Contract .
   OPTIONAL { ?id dcterms:title ?tit } .
   ?id tbfy:hasContractedItem ?itm .
-  ?itm tbfy:itemId ?itid .
+	OPTIONAL { ?itm a tbfy:Item } .
+	OPTIONAL { ?itm tbfy:isRelatedToLot ?lot } .
+	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?clas } .
+	OPTIONAL { ?itm tbfy:additionalItemClassificatonScheme ?class } .
+	OPTIONAL { ?itm tbfy:hasRelatedEnquiry ?enq } .
+	OPTIONAL { ?itm tbfy:classificatonScheme ?cl1 } .
 }

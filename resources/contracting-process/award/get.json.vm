@@ -1,36 +1,39 @@
 [
-    #foreach( $organisations in $results )
+    #foreach( $awards in $results )
         {
             #set( $control_coma = false )
-            #if ( $organisations.s )
-              #set ( $index = $organisations.s.lastIndexOf("/") )
+            #if ( $awards.oid )
+              #set ( $index = $awards.oid.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $id = $organisations.s.substring($index, $organisations.s.length()) )
+              #set ( $id = $awards.oid.substring($index, $awards.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
               "id" : "$id"
               #set( $control_coma = true )
             #end
-            #if ( $organisations.ln )
+            #if ( $awards.isf )
+              #set ( $index = $awards.isf.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $awid = $awards.isf.substring($index, $awards.isf.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "legal name" : "$organisations.ln"
+              "award" : "$awid"
               #set( $control_coma = true )
             #end
-            #if ( $organisations.hn )
+            #if ( $awards.tit )
               #if ( $control_coma )
                 ,
               #end
-              "name" : "$organisations.hn"
+              "title" : "$awards.tit"
               #set( $control_coma = true )
             #end
-            #if ( $organisations.uri )
+            #if ( $awards.dat )
               #if ( $control_coma )
                 ,
               #end
-              "URI" : "$organisations.uri"
+              "date" : "$awards.dat"
               #set( $control_coma = true )
             #end
         }

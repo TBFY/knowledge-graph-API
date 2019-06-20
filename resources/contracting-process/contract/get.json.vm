@@ -1,0 +1,37 @@
+[
+    #foreach( $contracts in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $contracts.oid )
+              #set ( $index = $contracts.oid.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $contracts.oid.substring($index, $contracts.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "contracting-process id" : "$id"
+              #set( $control_coma = true )
+            #end
+            #if ( $contracts.hcn )
+              #if ( $control_coma )
+                ,
+              #end
+              #set ( $conid = $contracts.hcn.lastIndexOf("/") )
+              #set ( $conid = $conid + 1 )
+              #set ( $cid = $contracts.hcn.substring($conid, $contracts.hcn.length()) )
+              "contract id" : "$cid"
+              #set( $control_coma = true )
+            #end
+            #if ( $contracts.cst )
+              #if ( $control_coma )
+                ,
+              #end
+              "contract status" : "$contracts.cst"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
