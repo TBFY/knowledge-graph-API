@@ -1,67 +1,59 @@
 [
-    #foreach( $items in $results )
+    #foreach( $docs in $results )
         {
             #set( $control_coma = false )
 
-            #if ( $items.oid )
-            #set ( $index = $items.oid.lastIndexOf("/") )
+            #if ( $docs.oid )
+            #set ( $index = $docs.oid.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $ident = $items.oid.substring($index, $items.oid.length()) )
+            #set ( $ident = $docs.oid.substring($index, $docs.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "tender id" : "$ident"
+              "id" : "$ident"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.tit )
+            #if ( $docs.tit )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$items.tit"
+              "title" : "$docs.tit"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.itm )
-              #set ( $index = $items.itm.lastIndexOf("/") )
+            #if ( $docs.doc )
+              #set ( $index = $docs.doc.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $ident = $items.itm.substring($index, $items.itm.length()) )
+              #set ( $idoc = $docs.doc.substring($index, $docs.doc.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "item id" : "$ident"
+              "document" : "$idoc"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.lot )
+            #if ( $docs.lan )
               #if ( $control_coma )
                 ,
               #end
-              "is related to lot" : "$items.lot"
+              "language" : "$docs.lan"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.cl1 )
+            #if ( $docs.url )
               #if ( $control_coma )
                 ,
               #end
-              "classificaton" : "$items.cl1"
+              "url" : "$docs.url"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.clas )
+            #if ( $docs.type )
               #if ( $control_coma )
                 ,
               #end
-              "item classificaton" : "$items.clas"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $items.class )
-              #if ( $control_coma )
-                ,
-              #end
-              "additional item classificaton" : "$items.class"
+              "type" : "$docs.type"
               #set( $control_coma = true )
             #end
 
