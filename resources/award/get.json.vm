@@ -1,0 +1,106 @@
+[
+    #foreach( $awards in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $awards.s )
+            #set ( $index = $awards.s.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $id = $awards.s.substring($index, $awards.s.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$id"
+              #set( $control_coma = true )
+            #end
+            #if ( $awards.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$awards.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $awards.des )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$awards.des"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.date )
+              #if ( $control_coma )
+                ,
+              #end
+              "date" : "$awards.date"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.doc )
+            #set ( $index = $awards.doc.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $doc = $awards.doc.substring($index, $awards.doc.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "document" : "$doc"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.status )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$awards.status"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.period )
+            #set ( $index = $awards.period.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $period = $awards.period.substring($index, $awards.period.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "award period" : "$period"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.cperiod )
+            #set ( $index = $awards.cperiod.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $cperiod = $awards.cperiod.substring($index, $awards.cperiod.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "contract period" : "$cperiod"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.value )
+            #set ( $index = $awards.value.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $value = $awards.value.substring($index, $awards.value.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "value" : "$value"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.item )
+            #set ( $index = $awards.item.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $item = $awards.item.substring($index, $awards.item.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "item" : "$item"
+              #set( $control_coma = true )
+            #end
+
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]

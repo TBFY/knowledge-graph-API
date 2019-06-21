@@ -10,6 +10,27 @@
     "id" : "$ident"
     #set( $control_coma = true )
   #end
+  #if ( $tit )
+    #if ( $control_coma )
+      ,
+    #end
+    "title" : "$tit"
+    #set( $control_coma = true )
+  #end
+  #if ( $des )
+    #if ( $control_coma )
+      ,
+    #end
+    "description" : "$des"
+    #set( $control_coma = true )
+  #end
+  #if ( $dat )
+    #if ( $control_coma )
+      ,
+    #end
+    "date" : "$dat"
+    #set( $control_coma = true )
+  #end
   #if ( $stat )
     #if ( $control_coma )
       ,
@@ -17,78 +38,35 @@
     "status" : "$stat"
     #set( $control_coma = true )
   #end
-  #if ( $dcs )
-    #if ( $control_coma )
-      ,
-    #end
-    "date contract signed" : "$dcs"
-    #set( $control_coma = true )
-  #end
   #if ( $val )
     #if ( $control_coma )
       ,
     #end
-    "value uri" : "$val"
+    "value" : "$val"
     #set( $control_coma = true )
   #end
-  #if ( $vala )
+  #if ( $cur )
     #if ( $control_coma )
       ,
     #end
-    "value amount" : "$vala"
+    "currency" : "$cur"
     #set( $control_coma = true )
   #end
-  #if ( $valc )
+
+  #if ( $awardper )
     #if ( $control_coma )
       ,
     #end
-    "value currency" : "$valc"
+    "award period uri" : "$awardper"
     #set( $control_coma = true )
   #end
 
-  #if ( $award )
-  #set ( $index = $award.lastIndexOf("/") )
-  #set ( $index = $index + 1 )
-  #set ( $c_award = $award.substring($index, $award.length()) )
+  #if ( $contractper )
     #if ( $control_coma )
       ,
     #end
-    "award" : "$c_award"
-    #set( $control_coma = true )
-  #end
-  
-  #if ( $hcp )
-    #if ( $control_coma )
-      ,
-    #end
-    "contract period uri" : "$hcp"
+    "contract period uri" : "$contractper"
     #set( $control_coma = true )
   #end
 
-  #if ( $milestone )
-    #if ( $control_coma )
-      ,
-    #end
-    "milestone uri" : "$milestone"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $impl )
-    #if ( $control_coma )
-      ,
-    #end
-    "implementation uri" : "$impl"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $award )
-    #if ( $control_coma )
-      ,
-    #end
-    "implementation uri" : "$impl"
-    #set( $control_coma = true )
-  #end
-
-
-
-}
+  }

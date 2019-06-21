@@ -45,31 +45,23 @@
               #if ( $control_coma )
                 ,
               #end
-              "classification scheme" : "$items.cl1"
+              "classificaton" : "$items.cl1"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.class)
+            #if ( $items.clas )
               #if ( $control_coma )
                 ,
               #end
-              "classification" : "$items.class"
+              "item classificaton" : "$items.clas"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.addclassscheme )
+            #if ( $items.class )
               #if ( $control_coma )
                 ,
               #end
-              "additional item classification scheme" : "$items.addclasscheme"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $items.addclas )
-              #if ( $control_coma )
-                ,
-              #end
-              "additional item classification" : "$items.addclas"
+              "additional item classificaton" : "$items.class"
               #set( $control_coma = true )
             #end
 
