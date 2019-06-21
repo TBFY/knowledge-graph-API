@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ( ?id as ?oid ) ?tit ?des ?dat ?stat ?val ?cur ?lid ?awardper ?contractper
+SELECT DISTINCT ( ?id as ?oid ) ?tit ?des ?dat ?stat ?valr ?val ?cur ?lid ?doc ?awardper ?contractper ?cperiod ?item
 WHERE {
     ?id a tbfy:Award .
   	OPTIONAL { ?id dcterms:title ?tit } .
@@ -17,6 +17,9 @@ WHERE {
   	OPTIONAL { ?valr tbfy:ValueCurrency ?cur } .
 #  	OPTIONAL { ?id tbfy:isRelatedToLot ?lot } .
 #  	OPTIONAL { ?lot tbfy:lotId ?lid } .
-    OPTIONAL { ?s tbfy:hasAwardPeriod ?awardper } .
-    OPTIONAL { ?s tbfy:hasContractPeriod ?contractper}
+		OPTIONAL { ?id tbfy:hasDocument ?doc } .
+    OPTIONAL { ?id tbfy:hasAwardPeriod ?awardper } .
+    OPTIONAL { ?id tbfy:hasContractPeriod ?contractper}
+    OPTIONAL { ?id tbfy:hasAwardedContractPeriod ?cperiod }
+  	OPTIONAL { ?id tbfy:hasAwardedItem ?item }
 }

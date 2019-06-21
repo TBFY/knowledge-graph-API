@@ -57,11 +57,14 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $items.class )
+            #if ( $items.enq )
+            #set ( $index = $items.enq.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $enq1 = $items.enq.substring($index, $items.enq.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "additional item classificaton" : "$items.class"
+              "enquiry" : "$enq1"
               #set( $control_coma = true )
             #end
 

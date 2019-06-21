@@ -56,7 +56,7 @@
     "award" : "$c_award"
     #set( $control_coma = true )
   #end
-  
+
   #if ( $hcp )
     #if ( $control_coma )
       ,
@@ -89,6 +89,16 @@
     #set( $control_coma = true )
   #end
 
+  #if ( $item )
+  #set ( $index = $item.lastIndexOf("/") )
+  #set ( $index = $index + 1 )
+  #set ( $item1 = $item.substring($index, $item.length()) )
+    #if ( $control_coma )
+      ,
+    #end
+    "item" : "$item1"
+    #set( $control_coma = true )
+  #end
 
 
 }

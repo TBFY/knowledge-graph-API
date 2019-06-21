@@ -4,16 +4,11 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?tit ?des ?date ?doc ?status ?period ?value ?cperiod ?item WHERE {
+SELECT DISTINCT ?s ?tit ?des ?date ?status WHERE {
 	  ?s a tbfy:Award .
 #  	OPTIONAL { ?s tbfy:awardId ?id } .
   	OPTIONAL { ?s dcterms:title ?tit } .
   	OPTIONAL { ?s dcterms:description ?des } .
 		OPTIONAL { ?s tbfy:awardDate ?date } .
-		OPTIONAL {?s tbfy:hasDocument ?doc } .
     OPTIONAL {?s tbfy:awardStatus ?status} .
-  	OPTIONAL {?s tbfy:hasAwardPeriod ?period} .
-  	OPTIONAL {?s tbfy:hasAwardValue ?value} .
-    OPTIONAL {?s tbfy:hasAwardedContractPeriod ?cperiod }
-  	OPTIONAL {?s tbfy:hasAwardedItem ?item }
 }

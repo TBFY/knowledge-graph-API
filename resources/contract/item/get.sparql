@@ -5,16 +5,15 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT (?id as ?oid) ?itm ?tit ?lot ?addclas ?addclasscheme ?class ?enq ?cl1
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT DISTINCT (?id as ?oid) ?itm ?tit ?lot ?clas ?enq ?cl1
 WHERE {
 	?id a tbfy:Contract .
   OPTIONAL { ?id dcterms:title ?tit } .
   ?id tbfy:hasContractedItem ?itm .
 	OPTIONAL { ?itm a tbfy:Item } .
 	OPTIONAL { ?itm tbfy:isRelatedToLot ?lot } .
-	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?addclas } .
-	OPTIONAL { ?itm tbfy:additionalItemClassificatonScheme ?addclasscheme } .
-	OPTIONAL { ?itm tbfy:hasClassificaton ?class } .
+	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?clas } .
 	OPTIONAL { ?itm tbfy:hasRelatedEnquiry ?enq } .
 	OPTIONAL { ?itm tbfy:classificatonScheme ?cl1 } .
 }

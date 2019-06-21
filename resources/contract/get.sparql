@@ -5,16 +5,10 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?stat ?dcs ?impl ?period ?val ?milestone ?item ?award
+SELECT DISTINCT ?s ?stat ?dcs
 WHERE {
 	?s a tbfy:Contract .
   OPTIONAL { ?s tbfy:contractStatus ?stat } .
   OPTIONAL { ?s tbfy:dateContractSigned ?dcs } .
-  OPTIONAL { ?s tbfy:hasContractImplementation ?impl } .
-  OPTIONAL { ?s tbfy:hasContractPeriod ?period } .
-  OPTIONAL { ?s tbfy:hasContractValue ?val } .
-  OPTIONAL { ?s tbfy:hasMilestone ?milestone } .
-  OPTIONAL { ?s tbfy:hasContractedItem ?item } .
-  OPTIONAL { ?s tbfy:isIssuedForAward ?award }
 
 }

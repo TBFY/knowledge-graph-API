@@ -2,33 +2,37 @@
     #foreach( $contracts in $results )
         {
             #set( $control_coma = false )
+
             #if ( $contracts.oid )
-              #set ( $index = $contracts.oid.lastIndexOf("/") )
-              #set ( $index = $index + 1 )
-              #set ( $id = $contracts.oid.substring($index, $contracts.oid.length()) )
+            #set ( $index = $contracts.oid.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $ident = $contracts.oid.substring($index, $contracts.oid.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "contracting-process id" : "$id"
+              "contracting process id" : "$ident"
               #set( $control_coma = true )
             #end
+
             #if ( $contracts.hcn )
+            #set ( $index = $contracts.hcn.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $cn1 = $contracts.hcn.substring($index, $contracts.hcn.length()) )
               #if ( $control_coma )
                 ,
               #end
-              #set ( $conid = $contracts.hcn.lastIndexOf("/") )
-              #set ( $conid = $conid + 1 )
-              #set ( $cid = $contracts.hcn.substring($conid, $contracts.hcn.length()) )
-              "contract id" : "$cid"
+              "contract id" : "$cn1"
               #set( $control_coma = true )
             #end
-            #if ( $contracts.cst )
+
+            #if ( $ontracts.hcn )
               #if ( $control_coma )
                 ,
               #end
-              "contract status" : "$contracts.cst"
+              "status" : "$contracts.hcn"
               #set( $control_coma = true )
             #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,

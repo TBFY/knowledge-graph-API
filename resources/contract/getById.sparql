@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ( ?id as ?oid ) ?stat ?dcs ?val ?vala ?valc ?milestone ?impl ?award ?hcp
+SELECT DISTINCT ( ?id as ?oid ) ?stat ?dcs ?val ?vala ?valc ?milestone ?impl ?award ?hcp ?item
 WHERE {
     ?id a tbfy:Contract .
     OPTIONAL { ?id tbfy:contractStatus ?stat } .
@@ -17,4 +17,5 @@ WHERE {
     OPTIONAL { ?id tbfy:hasMilestone ?milestone } .
     OPTIONAL { ?id tbfy:hasContractImplementation ?impl } .
     OPTIONAL { ?id tbfy:isIssuedForAward ?award }
+    OPTIONAL { ?id tbfy:hasContractedItem ?item } .
 }
