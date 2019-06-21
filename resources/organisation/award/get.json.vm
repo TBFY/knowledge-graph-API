@@ -48,6 +48,15 @@
               "date" : "$awards.dat"
               #set( $control_coma = true )
             #end
+
+            #if ( $awards.stat )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$awards.stat"
+              #set( $control_coma = true )
+            #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,
