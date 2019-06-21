@@ -80,11 +80,4 @@
     "telephone" : "$tel"
     #set( $control_coma = true )
   #end
-  #if ( $pco )
-    #if ( $control_coma )
-      ,
-    #end
-    "address locality" : "$adl"
-    #set( $control_coma = true )
-  #end
 }
