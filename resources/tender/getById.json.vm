@@ -52,4 +52,29 @@
     "max estimated value" : "$maxval"
     #set( $control_coma = true )
   #end
+
+  #if ( $enq )
+    #if ( $control_coma )
+      ,
+    #end
+    "enquiry uri" : "$enq"
+    #set( $control_coma = true )
+  #end
+
+  #if ( $enqper )
+    #if ( $control_coma )
+      ,
+    #end
+    "enquiry period uri" : "$enqper"
+    #set( $control_coma = true )
+  #end
+  
+  #if ( $contractper )
+    #if ( $control_coma )
+      ,
+    #end
+    "estimated contract period uri" : "$contractper"
+    #set( $control_coma = true )
+  #end
+
 }

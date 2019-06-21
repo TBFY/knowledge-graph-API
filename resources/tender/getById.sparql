@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ( ?id AS ?oid ) ?des ?stat ?mev ?minval ?maev ?maxval
+SELECT DISTINCT ( ?id AS ?oid ) ?des ?stat ?mev ?minval ?maev ?maxval ?enq ?enqper ?contractper
 WHERE {
   ?id a tbfy:Tender .
   OPTIONAL { ?id dcterms:description ?des } .
@@ -14,4 +14,7 @@ WHERE {
   OPTIONAL { ?mev rdf:minValue ?minval } .
   OPTIONAL { ?id tbfy:hasMaxEstimatedValue ?maev } .
   OPTIONAL { ?maev rdf:value ?maxval } .
+  OPTIONAL { ?id tbfy:hasEnquiry ?enq } .
+  OPTIONAL { ?id tbfy:hasEnquitryPeriod ?enqper } .
+  OPTIONAL { ?id tbfy:hasEstimatedContractPeriod ?contractper }
 }
