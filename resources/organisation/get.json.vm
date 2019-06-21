@@ -12,6 +12,7 @@
               "id" : "$id"
               #set( $control_coma = true )
             #end
+
             #if ( $organisations.ln )
               #if ( $control_coma )
                 ,
@@ -19,75 +20,12 @@
               "legal name" : "$organisations.ln"
               #set( $control_coma = true )
             #end
+
             #if ( $organisations.hn )
               #if ( $control_coma )
                 ,
               #end
               "name" : "$organisations.hn"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.uri )
-              #if ( $control_coma )
-                ,
-              #end
-              "URI" : "$organisations.uri"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $organisations.sad )
-              #if ( $control_coma )
-                ,
-              #end
-              "street address" : "$organisations.sad"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.loc )
-              #if ( $control_coma )
-                ,
-              #end
-              "locality" : "$organisations.loc"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.cp )
-              #if ( $control_coma )
-                ,
-              #end
-              "postal code" : "$organisations.cp"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.adc )
-              #if ( $control_coma )
-                ,
-              #end
-              "county" : "$organisations.adc"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.reg )
-              #if ( $control_coma )
-                ,
-              #end
-              "region" : "$organisations.reg"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.eml )
-              #if ( $control_coma )
-                ,
-              #end
-              "email" : "$organisations.eml"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.url )
-              #if ( $control_coma )
-                ,
-              #end
-              "URL" : "$organisations.url"
-              #set( $control_coma = true )
-            #end
-            #if ( $organisations.tel )
-              #if ( $control_coma )
-                ,
-              #end
-              "telephone" : "$organisations.tel"
               #set( $control_coma = true )
             #end
 
