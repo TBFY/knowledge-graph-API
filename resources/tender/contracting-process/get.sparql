@@ -1,11 +1,12 @@
+PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-SELECT DISTINCT ?id ?tit ?des WHERE {
-	?s a tbfy:Award .
-  	OPTIONAL { ?s tbfy:awardId ?id } .
-  	OPTIONAL { ?s dcterms:title ?tit } .
-  	OPTIONAL { ?s dcterms:description ?des } .
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT (?id as ?oid) ?pri
+WHERE {
+	?id a tbfy:Tender .
+  ?id tbfy:playsRoleIn ?pri .
 }

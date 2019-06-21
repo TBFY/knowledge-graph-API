@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+PREFIX org: <http://www.w3.org/ns/org#>
+>>>>>>> 13243779a396decc47e2c21fa239be8c2b9811c8
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+<<<<<<< HEAD
 SELECT DISTINCT ( ?id as ?cpid ) ?s ?title ?date ?doc ?status ?period ?value ?cperiod ?item WHERE {
   	?id a tbfy:ContractingProcess .
  	  ?id tbfy:hasAward ?s .
@@ -15,3 +20,14 @@ SELECT DISTINCT ( ?id as ?cpid ) ?s ?title ?date ?doc ?status ?period ?value ?cp
     OPTIONAL {?s tbfy:hasAwardedContractPeriod ?cperiod }
   	OPTIONAL {?s tbfy:hasAwardedItem ?item }
  }
+=======
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT (?id as ?oid) ?isf ?dat ?tit
+WHERE {
+	?id a tbfy:ContractingProcess .
+  ?id tbfy:hasAward ?isf .
+  ?isf a tbfy:Award .
+  ?isf tbfy:awardDate ?dat .
+	OPTIONAL { ?s dcterms:title ?tit } .
+}
+>>>>>>> 13243779a396decc47e2c21fa239be8c2b9811c8

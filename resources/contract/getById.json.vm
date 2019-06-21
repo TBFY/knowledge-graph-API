@@ -1,17 +1,55 @@
 {
+  #set ( $index = $oid.lastIndexOf("/") )
+  #set ( $index = $index + 1 )
+  #set ( $ident = $oid.substring($index, $oid.length()) )
   #set( $control_coma = false )
-  #if ( $id )
+  #if ( $ident )
     #if ( $control_coma )
       ,
     #end
-    "id" : "$id"
+    "id" : "$ident"
+    #set( $control_coma = true )
+  #end
+  #if ( $stat )
+    #if ( $control_coma )
+      ,
+    #end
+    "status" : "$stat"
+    #set( $control_coma = true )
+  #end
+  #if ( $dcs )
+    #if ( $control_coma )
+      ,
+    #end
+    "date contract signed" : "$dcs"
     #set( $control_coma = true )
   #end
   #if ( $val )
     #if ( $control_coma )
       ,
     #end
-    "value" : "$val"
+    "value uri" : "$val"
+    #set( $control_coma = true )
+  #end
+  #if ( $vala )
+    #if ( $control_coma )
+      ,
+    #end
+    "value amount" : "$vala"
+    #set( $control_coma = true )
+  #end
+  #if ( $valc )
+    #if ( $control_coma )
+      ,
+    #end
+    "value currency" : "$valc"
+    #set( $control_coma = true )
+  #end
+  #if ( $hcp )
+    #if ( $control_coma )
+      ,
+    #end
+    "contract period uri" : "$hcp"
     #set( $control_coma = true )
   #end
 }

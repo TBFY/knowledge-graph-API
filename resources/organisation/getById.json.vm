@@ -17,6 +17,13 @@
     "legal name" : "$ln"
     #set( $control_coma = true )
   #end
+  #if ( $hn )
+    #if ( $control_coma )
+      ,
+    #end
+    "Name" : "$hn"
+    #set( $control_coma = true )
+  #end
   #if ( $sad )
     #if ( $control_coma )
       ,

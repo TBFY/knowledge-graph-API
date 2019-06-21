@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     #foreach( $award in $results )
         {
             #set( $control_coma = false )
@@ -88,6 +89,43 @@
                 ,
               #end
               "item" : "$item"
+=======
+    #foreach( $awards in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $awards.oid )
+              #set ( $index = $awards.oid.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $awards.oid.substring($index, $awards.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$id"
+              #set( $control_coma = true )
+            #end
+            #if ( $awards.isf )
+              #set ( $index = $awards.isf.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $awid = $awards.isf.substring($index, $awards.isf.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "award" : "$awid"
+              #set( $control_coma = true )
+            #end
+            #if ( $awards.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$awards.tit"
+              #set( $control_coma = true )
+            #end
+            #if ( $awards.dat )
+              #if ( $control_coma )
+                ,
+              #end
+              "date" : "$awards.dat"
+>>>>>>> 13243779a396decc47e2c21fa239be8c2b9811c8
               #set( $control_coma = true )
             #end
         }

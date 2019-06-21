@@ -1,4 +1,7 @@
 {
+#set ( $index = $oid.lastIndexOf("/") )
+#set ( $index = $index + 1 )
+#set ( $ident = $oid.substring($index, $oid.length()) )
   #set( $control_coma = false )
   #if ( $ident )
     #if ( $control_coma )
@@ -7,11 +10,46 @@
     "id" : "$ident"
     #set( $control_coma = true )
   #end
-  #if ( $act )
+  #if ( $des )
     #if ( $control_coma )
       ,
     #end
-    "status" : "$act"
+    "description" : "$des"
+    #set( $control_coma = true )
+  #end
+  #if ( $stat )
+    #if ( $control_coma )
+      ,
+    #end
+    "status" : "$stat"
+    #set( $control_coma = true )
+  #end
+  #if ( $mev )
+    #if ( $control_coma )
+      ,
+    #end
+    "min estimated value uri" : "$mev"
+    #set( $control_coma = true )
+  #end
+  #if ( $minval )
+    #if ( $control_coma )
+      ,
+    #end
+    "min estimated value" : "$minval"
+    #set( $control_coma = true )
+  #end
+  #if ( $maev )
+    #if ( $control_coma )
+      ,
+    #end
+    "max estimated value uri" : "$maev"
+    #set( $control_coma = true )
+  #end
+  #if ( $maxval )
+    #if ( $control_coma )
+      ,
+    #end
+    "max estimated value" : "$maxval"
     #set( $control_coma = true )
   #end
 }

@@ -3,11 +3,13 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ( ?id as ?oid ) ?ln ?sad ?loc ?adc ?reg ?cp ?url ?eml ?tel ?adl
+SELECT DISTINCT ( ?id as ?oid ) ?ln ?hn ?sad ?loc ?adc ?reg ?cp ?url ?eml ?tel ?adl
 WHERE {
   ?id a tbfy:Organisation .
-  ?id tbfy:legalName ?ln .
+  OPTIONAL { ?id tbfy:legalName ?ln } .
+  OPTIONAL { ?id tbfy:hasName ?hn } .
   ?id tbfy:hasAddress ?adr .
   OPTIONAL { ?adr schema:streetAddress ?sad } .
   OPTIONAL { ?adr schema:addressLocality ?loc } .

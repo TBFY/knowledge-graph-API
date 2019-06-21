@@ -1,0 +1,20 @@
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT (?id as ?oid) ?tit ?itm ?itid ?lot ?clas ?class ?enq ?cl1
+WHERE {
+	?id a tbfy:Tender .
+  OPTIONAL { ?id dcterms:title ?tit } .
+  ?id tbfy:hasItemToBeProcured ?itm .
+#  ?itm tbfy:itemId ?itid .
+	OPTIONAL { ?itm a tbfy:Item } .
+	OPTIONAL { ?itm tbfy:isRelatedToLot ?lot } .
+	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?clas } .
+	OPTIONAL { ?itm tbfy:additionalItemClassificatonScheme ?class } .
+	OPTIONAL { ?itm tbfy:hasRelatedEnquiry ?enq } .
+	OPTIONAL { ?itm tbfy:classificatonScheme ?cl1 } .
+}

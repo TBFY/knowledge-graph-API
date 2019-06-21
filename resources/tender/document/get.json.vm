@@ -1,0 +1,65 @@
+[
+    #foreach( $docs in $results )
+        {
+            #set( $control_coma = false )
+
+            #if ( $docs.oid )
+            #set ( $index = $docs.oid.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $ident = $docs.oid.substring($index, $docs.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$ident"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $docs.tit )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$docs.tit"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $docs.doc )
+              #set ( $index = $docs.doc.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $idoc = $docs.doc.substring($index, $docs.doc.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "document" : "$idoc"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $docs.lan )
+              #if ( $control_coma )
+                ,
+              #end
+              "language" : "$docs.lan"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $docs.url )
+              #if ( $control_coma )
+                ,
+              #end
+              "url" : "$docs.url"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $docs.type )
+              #if ( $control_coma )
+                ,
+              #end
+              "type" : "$docs.type"
+              #set( $control_coma = true )
+            #end
+
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]

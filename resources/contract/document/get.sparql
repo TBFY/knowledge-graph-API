@@ -5,10 +5,12 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?id ?ln ?hn ?uri WHERE {
-  ?s a tbfy:Organisation .
-  OPTIONAL { ?s org:identifier ?id } .
-  OPTIONAL { ?s tbfy:legalName ?ln } .
-  OPTIONAL { ?s tbfy:hasName ?hn } .
-  OPTIONAL { ?s tbfy:uri ?uri } .
+SELECT DISTINCT (?id as ?oid) ?tit ?doc ?lan ?url ?type
+WHERE {
+	?id a tbfy:Award .
+  OPTIONAL { ?id dcterms:title ?tit } .
+  ?id tbfy:hasDocument ?doc .
+	OPTIONAL { ?doc dcterms:language ?lan } .
+	OPTIONAL { ?doc schema:URL ?url } .
+	OPTIONAL { ?doc tbfy:documentType ?type } .
 }
