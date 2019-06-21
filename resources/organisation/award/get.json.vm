@@ -10,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$id"
+              "organisation id" : "$id"
               #set( $control_coma = true )
             #end
 
@@ -21,7 +21,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "award" : "$id"
+              "award id" : "$id"
               #set( $control_coma = true )
             #end
 
@@ -30,6 +30,14 @@
                 ,
               #end
               "title" : "$awards.tit"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $awards.des )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$awards.des"
               #set( $control_coma = true )
             #end
 

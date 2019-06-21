@@ -10,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$ident"
+              "award id" : "$ident"
               #set( $control_coma = true )
             #end
 
@@ -29,7 +29,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "document" : "$idoc"
+              "document id" : "$idoc"
               #set( $control_coma = true )
             #end
 

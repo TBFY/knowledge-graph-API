@@ -10,6 +10,7 @@ WHERE {
 	?id a tbfy:Organisation .
   ?id tbfy:isSupplierFor ?isf .
   ?isf a tbfy:Award .
-  ?isf tbfy:awardDate ?dat .
-  OPTIONAL { ?s dcterms:title ?tit } .
+  OPTIONAL { ?isf tbfy:awardDate ?dat } .
+  OPTIONAL { ?isf dcterms:title ?tit } .
+  OPTIONAL { ?isf dcterms:description ?des } .
 }

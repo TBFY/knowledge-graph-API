@@ -9,15 +9,22 @@
             #if ( $control_coma )
               ,
             #end
-            "id" : "$id"
+            "contracting process id" : "$id"
             #set( $control_coma = true )
 
-
-            #if ( $award.title )
+            #if ( $award.tit )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$award.title"
+              "title" : "$award.tit"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $award.des )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$award.des"
               #set( $control_coma = true )
             #end
 
@@ -29,6 +36,25 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $award.isf )
+              #set ( $indexd = $award.isf.lastIndexOf("/") )
+              #set ( $indexd = $indexd + 1 )
+              #set ( $id1 = $award.isf.substring($indexd, $award.isf.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "award id" : "$id1"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $award.status )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$award.status"
+              #set( $control_coma = true )
+            #end
+
             #if ( $award.doc )
               #set ( $indexd = $award.doc.lastIndexOf("/") )
               #set ( $indexd = $indexd + 1 )
@@ -37,15 +63,6 @@
                 ,
               #end
               "document" : "$doc"
-              #set( $control_coma = true )
-            #end
-
-
-            #if ( $award.status )
-              #if ( $control_coma )
-                ,
-              #end
-              "status" : "$award.status"
               #set( $control_coma = true )
             #end
 
@@ -92,7 +109,7 @@
               "item" : "$item"
               #set( $control_coma = true )
             #end
-            
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,

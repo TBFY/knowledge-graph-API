@@ -10,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$ident"
+              "contract id" : "$ident"
               #set( $control_coma = true )
             #end
 

@@ -10,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$id"
+              "organisation id" : "$id"
               #set( $control_coma = true )
             #end
 
@@ -21,7 +21,7 @@
               #set ( $cin = $contractingp.pri.lastIndexOf("/") )
               #set ( $cin = $index + 1 )
               #set ( $id = $contractingp.pri.substring($cin, $contractingp.pri.length()) )
-              "contracting porcess" : "$id"
+              "contracting process" : "$id"
               #set( $control_coma = true )
             #end
 

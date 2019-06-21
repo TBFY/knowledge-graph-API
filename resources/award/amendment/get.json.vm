@@ -10,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "amendments id" : "$ident"
+              "award id" : "$ident"
               #set( $control_coma = true )
             #end
 

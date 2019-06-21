@@ -5,10 +5,6 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?contract ?plan ?tender ?award WHERE {
+SELECT DISTINCT ?s WHERE {
 		?s a tbfy:ContractingProcess .
-  	OPTIONAL { ?s tbfy:hasContract ?contract }.
-  	OPTIONAL { ?s tbfy:hasPlan ?plan } .
-  	OPTIONAL { ?s tbfy:hasTender ?tender } .
-  	OPTIONAL { ?s tbfy:hasAward ?award }
 }
