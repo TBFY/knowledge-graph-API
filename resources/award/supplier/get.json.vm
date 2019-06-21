@@ -1,0 +1,30 @@
+[
+    #foreach( $suppliers in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $suppliers.oid )
+            #set ( $index = $suppliers.oid.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $ident = $suppliers.oid.substring($index, $suppliers.oid.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$ident"
+              #set( $control_coma = true )
+            #end
+            #if ( $suppliers.s )
+            #set ( $index = $suppliers.s.lastIndexOf("/") )
+            #set ( $index = $index + 1 )
+            #set ( $org = $suppliers.s.substring($index, $suppliers.s.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "organisation" : "$org"
+              #set( $control_coma = true )
+            #end
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]

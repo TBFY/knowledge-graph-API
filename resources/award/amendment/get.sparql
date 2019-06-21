@@ -1,4 +1,3 @@
-PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -7,7 +6,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 SELECT DISTINCT (?id as ?oid) ?tit ?amend
 WHERE {
-	?id a tbfy:Contract .
-  OPTIONAL { ?id dcterms:title ?tit } .
+	?id a tbfy:Award .
+  ?id dcterms:title ?tit .
   ?id tbfy:hasAmendment ?amend .
 }

@@ -8,10 +8,10 @@ PREFIX schema: <http://schema.org/>
 SELECT DISTINCT ( ?id AS ?oid ) ?des ?stat ?mev ?minval ?maev ?maxval
 WHERE {
   ?id a tbfy:Tender .
-  ?id dcterms:description ?des .
-  ?id tbfy:tenderStatus ?stat .
-  ?id tbfy:hasMinEstimatedValue ?mev .
+  OPTIONAL { ?id dcterms:description ?des } .
+  OPTIONAL { ?id tbfy:tenderStatus ?stat } .
+  OPTIONAL { ?id tbfy:hasMinEstimatedValue ?mev } .
   OPTIONAL { ?mev rdf:minValue ?minval } .
-  ?id tbfy:hasMaxEstimatedValue ?maev .
+  OPTIONAL { ?id tbfy:hasMaxEstimatedValue ?maev } .
   OPTIONAL { ?maev rdf:value ?maxval } .
 }
