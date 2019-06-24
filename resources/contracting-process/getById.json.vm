@@ -10,16 +10,6 @@
     "id" : "$id"
     #set( $control_coma = true )
   #end
-  #if ( $contract )
-    #set ( $indexc = $contract.lastIndexOf("/") )
-    #set ( $indexc = $indexc + 1 )
-    #set ( $cpcontract = $contract.substring($indexc, $contract.length()) )
-    #if ( $control_coma )
-      ,
-    #end
-    "contract" : "$cpcontract"
-    #set( $control_coma = true )
-  #end
 
   #if ( $plan )
     #set ( $indexp = $plan.lastIndexOf("/") )
@@ -40,17 +30,6 @@
       ,
     #end
     "tender" : "$cptender"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $award )
-    #set ( $indexa = $award.lastIndexOf("/") )
-    #set ( $indexa = $indexa + 1 )
-    #set ( $cpaward = $award.substring($indexa, $award.length()) )
-    #if ( $control_coma )
-      ,
-    #end
-    "award" : "$cpaward"
     #set( $control_coma = true )
   #end
 

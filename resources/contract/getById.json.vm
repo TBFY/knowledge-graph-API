@@ -10,6 +10,7 @@
     "id" : "$ident"
     #set( $control_coma = true )
   #end
+
   #if ( $stat )
     #if ( $control_coma )
       ,
@@ -17,6 +18,7 @@
     "status" : "$stat"
     #set( $control_coma = true )
   #end
+
   #if ( $dcs )
     #if ( $control_coma )
       ,
@@ -24,13 +26,7 @@
     "dateContractSigned" : "$dcs"
     #set( $control_coma = true )
   #end
-  #if ( $val )
-    #if ( $control_coma )
-      ,
-    #end
-    "valueUri" : "$val"
-    #set( $control_coma = true )
-  #end
+
   #if ( $vala )
     #if ( $control_coma )
       ,
@@ -38,11 +34,28 @@
     "amount" : "$vala"
     #set( $control_coma = true )
   #end
+
   #if ( $valc )
     #if ( $control_coma )
       ,
     #end
     "currency" : "$valc"
+    #set( $control_coma = true )
+  #end
+
+  #if ( $mildes )
+    #if ( $control_coma )
+      ,
+    #end
+    "milestoneDescription" : "$mildes"
+    #set( $control_coma = true )
+  #end
+
+  #if ( $miltit )
+    #if ( $control_coma )
+      ,
+    #end
+    "milestoneTitle" : "$miltit"
     #set( $control_coma = true )
   #end
 
@@ -56,41 +69,5 @@
     "award" : "$c_award"
     #set( $control_coma = true )
   #end
-
-  #if ( $hcp )
-    #if ( $control_coma )
-      ,
-    #end
-    "contractPeriodUri" : "$hcp"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $milestone )
-    #if ( $control_coma )
-      ,
-    #end
-    "milestoneUri" : "$milestone"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $impl )
-    #if ( $control_coma )
-      ,
-    #end
-    "implementationUri" : "$impl"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $item )
-  #set ( $index = $item.lastIndexOf("/") )
-  #set ( $index = $index + 1 )
-  #set ( $item1 = $item.substring($index, $item.length()) )
-    #if ( $control_coma )
-      ,
-    #end
-    "item" : "$item1"
-    #set( $control_coma = true )
-  #end
-
 
 }

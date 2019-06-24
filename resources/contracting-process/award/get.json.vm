@@ -86,6 +86,14 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $award.itemcs )
+              #if ( $control_coma )
+                ,
+              #end
+              "additionalItemClassificatonScheme" : "$award.itemcs"
+              #set( $control_coma = true )
+            #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,
