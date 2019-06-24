@@ -26,7 +26,7 @@
               "description" : "$awards.des"
               #set( $control_coma = true )
             #end
-
+#*
             #if ( $awards.date )
               #if ( $control_coma )
                 ,
@@ -34,7 +34,7 @@
               "date" : "$awards.date"
               #set( $control_coma = true )
             #end
-
+*#
             #if ( $awards.status )
               #if ( $control_coma )
                 ,
@@ -42,7 +42,7 @@
               "status" : "$awards.status"
               #set( $control_coma = true )
             #end
-            
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,

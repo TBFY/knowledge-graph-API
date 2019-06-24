@@ -23,7 +23,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "date contract signed" : "$contracts.dcs"
+              "dateContractSigned" : "$contracts.dcs"
               #set( $control_coma = true )
             #end
 

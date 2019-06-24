@@ -17,7 +17,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "legal name" : "$organisations.ln"
+              "legalName" : "$organisations.ln"
               #set( $control_coma = true )
             #end
 

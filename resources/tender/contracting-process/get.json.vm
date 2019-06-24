@@ -2,24 +2,16 @@
     #foreach( $awards in $results )
         {
             #set( $control_coma = false )
-            #if ( $awards.oid )
-              #set ( $index = $awards.oid.lastIndexOf("/") )
-              #set ( $index = $index + 1 )
-              #set ( $id = $awards.oid.substring($index, $awards.oid.length()) )
+
+            #if ( $awards.s )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$id"
-              #set( $control_coma = true )
-            #end
-            #if ( $awards.pri )
-              #if ( $control_coma )
-                ,
-              #end
-              "plays role in" : "$awards.pri"
+              "id" : "$awards.s"
               #set( $control_coma = true )
             #end
         }
+
          #if ( $velocityCount < ${results.size()} )
             ,
          #end

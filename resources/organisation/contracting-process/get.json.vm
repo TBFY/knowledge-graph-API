@@ -3,17 +3,6 @@
         {
             #set( $control_coma = false )
 
-            #if ( $contractingp.oid )
-              #set ( $index = $contractingp.oid.lastIndexOf("/") )
-              #set ( $index = $index + 1 )
-              #set ( $id = $contractingp.oid.substring($index, $contractingp.oid.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "organisation id" : "$id"
-              #set( $control_coma = true )
-            #end
-
             #if ( $contractingp.pri )
               #if ( $control_coma )
                 ,
@@ -21,7 +10,7 @@
               #set ( $cin = $contractingp.pri.lastIndexOf("/") )
               #set ( $cin = $index + 1 )
               #set ( $id = $contractingp.pri.substring($cin, $contractingp.pri.length()) )
-              "contracting process" : "$id"
+              "id" : "$id"
               #set( $control_coma = true )
             #end
 

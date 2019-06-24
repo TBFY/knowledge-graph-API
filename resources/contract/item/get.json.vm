@@ -3,25 +3,6 @@
         {
             #set( $control_coma = false )
 
-            #if ( $items.oid )
-            #set ( $index = $items.oid.lastIndexOf("/") )
-            #set ( $index = $index + 1 )
-            #set ( $ident = $items.oid.substring($index, $items.oid.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "contract id" : "$ident"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $items.tit )
-              #if ( $control_coma )
-                ,
-              #end
-              "title" : "$items.tit"
-              #set( $control_coma = true )
-            #end
-
             #if ( $items.itm )
               #set ( $index = $items.itm.lastIndexOf("/") )
               #set ( $index = $index + 1 )
@@ -29,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "item id" : "$ident"
+              "id" : "$ident"
               #set( $control_coma = true )
             #end
 
@@ -37,7 +18,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "is related to lot" : "$items.lot"
+              "isRelatedToLot" : "$items.lot"
               #set( $control_coma = true )
             #end
 
@@ -53,18 +34,15 @@
               #if ( $control_coma )
                 ,
               #end
-              "item classificaton" : "$items.clas"
+              "additionalItemClassificaton" : "$items.clas"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.enq )
-            #set ( $index = $items.enq.lastIndexOf("/") )
-            #set ( $index = $index + 1 )
-            #set ( $enq1 = $items.enq.substring($index, $items.enq.length()) )
+            #if ( $items.classch )
               #if ( $control_coma )
                 ,
               #end
-              "enquiry" : "$enq1"
+              "additionalItemClassificatonScheme" : "$items.classch"
               #set( $control_coma = true )
             #end
 

@@ -4,7 +4,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT (?id as ?oid) ?tit ?itm ?lot ?clas ?enq ?cl1
+SELECT DISTINCT (?id as ?oid) ?tit ?itm ?lot ?clas ?classch ?enq ?cl1
 WHERE {
 	?id a tbfy:Award .
 	OPTIONAL { ?id dcterms:title ?tit } .
@@ -12,7 +12,7 @@ WHERE {
 	OPTIONAL { ?itm a tbfy:Item } .
 	OPTIONAL { ?itm tbfy:isRelatedToLot ?lot } .
 	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?clas } .
-#	OPTIONAL { ?itm tbfy:additionalItemClassificatonScheme ?class } .
+	OPTIONAL { ?itm tbfy:additionalItemClassificatonScheme ?classch } .
 	OPTIONAL { ?itm tbfy:hasRelatedEnquiry ?enq } .
 	OPTIONAL { ?itm tbfy:classificatonScheme ?cl1 } .
 }

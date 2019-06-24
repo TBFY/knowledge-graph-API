@@ -3,17 +3,6 @@
         {
             #set( $control_coma = false )
 
-            #if ( $contracts.oid )
-            #set ( $index = $contracts.oid.lastIndexOf("/") )
-            #set ( $index = $index + 1 )
-            #set ( $ident = $contracts.oid.substring($index, $contracts.oid.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "contracting process id" : "$ident"
-              #set( $control_coma = true )
-            #end
-
             #if ( $contracts.hcn )
             #set ( $index = $contracts.hcn.lastIndexOf("/") )
             #set ( $index = $index + 1 )
@@ -21,15 +10,15 @@
               #if ( $control_coma )
                 ,
               #end
-              "contract id" : "$cn1"
+              "id" : "$cn1"
               #set( $control_coma = true )
             #end
 
-            #if ( $ontracts.hcn )
+            #if ( $ontracts.cst )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$contracts.hcn"
+              "status" : "$contracts.cst"
               #set( $control_coma = true )
             #end
 

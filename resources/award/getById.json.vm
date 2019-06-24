@@ -44,14 +44,6 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $valr )
-    #if ( $control_coma )
-      ,
-    #end
-    "value uri" : "$valr"
-    #set( $control_coma = true )
-  #end
-
   #if ( $val )
     #if ( $control_coma )
       ,
@@ -68,54 +60,20 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $doc )
-  #set ( $index = $doc.lastIndexOf("/") )
-  #set ( $index = $index + 1 )
-  #set ( $doc = $doc.substring($index, $doc.length()) )
+  #if ( $startDate )
     #if ( $control_coma )
       ,
     #end
-    "document" : "$doc"
+    "startDate" : "$startDate"
     #set( $control_coma = true )
   #end
 
-  #if ( $awardper )
+  #if ( $endDate )
     #if ( $control_coma )
       ,
     #end
-    "award period uri" : "$awardper"
+    "endDate" : "$endDate"
     #set( $control_coma = true )
   #end
-
-  #if ( $contractper )
-    #if ( $control_coma )
-      ,
-    #end
-    "contract period uri" : "$contractper"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $cperiod )
-  #set ( $index = $cperiod.lastIndexOf("/") )
-  #set ( $index = $index + 1 )
-  #set ( $cperiod1 = $cperiod.substring($index, $cperiod.length()) )
-    #if ( $control_coma )
-      ,
-    #end
-    "contract period" : "$cperiod1"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $item )
-  #set ( $index = $item.lastIndexOf("/") )
-  #set ( $index = $index + 1 )
-  #set ( $item1 = $item.substring($index, $item.length()) )
-    #if ( $control_coma )
-      ,
-    #end
-    "item" : "$item1"
-    #set( $control_coma = true )
-  #end
-
 
   }

@@ -28,28 +28,28 @@
     #if ( $control_coma )
       ,
     #end
-    "min estimated value uri" : "$mev"
+    "minEstimatedValueUri" : "$mev"
     #set( $control_coma = true )
   #end
   #if ( $minval )
     #if ( $control_coma )
       ,
     #end
-    "min estimated value" : "$minval"
+    "minEstimatedValue" : "$minval"
     #set( $control_coma = true )
   #end
   #if ( $maev )
     #if ( $control_coma )
       ,
     #end
-    "max estimated value uri" : "$maev"
+    "maxEstimatedValueUri" : "$maev"
     #set( $control_coma = true )
   #end
   #if ( $maxval )
     #if ( $control_coma )
       ,
     #end
-    "max estimated value" : "$maxval"
+    "maxEstimatedValue" : "$maxval"
     #set( $control_coma = true )
   #end
 
@@ -57,7 +57,7 @@
     #if ( $control_coma )
       ,
     #end
-    "enquiry uri" : "$enq"
+    "enquiryUri" : "$enq"
     #set( $control_coma = true )
   #end
 
@@ -65,15 +65,15 @@
     #if ( $control_coma )
       ,
     #end
-    "enquiry period uri" : "$enqper"
+    "enquiryPeriodUri" : "$enqper"
     #set( $control_coma = true )
   #end
-  
+
   #if ( $contractper )
     #if ( $control_coma )
       ,
     #end
-    "estimated contract period uri" : "$contractper"
+    "estimatedContractPeriodUri" : "$contractper"
     #set( $control_coma = true )
   #end
 

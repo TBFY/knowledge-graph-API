@@ -3,38 +3,6 @@
     #foreach( $award in $results )
         {
             #set( $control_coma = false )
-            #set ( $index = $award.oid.lastIndexOf("/") )
-            #set ( $index = $index + 1 )
-            #set ( $id = $award.oid.substring($index, $award.oid.length()) )
-            #if ( $control_coma )
-              ,
-            #end
-            "contracting process id" : "$id"
-            #set( $control_coma = true )
-
-            #if ( $award.tit )
-              #if ( $control_coma )
-                ,
-              #end
-              "title" : "$award.tit"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $award.des )
-              #if ( $control_coma )
-                ,
-              #end
-              "description" : "$award.des"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $award.date )
-              #if ( $control_coma )
-                ,
-              #end
-              "date" : "$award.date"
-              #set( $control_coma = true )
-            #end
 
             #if ( $award.isf )
               #set ( $indexd = $award.isf.lastIndexOf("/") )
@@ -43,7 +11,15 @@
               #if ( $control_coma )
                 ,
               #end
-              "award id" : "$id1"
+              "id" : "$id1"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $award.dat )
+              #if ( $control_coma )
+                ,
+              #end
+              "date" : "$award.dat"
               #set( $control_coma = true )
             #end
 
@@ -73,7 +49,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "award period" : "$period"
+              "awardPeriod" : "$period"
               #set( $control_coma = true )
             #end
 
@@ -95,7 +71,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contract period" : "$cperiod"
+              "contractPeriod" : "$cperiod"
               #set( $control_coma = true )
             #end
 

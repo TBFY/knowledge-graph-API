@@ -14,7 +14,7 @@
     #if ( $control_coma )
       ,
     #end
-    "legal name" : "$ln"
+    "legalName" : "$ln"
     #set( $control_coma = true )
   #end
   #if ( $hn )
@@ -28,7 +28,7 @@
     #if ( $control_coma )
       ,
     #end
-    "street address" : "$sad"
+    "streetAddress" : "$sad"
     #set( $control_coma = true )
   #end
   #if ( $loc )
@@ -42,7 +42,7 @@
     #if ( $control_coma )
       ,
     #end
-    "postal code" : "$cp"
+    "postalCode" : "$cp"
     #set( $control_coma = true )
   #end
   #if ( $adc )

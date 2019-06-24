@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT (?id as ?oid) ?dat ?tit ?isf
+SELECT DISTINCT (?id as ?oid) ?dat ?tit ?isf ?stat
 WHERE {
 	?id a tbfy:Organisation .
   ?id tbfy:isSupplierFor ?isf .
@@ -13,4 +13,5 @@ WHERE {
   OPTIONAL { ?isf tbfy:awardDate ?dat } .
   OPTIONAL { ?isf dcterms:title ?tit } .
   OPTIONAL { ?isf dcterms:description ?des } .
+  OPTIONAL { ?isf tbfy:awardStatus ?stat } .
 }
