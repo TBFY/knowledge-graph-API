@@ -10,6 +10,7 @@
     "id" : "$ident"
     #set( $control_coma = true )
   #end
+  
   #if ( $des )
     #if ( $control_coma )
       ,
@@ -17,6 +18,7 @@
     "description" : "$des"
     #set( $control_coma = true )
   #end
+
   #if ( $stat )
     #if ( $control_coma )
       ,
@@ -24,13 +26,7 @@
     "status" : "$stat"
     #set( $control_coma = true )
   #end
-  #if ( $mev )
-    #if ( $control_coma )
-      ,
-    #end
-    "minEstimatedValueUri" : "$mev"
-    #set( $control_coma = true )
-  #end
+
   #if ( $minval )
     #if ( $control_coma )
       ,
@@ -38,42 +34,12 @@
     "minEstimatedValue" : "$minval"
     #set( $control_coma = true )
   #end
-  #if ( $maev )
-    #if ( $control_coma )
-      ,
-    #end
-    "maxEstimatedValueUri" : "$maev"
-    #set( $control_coma = true )
-  #end
+
   #if ( $maxval )
     #if ( $control_coma )
       ,
     #end
     "maxEstimatedValue" : "$maxval"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $enq )
-    #if ( $control_coma )
-      ,
-    #end
-    "enquiryUri" : "$enq"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $enqper )
-    #if ( $control_coma )
-      ,
-    #end
-    "enquiryPeriodUri" : "$enqper"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $contractper )
-    #if ( $control_coma )
-      ,
-    #end
-    "estimatedContractPeriodUri" : "$contractper"
     #set( $control_coma = true )
   #end
 
