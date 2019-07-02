@@ -10,12 +10,13 @@
     "id" : "$ident"
     #set( $control_coma = true )
   #end
-  
+
   #if ( $des )
     #if ( $control_coma )
       ,
     #end
-    "description" : "$des"
+    #set ( $dfinal = $des.replaceAll( "[^a-zA-Z0-9 ]" , "" )  )
+    "description" : "$dfinal"
     #set( $control_coma = true )
   #end
 

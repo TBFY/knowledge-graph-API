@@ -1,0 +1,30 @@
+[
+    #foreach( $organisations in $results )
+        {
+            #set( $control_coma = false )
+
+            #if ( $organisations.ibf )
+              #set ( $index = $organisations.ibf.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $organisations.ibf.substring($index, $organisations.ibf.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$id"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $organisations.hn )
+              #if ( $control_coma )
+                ,
+              #end
+              "hasName" : "$organisations.hn"
+              #set( $control_coma = true )
+            #end
+
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
