@@ -17,6 +17,8 @@ These five services will show all the information related to the contracts. All 
 
 [GET /contract/{id}/item](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0133-001534-2019_Contract/item) - Items of a contract to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/item/get.sparql)
 
+[GET /contract/{id}/organisation](http://tbfy.librairy.linkeddata.es/kg-api/contract/ocds-0c46vo-0133-001534-2019_Contract/organisation) - Items of a contract to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/organisation/get.sparql)
+
 **contracting-process**
 
 These five services will show all the information related to the contracting processes. All the examples have been generated with the contracting process id "ocds-0c46vo-0001-270e7ae7-baba-4d08-8b5c-ab2e5b5cefa0_ContractingProcess" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
