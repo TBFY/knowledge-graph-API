@@ -12,64 +12,13 @@
 
 ## Basic Overview
 
-Download articles and legal documents from public procurement sources:
-- Tender and contract data of European government bodies from [OpenOpps](https://openopps.com) via [API](http://theybuyforyou.eu/openopps-api/) or Amazon-S3 bucket (*credentials are required*)
-- Legislative texts via [JRC-Acquis](https://ec.europa.eu/jrc/en/language-technologies/jrc-acquis) dataset.
-- Public procurement notices via [TED](https://ted.europa.eu/) dataset.
-
-And index them into [SOLR](http://lucene.apache.org/solr/) to perform complex queries and visualize results through [Banana](https://github.com/lucidworks/banana).
+This repository contains the API documentation of the TheyBuyForYou project. So far, 25 GET services have been identified for the API divided into 5 main categories: Contract, Contracting Process, Tender, Award and Organisation. These services gather all the information from the knowledge graph built within TheyBuyForYou project.
 
 ## Quick Start
 
-1. Install [Docker](https://docs.docker.com/install/) and [Docker-Compose](https://docs.docker.com/compose/install/)
-1. Clone this repo
-
-	```
-	git clone https://github.com/TBFY/harvester.git
-	```
-1. Move into `src/test/docker` directory.
-1. Run Solr and Banana by: `docker-compose up -d`
-1. You should be able to monitor the progress by: `docker-compose logs -f`
-1. A Solr Admin site should be available at: [http://localhost:8983/solr](http://localhost:8983/solr)
-1. Rename the configuration file: `src/test/resources/credentials.properties.sample` to `src/test/resources/credentials.properties` (*if you have credentials, update its content*)
-1. Download and extract TED articles from [ftp://guest:guest@ted.europa.eu/daily-packages/](ftp://guest:guest@ted.europa.eu/daily-packages/) and save them at: `input/ted`
-1. Move into base directory and run our harvester by: `./test TEDHarvester`
-1. A dashboard with results should be available at: [http://localhost:8983/solr/banana](http://localhost:8983/solr/banana)
-
-
-Take a look at all our harvesters here:  `src/test/java/harvest/`.
-
-## Last Stable Release 
-Step 1. Add the JitPack repository to your build file
-```xml
-        <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-```
-Step 2. Add the dependency
-```xml
-        <dependency>
-	    <groupId>com.github.TBFY</groupId>
-	    <artifactId>harvester</artifactId>
-	    <version>last-stable-release-version</version>
-	</dependency>
-```
-
-## Contributing
-Please take a look at our [contributing](https://github.com/TBFY/general/blob/master/guides/how-to-contribute.md) guidelines if you're interested in helping!
-
-
-
-
-
-# API documentation
-
-This repository contains the API documentation of the TheyBuyForYou project. So far, 25 GET services have been identified for the API divided into 5 main categories: Contract, Contracting Process, Tender, Award and Organisation. These services gather all the information from the knowledge graph built within TheyBuyForYou project.
-
-# **SERVICES**
+1. The API is available online at:     
+    [http://tbfy.librairy.linkeddata.es/kg-api/](http://tbfy.librairy.linkeddata.es/kg-api/)
+1. You can extract all the information available in the project knowledge graph from each of the five main categories:
 **contract**
 
 These six services will show all the information related to the contracts. All the examples have been generated with the contract id "ocds-0c46vo-0133-001534-2019_Contract" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
@@ -141,3 +90,26 @@ These five services will show all the information related to the tenders. All th
 [GET /tender/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td/document) - Documents of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/document/get.sparql)
 
 The API returns a JSON file for each service implemented. 
+
+## Last Stable Release 
+Step 1. Add the JitPack repository to your build file
+```xml
+        <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+Step 2. Add the dependency
+```xml
+        <dependency>
+	    <groupId>com.github.TBFY</groupId>
+	    <artifactId>harvester</artifactId>
+	    <version>last-stable-release-version</version>
+	</dependency>
+```
+
+## Contributing
+Please take a look at our [contributing](https://github.com/TBFY/general/blob/master/guides/how-to-contribute.md) guidelines if you're interested in helping!
+
