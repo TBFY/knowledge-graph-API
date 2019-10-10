@@ -4,7 +4,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Docker](https://img.shields.io/badge/docker-v3.0+-blue.svg)
 [![Build Status](https://travis-ci.org/TBFY/knowledge-graph-API.svg?branch=master)](https://travis-ci.org/TBFY/knowledge-graph-API)
-[![Release Status](https://jitci.com/gh/TBFY/knowledge-graph-API/svg)](https://jitci.com/gh/TBFY/knowledge-graph-API)
+[![](https://jitpack.io/v/TBFY/knowledge-graph-API.svg)](https://jitpack.io/#TBFY/knowledge-graph-API)
 [![GitHub Issues](https://img.shields.io/github/issues/TBFY/knowledge-graph-API.svg)](https://github.com/TBFY/knowledge-graph-API/issues)
 [![License](https://img.shields.io/badge/license-Apache2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -39,7 +39,7 @@ And index them into [SOLR](http://lucene.apache.org/solr/) to perform complex qu
 
 Take a look at all our harvesters here:  `src/test/java/harvest/`.
 
-## Last Stable Release [![](https://jitpack.io/v/TBFY/knowledge-graph-API.svg)](https://jitpack.io/#TBFY/knowledge-graph-API)
+## Last Stable Release 
 Step 1. Add the JitPack repository to your build file
 ```xml
         <repositories>
