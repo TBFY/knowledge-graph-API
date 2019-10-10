@@ -19,32 +19,20 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 1. The API is available online at:     
     [http://tbfy.librairy.linkeddata.es/kg-api/](http://tbfy.librairy.linkeddata.es/kg-api/)
     
-1. You can extract all the information available in the knowledge graph project from each of the five main categories (Contract, Contracting Process, Tender, Award and Organisation) including complete listings, searches by identifier and second level of nesting. 
+1. The whole information available in the knowledge graph project from each of the five main categories can be extracted (Contract, Contracting Process, Tender, Award and Organisation) including complete listings, searches by identifier and second level of nesting. 
 
 1. The API returns a JSON file for each service implemented. 
 
-1. You can find the whole documentation for developers of the API, with examples, in the following link:
+1. The whole documentation for developers of the API, with examples, can be found in the following link:
 
     [https://github.com/TBFY/knowledge-graph-API/blob/master/documentation/documentation.md](https://github.com/TBFY/knowledge-graph-API/blob/master/documentation/documentation.md)
 
 ## Last Stable Release 
-Step 1. Add the JitPack repository to your build file
-```xml
-        <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-```
-Step 2. Add the dependency
-```xml
-        <dependency>
-	    <groupId>com.github.TBFY</groupId>
-	    <artifactId>harvester</artifactId>
-	    <version>last-stable-release-version</version>
-	</dependency>
-```
+
+Last stable release can be found here:
+
+[https://cloud.docker.com/u/tbfy/repository/docker/tbfy/kg-api](https://cloud.docker.com/u/tbfy/repository/docker/tbfy/kg-api)
+
 
 ## Contributing
 Please take a look at our [contributing](https://github.com/TBFY/general/blob/master/guides/how-to-contribute.md) guidelines if you're interested in helping!
