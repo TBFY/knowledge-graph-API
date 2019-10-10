@@ -18,10 +18,11 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 
 1. The API is available online at:     
     [http://tbfy.librairy.linkeddata.es/kg-api/](http://tbfy.librairy.linkeddata.es/kg-api/)
-1. You can extract all the information available in the project knowledge graph from each of the five main categories:
+1. You can extract all the information available in the knowledge graph project from each of the five main categories:
+
 **contract**
 
-These six services will show all the information related to the contracts. All the examples have been generated with the contract id "ocds-0c46vo-0133-001534-2019_Contract" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
+This category contains six services which will giv you all the information related to the contracts. You will be shown six examples, on for each category, which have been generated with the contract id "ocds-0c46vo-0133-001534-2019_Contract" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
 
 [GET /contract](http://tbfy.librairy.linkeddata.es/kg-api/contract) - Gets a list of contracts - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/contract/get.sparql)
 
