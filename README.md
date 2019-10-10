@@ -25,7 +25,7 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 
 1. The whole documentation for developers of the API, with examples, can be found in the following link:
 
-    [https://github.com/TBFY/knowledge-graph-API/blob/master/documentation/documentation.md](https://github.com/TBFY/knowledge-graph-API/blob/master/documentation/documentation.md)
+    [https://github.com/TBFY/knowledge-graph-API/wiki](https://github.com/TBFY/knowledge-graph-API/wiki)
 
 ## Last Stable Release 
 
