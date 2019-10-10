@@ -23,7 +23,7 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 
 1. The API returns a JSON file for each service implemented. 
 
-1. You can find the whole documentation of the API, with examples, in the following link:
+1. You can find the whole documentation for developers of the API, with examples, in the following link:
 
     [https://github.com/TBFY/knowledge-graph-API/blob/master/documentation/documentation.md](https://github.com/TBFY/knowledge-graph-API/blob/master/documentation/documentation.md)
 
