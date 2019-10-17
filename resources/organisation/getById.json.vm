@@ -31,13 +31,6 @@
     "streetAddress" : "$sad"
     #set( $control_coma = true )
   #end
-  #if ( $loc )
-    #if ( $control_coma )
-      ,
-    #end
-    "locality" : "$loc"
-    #set( $control_coma = true )
-  #end
   #if ( $cp )
     #if ( $control_coma )
       ,
@@ -45,18 +38,25 @@
     "postalCode" : "$cp"
     #set( $control_coma = true )
   #end
+  #if ( $loc )
+    #if ( $control_coma )
+      ,
+    #end
+    "locality" : "$loc"
+    #set( $control_coma = true )
+  #end
   #if ( $adc )
     #if ( $control_coma )
       ,
     #end
-    "county" : "$adc"
+    "country" : "$adc"
     #set( $control_coma = true )
   #end
-  #if ( $reg )
+  #if ( $cpn )
     #if ( $control_coma )
       ,
     #end
-    "region" : "$reg"
+    "contact" : "$cpn"
     #set( $control_coma = true )
   #end
   #if ( $eml )
@@ -64,13 +64,6 @@
       ,
     #end
     "email" : "$eml"
-    #set( $control_coma = true )
-  #end
-  #if ( $url )
-    #if ( $control_coma )
-      ,
-    #end
-    "URL" : "$url"
     #set( $control_coma = true )
   #end
   #if ( $tel )

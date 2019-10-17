@@ -5,20 +5,18 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ( ?id as ?oid ) ?ln ?hn ?sad ?loc ?adc ?reg ?cp ?url ?eml ?tel ?adl
+SELECT DISTINCT ( ?id as ?oid ) ?ln ?hn ?sad ?cp ?loc ?adc ?cpn ?eml ?tel
 WHERE {
   ?id a tbfy:Organisation .
   OPTIONAL { ?id tbfy:legalName ?ln } .
   OPTIONAL { ?id tbfy:hasName ?hn } .
   ?id tbfy:hasAddress ?adr .
   OPTIONAL { ?adr schema:streetAddress ?sad } .
-  OPTIONAL { ?adr schema:addressLocality ?loc } .
-  OPTIONAL { ?adr schema:addressCounty ?adc } .
-  OPTIONAL { ?adr schema:region ?reg } .
   OPTIONAL { ?adr schema:postalCode ?cp } .
+  OPTIONAL { ?adr schema:addressLocality ?loc } .
+  OPTIONAL { ?adr schema:addressCountry ?adc } .
   ?id tbfy:hasContactPoint ?hcp .
-  OPTIONAL { ?hcp schema:URL ?url } .
+  OPTIONAL { ?hcp schema:name ?cpn } .
   OPTIONAL { ?hcp schema:email ?eml } .
   OPTIONAL { ?hcp schema:telephone ?tel } .
-  OPTIONAL { ?hcp schema:addressLocality ?adl } .
 }
