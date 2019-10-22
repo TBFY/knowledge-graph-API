@@ -1,15 +1,19 @@
 [
-    #foreach( $awards in $results )
+    #foreach( $contracting in $results )
         {
             #set( $control_coma = false )
 
-            #if ( $awards.s )
+            #if ( $contracting.s )
+              #set ( $index = $contracting.s.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $idoc = $contracting.s.substring($index, $contracting.s.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$awards.s"
+              "id" : "$idoc"
               #set( $control_coma = true )
             #end
+            
         }
 
          #if ( $velocityCount < ${results.size()} )
