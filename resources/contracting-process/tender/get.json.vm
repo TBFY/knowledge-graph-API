@@ -1,0 +1,39 @@
+[
+
+    #foreach( $tender in $results )
+        {
+            #set( $control_coma = false )
+
+            #if ( $tender.isf )
+              #set ( $indexd = $tender.isf.lastIndexOf("/") )
+              #set ( $indexd = $indexd + 1 )
+              #set ( $id1 = $tender.isf.substring($indexd, $tender.isf.length()) )
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$id1"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $tender.ddes )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$tender.ddes"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $tender.status )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$tender.status"
+              #set( $control_coma = true )
+            #end
+
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
