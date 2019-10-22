@@ -14,35 +14,19 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $items.lot )
-              #if ( $control_coma )
-                ,
-              #end
-              "isRelatedToLot" : "$items.lot"
-              #set( $control_coma = true )
-            #end
-
             #if ( $items.cl1 )
               #if ( $control_coma )
                 ,
               #end
-              "classificaton" : "$items.cl1"
+              "classificatonScheme" : "$items.cl1"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.clas )
+            #if ( $items.cl2 )
               #if ( $control_coma )
                 ,
               #end
-              "additionalItemClassificaton" : "$items.clas"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $items.classch )
-              #if ( $control_coma )
-                ,
-              #end
-              "additionalItemClassificatonScheme" : "$items.classch"
+              "Classificaton" : "$items.cl2"
               #set( $control_coma = true )
             #end
 
