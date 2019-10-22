@@ -26,7 +26,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "Classification" : "$items.cl2"
+              "classification" : "$items.cl2"
               #set( $control_coma = true )
             #end
 
