@@ -21,7 +21,7 @@
     #if ( $control_coma )
       ,
     #end
-    "Name" : "$hn"
+    "name" : "$hn"
     #set( $control_coma = true )
   #end
   #if ( $sad )
