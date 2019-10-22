@@ -15,8 +15,7 @@
     #if ( $control_coma )
       ,
     #end
-    #set ( $dfinal = $des.replaceAll( "[^a-zA-Z0-9 ]" , "" )  )
-    "description" : "$dfinal"
+    "description" : "$des"
     #set( $control_coma = true )
   #end
 
