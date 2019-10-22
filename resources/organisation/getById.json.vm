@@ -14,7 +14,7 @@
     #if ( $control_coma )
       ,
     #end
-    "name" : "$ln"
+    "legalName" : "$ln"
     #set( $control_coma = true )
   #end
   #if ( $hn )
