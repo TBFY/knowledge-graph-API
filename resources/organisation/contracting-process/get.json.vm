@@ -2,17 +2,18 @@
     #foreach( $contractingp in $results )
         {
             #set( $control_coma = false )
-
+            
             #if ( $contractingp.pri )
+              #set ( $index = $$contractingp.pri.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $$contractingp.pri.substring($index, $$contractingp.pri.length()) )
               #if ( $control_coma )
                 ,
               #end
-              #set ( $cin = $contractingp.pri.lastIndexOf("/") )
-              #set ( $cin = $index + 1 )
-              #set ( $id = $contractingp.pri.substring($cin, $contractingp.pri.length()) )
               "id" : "$id"
               #set( $control_coma = true )
             #end
+
 
         }
          #if ( $velocityCount < ${results.size()} )
