@@ -27,9 +27,9 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
 
     [https://github.com/TBFY/knowledge-graph-API/wiki](https://github.com/TBFY/knowledge-graph-API/wiki)
 
-## Last Stable Release 
+## Lastest Stable Release 
 
-Last stable release can be found here:
+Lastest stable release can be found here:
 
 [https://cloud.docker.com/u/tbfy/repository/docker/tbfy/kg-api](https://cloud.docker.com/u/tbfy/repository/docker/tbfy/kg-api)
 
