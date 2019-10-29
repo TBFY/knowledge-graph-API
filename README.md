@@ -13,7 +13,7 @@
 
 ## Basic Overview
 
-This repository contains the API documentation of the TheyBuyForYou project. So far, 25 GET services have been identified for the API divided into 5 main categories: Contract, Contracting Process, Tender, Award and Organisation. These services gather all the information from the knowledge graph built within TheyBuyForYou project.
+This repository contains the API documentation of the TheyBuyForYou project. So far, 25 GET resources have been identified for the API, divided into 5 main categories: Contract, Contracting Process, Tender, Award and Organisation. These services gather all the information from the knowledge graph built within TheyBuyForYou project.
 
 ## Quick Start
 
