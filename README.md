@@ -7,6 +7,7 @@
 [![](https://jitpack.io/v/TBFY/knowledge-graph-API.svg)](https://jitpack.io/#TBFY/knowledge-graph-API)
 [![GitHub Issues](https://img.shields.io/github/issues/TBFY/knowledge-graph-API.svg)](https://github.com/TBFY/knowledge-graph-API/issues)
 [![License](https://img.shields.io/badge/license-Apache2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![DOI](https://zenodo.org/badge/167214336.svg)](https://zenodo.org/badge/latestdoi/167214336)
 
 
 
