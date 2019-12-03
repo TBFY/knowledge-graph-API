@@ -5,16 +5,69 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ( ?id AS ?oid ) ?des ?stat ?mev ?minval ?maev ?maxval ?enq ?enqper ?contractper
+SELECT DISTINCT ( ?id AS ?oid ) ?tid ?des ?stat ?hdocid ?hdoctype ?hdoclan ?hdocurl ?henq ?henqpstart ?henqpend ?hestcpstart ?hestcpend ?hitbpid ?hitbpaic ?hitbphc ?hitbpcs ?hitbpaics ?hlotdes ?hlottit ?hlotvam ?hlotvcu ?hmaxvam ?hmaxvcu ?hminvam ?hminvcu ?hmildes ?hmiltit ?hmildued ?hmilhdocid ?hmilhdoctype ?hmilhdoclan ?hmilhdocurl ?hrbvam ?hrbvcu ?hrbhdocid ?hrbhdoctype ?hrbhdoclan ?hrbhdocurl ?htpstart ?htpend
 WHERE {
   ?id a tbfy:Tender .
+  OPTIONAL { ?id tbfy:tenderId ?tid } .
   OPTIONAL { ?id dcterms:description ?des } .
   OPTIONAL { ?id tbfy:tenderStatus ?stat } .
-  OPTIONAL { ?id tbfy:hasMinEstimatedValue ?mev } .
-  OPTIONAL { ?mev rdf:minValue ?minval } .
-  OPTIONAL { ?id tbfy:hasMaxEstimatedValue ?maev } .
-  OPTIONAL { ?maev rdf:value ?maxval } .
-  OPTIONAL { ?id tbfy:hasEnquiry ?enq } .
-  OPTIONAL { ?id tbfy:hasEnquitryPeriod ?enqper } .
-  OPTIONAL { ?id tbfy:hasEstimatedContractPeriod ?contractper }
+
+  OPTIONAL { ?id tbfy:hasDocument ?hdoc } .
+  OPTIONAL { ?hdoc tbfy:documentId ?hdocid } .
+  OPTIONAL { ?hdoc tbfy:documentType ?hdoctype } .
+  OPTIONAL { ?hdoc dcterms:language ?hdoclan } .
+  OPTIONAL { ?hdoc schema:URL ?hdocurl } .
+
+  OPTIONAL { ?id tbfy:hasEnquiryPeriod ?henqp } .
+  OPTIONAL { ?henqp tbfy:startDate ?henqpstart } .
+  OPTIONAL { ?henqp tbfy:endDate ?henqpend } .
+
+  OPTIONAL { ?id tbfy:hasEstimatedContractPeriod ?hestcp } .
+  OPTIONAL { ?hestcp tbfy:startDate ?hestcpstart } .
+  OPTIONAL { ?hestcp tbfy:endDate ?hestcpend } .
+
+  OPTIONAL { ?id tbfy:hasItemToBeProcured ?hitbp } .
+  OPTIONAL { ?hitbp tbfy:Itemid ?hitbpid } .
+  OPTIONAL { ?hitbp tbfy:additionalItemClassificaton ?hitbpaic } .
+  OPTIONAL { ?hitbp tbfy:hasClassificaton ?hitbphc } .
+  OPTIONAL { ?hitbp tbfy:classificatonScheme ?hitbpcs } .
+  OPTIONAL { ?hitbp tbfy:additionalItemClassificatonScheme ?hitbpaics } .
+
+  OPTIONAL { ?id tbfy:hLot ?hlot } .
+  OPTIONAL { ?hlot dcterms:description ?hlotdes } .
+  OPTIONAL { ?hlot dcterms:title ?hlottit } .
+  OPTIONAL { ?hlot tbfy:hasLotValue ?hlotval } .
+  OPTIONAL { ?hlotval tbfy:valueAmount ?hlotvam } .
+  OPTIONAL { ?hlotval tbfy:valueCurrency ?hlotvcu } .
+
+  OPTIONAL { ?id tbfy:hasMaxEstimatedValue ?hmaxv } .
+  OPTIONAL { ?hmaxv tbfy:valueAmount ?hmaxvam } .
+  OPTIONAL { ?hmaxv tbfy:valueCurrency ?hmaxvcu } .
+
+  OPTIONAL { ?id tbfy:hasMinEstimatedValue ?hminv } .
+  OPTIONAL { ?hminv tbfy:valueAmount ?hminvam } .
+  OPTIONAL { ?hminv tbfy:valueCurrency ?hminvcu } .
+
+  OPTIONAL { ?id tbfy:hasMilestone ?hmil } .
+  OPTIONAL { ?hmil dcterms:description ?hmildes } .
+  OPTIONAL { ?hmil dcterms:title ?hmiltit } .
+  OPTIONAL { ?hmil tbfy:milestoneDueDate ?hmildued } .
+  OPTIONAL { ?hmil tbfy:hasDocument ?hmilhdoc } .
+  OPTIONAL { ?hmilhdoc tbfy:documentId ?hmilhdocid } .
+  OPTIONAL { ?hmilhdoc tbfy:documentType ?hmilhdoctype } .
+  OPTIONAL { ?hmilhdoc dcterms:language ?hmilhdoclan } .
+  OPTIONAL { ?hmilhdoc schema:URL ?hmilhdocurl } .
+
+  OPTIONAL { ?id tbfy:hasReceivedBid ?hrb } .
+  OPTIONAL { ?hrb tbfy:valueAmount ?hrbvam } .
+  OPTIONAL { ?hrb tbfy:valueCurrency ?hrbvcu } .
+  OPTIONAL { ?hrb tbfy:hasDocument ?hrbhdoc } .
+  OPTIONAL { ?hrbhdoc tbfy:documentId ?hrbhdocid } .
+  OPTIONAL { ?hrbhdoc tbfy:documentType ?hrbhdoctype } .
+  OPTIONAL { ?hrbhdoc dcterms:language ?hrbhdoclan } .
+  OPTIONAL { ?hrbhdoc schema:URL ?hrbhdocurl } .
+
+  OPTIONAL { ?id tbfy:hasTenderPeriod ?htp } .
+  OPTIONAL { ?htp tbfy:startDate ?htpstart } .
+  OPTIONAL { ?htp tbfy:endDate ?htpend } .
 }

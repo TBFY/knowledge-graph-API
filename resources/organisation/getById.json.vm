@@ -73,4 +73,32 @@
     "telephone" : "$tel"
     #set( $control_coma = true )
   #end
+  #if ( $jur )
+    #if ( $control_coma )
+      ,
+    #end
+    "jurisdiction" : "$jur"
+    #set( $control_coma = true )
+  #end
+  #if ( $fy )
+    #if ( $control_coma )
+      ,
+    #end
+    "foundationYear" : "$fy"
+    #set( $control_coma = true )
+  #end
+  #if ( $nemp )
+    #if ( $control_coma )
+      ,
+    #end
+    "numberOfmployees" : "$nemp"
+    #set( $control_coma = true )
+  #end
+  #if ( $fullad )
+    #if ( $control_coma )
+      ,
+    #end
+    "fullAddress" : "$fullad"
+    #set( $control_coma = true )
+  #end
 }

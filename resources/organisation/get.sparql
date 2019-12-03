@@ -5,8 +5,17 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?ln ?hn WHERE {
+PREFIX dbp: <http://dbpedia.org/ontology/>
+PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX bgh: <http://data.businessgraph.io/>
+SELECT DISTINCT ?s ?ln ?hn ?jur
+WHERE {
   ?s a tbfy:Organisation .
   OPTIONAL { ?s tbfy:legalName ?ln } .
   OPTIONAL { ?s tbfy:hasName ?hn } .
+  ?s owl:sameAs ?ss .
+  ?ss a regorg:RegisteredOrganization .
+  OPTIONAL { ?ss dbp:jurisdiction ?jur} .
+  FILTER ( regex(?jur, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
+  FILTER ( regex(?ln, ?name, "i") || !isLiteral(?name) ) .
 }

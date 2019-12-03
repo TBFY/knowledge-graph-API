@@ -29,6 +29,14 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $organisations.jur )
+              #if ( $control_coma )
+                ,
+              #end
+              "jurisdiction" : "$organisations.jur"
+              #set( $control_coma = true )
+            #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,
