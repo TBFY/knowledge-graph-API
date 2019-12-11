@@ -40,13 +40,13 @@
     * Name of the organisation: Adding the parameter ?name=xxx
     * Jurisdiction of the organisation: Adding the parameter ?juristiction=xx
     
-    It is also possible to use both paraeters together by using ?name=xxx+juristiction=xx
+    It is also possible to use both paraeters together by using ?name=xxx&juristiction=xx
     
     Here you are an example of the organisations that contain "met" in the name [GET /organisation?name=met](https://tbfy.librairy.linkeddata.es/kg-api/organisation?name=met)
     
     Here you are another example of the organisations that belong to Germany [GET /organisation?jurisdiction=de](https://tbfy.librairy.linkeddata.es/kg-api/organisation?jurisdiction=de)
     
-    And, finally, the list of organisations that its name contains "met" and belong to Germany [GET /organisation?jurisdiction=de+name=met](https://tbfy.librairy.linkeddata.es/kg-api/organisation?jurisdiction=de+name=met)
+    And, finally, the list of organisations that its name contains "met" and belong to Germany [GET /organisation?jurisdiction=de&name=met](https://tbfy.librairy.linkeddata.es/kg-api/organisation?jurisdiction=de&name=met)
 
     [GET /organisation/{id}](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-509cac8d-c115-4587-af06-8e94214ba148_Award_068aaf69-f37c-4121-a334-a9c8649225b4_Supplier_Peugeot%20Motor%20Company%20PLC) - Find an organisation by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/getById.sparql)
 
@@ -84,4 +84,14 @@
 
     [GET /tender/{id}/document](http://tbfy.librairy.linkeddata.es/kg-api/tender/ocds-0c46vo-0133-001534-2019_Tender_001534-2019_td/document) - Documents of a tender to return - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/tender/document/get.sparql)
 
-    The API returns a JSON file for each service implemented. 
+  **Paginated Query**
+
+   The API allows you to make paginated queries by simply adding the query param `size` and `offset` since they are special variables.
+
+   To show a list with only 5 organisations, it will be enough to request it this way: [GET /organisation?size=5](http://tbfy.librairy.linkeddata.es/kg-api/organisation?size=5)
+
+   and if the next page is needed, it is enough using:  [GET /organisation?size=5&offset=1](GET /organisation?size=5&offset=1)
+
+   When considering paginated queries it is necessary to set the `ORDER` option in the Sparql query.
+
+   The API returns a JSON file for each service implemented. 
