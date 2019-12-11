@@ -12,11 +12,11 @@
               "id" : "$id"
               #set( $control_coma = true )
             #end
-            #if ( $tenders.status )
+            #if ( $tenders.stat )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$tenders.status"
+              "status" : "$tenders.stat"
               #set( $control_coma = true )
             #end
             #if ( $tenders.tit )

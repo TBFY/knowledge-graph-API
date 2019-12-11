@@ -10,6 +10,7 @@
     "id" : "$ident"
     #set( $control_coma = true )
   #end
+
   #if ( $ln )
     #if ( $control_coma )
       ,
@@ -17,6 +18,7 @@
     "legalName" : "$ln"
     #set( $control_coma = true )
   #end
+
   #if ( $hn )
     #if ( $control_coma )
       ,
@@ -24,6 +26,7 @@
     "name" : "$hn"
     #set( $control_coma = true )
   #end
+
   #if ( $sad )
     #if ( $control_coma )
       ,
@@ -31,6 +34,7 @@
     "streetAddress" : "$sad"
     #set( $control_coma = true )
   #end
+
   #if ( $cp )
     #if ( $control_coma )
       ,
@@ -38,6 +42,7 @@
     "postalCode" : "$cp"
     #set( $control_coma = true )
   #end
+
   #if ( $loc )
     #if ( $control_coma )
       ,
@@ -45,6 +50,7 @@
     "locality" : "$loc"
     #set( $control_coma = true )
   #end
+
   #if ( $adc )
     #if ( $control_coma )
       ,
@@ -52,6 +58,7 @@
     "country" : "$adc"
     #set( $control_coma = true )
   #end
+
   #if ( $cpn )
     #if ( $control_coma )
       ,
@@ -59,6 +66,7 @@
     "contact" : "$cpn"
     #set( $control_coma = true )
   #end
+
   #if ( $eml )
     #if ( $control_coma )
       ,
@@ -66,6 +74,7 @@
     "email" : "$eml"
     #set( $control_coma = true )
   #end
+
   #if ( $tel )
     #if ( $control_coma )
       ,
@@ -73,6 +82,7 @@
     "telephone" : "$tel"
     #set( $control_coma = true )
   #end
+
   #if ( $jur )
     #if ( $control_coma )
       ,
@@ -80,6 +90,7 @@
     "jurisdiction" : "$jur"
     #set( $control_coma = true )
   #end
+
   #if ( $fy )
     #if ( $control_coma )
       ,
@@ -87,6 +98,7 @@
     "foundationYear" : "$fy"
     #set( $control_coma = true )
   #end
+
   #if ( $nemp )
     #if ( $control_coma )
       ,
@@ -94,6 +106,7 @@
     "numberOfmployees" : "$nemp"
     #set( $control_coma = true )
   #end
+
   #if ( $fullad )
     #if ( $control_coma )
       ,

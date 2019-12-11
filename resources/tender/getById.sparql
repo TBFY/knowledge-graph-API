@@ -7,47 +7,57 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 SELECT DISTINCT ( ?id AS ?oid ) ?tid ?des ?stat ?hdocid ?hdoctype ?hdoclan ?hdocurl ?henq ?henqpstart ?henqpend ?hestcpstart ?hestcpend ?hitbpid ?hitbpaic ?hitbphc ?hitbpcs ?hitbpaics ?hlotdes ?hlottit ?hlotvam ?hlotvcu ?hmaxvam ?hmaxvcu ?hminvam ?hminvcu ?hmildes ?hmiltit ?hmildued ?hmilhdocid ?hmilhdoctype ?hmilhdoclan ?hmilhdocurl ?hrbvam ?hrbvcu ?hrbhdocid ?hrbhdoctype ?hrbhdoclan ?hrbhdocurl ?htpstart ?htpend
 WHERE {
+
+#Tender information
   ?id a tbfy:Tender .
   OPTIONAL { ?id tbfy:tenderId ?tid } .
   OPTIONAL { ?id dcterms:description ?des } .
   OPTIONAL { ?id tbfy:tenderStatus ?stat } .
 
+#Object Property hasDocument
   OPTIONAL { ?id tbfy:hasDocument ?hdoc } .
   OPTIONAL { ?hdoc tbfy:documentId ?hdocid } .
   OPTIONAL { ?hdoc tbfy:documentType ?hdoctype } .
   OPTIONAL { ?hdoc dcterms:language ?hdoclan } .
   OPTIONAL { ?hdoc schema:URL ?hdocurl } .
 
+#Object Property hasEnquiryPeriod
   OPTIONAL { ?id tbfy:hasEnquiryPeriod ?henqp } .
   OPTIONAL { ?henqp tbfy:startDate ?henqpstart } .
   OPTIONAL { ?henqp tbfy:endDate ?henqpend } .
 
+#Object Property hasEstimatedContractPeriod
   OPTIONAL { ?id tbfy:hasEstimatedContractPeriod ?hestcp } .
   OPTIONAL { ?hestcp tbfy:startDate ?hestcpstart } .
   OPTIONAL { ?hestcp tbfy:endDate ?hestcpend } .
 
+#Object Property hasItemToBeProcured
   OPTIONAL { ?id tbfy:hasItemToBeProcured ?hitbp } .
-  OPTIONAL { ?hitbp tbfy:Itemid ?hitbpid } .
+  OPTIONAL { ?hitbp tbfy:itemId ?hitbpid } .
   OPTIONAL { ?hitbp tbfy:additionalItemClassificaton ?hitbpaic } .
   OPTIONAL { ?hitbp tbfy:hasClassificaton ?hitbphc } .
   OPTIONAL { ?hitbp tbfy:classificatonScheme ?hitbpcs } .
   OPTIONAL { ?hitbp tbfy:additionalItemClassificatonScheme ?hitbpaics } .
 
-  OPTIONAL { ?id tbfy:hLot ?hlot } .
+#Object Property hasLot
+  OPTIONAL { ?id tbfy:hasLot ?hlot } .
   OPTIONAL { ?hlot dcterms:description ?hlotdes } .
   OPTIONAL { ?hlot dcterms:title ?hlottit } .
   OPTIONAL { ?hlot tbfy:hasLotValue ?hlotval } .
   OPTIONAL { ?hlotval tbfy:valueAmount ?hlotvam } .
   OPTIONAL { ?hlotval tbfy:valueCurrency ?hlotvcu } .
 
+#Object Property hasMaxEstimatedValue
   OPTIONAL { ?id tbfy:hasMaxEstimatedValue ?hmaxv } .
   OPTIONAL { ?hmaxv tbfy:valueAmount ?hmaxvam } .
   OPTIONAL { ?hmaxv tbfy:valueCurrency ?hmaxvcu } .
 
+#Object Property hasMinEstimatedValue
   OPTIONAL { ?id tbfy:hasMinEstimatedValue ?hminv } .
   OPTIONAL { ?hminv tbfy:valueAmount ?hminvam } .
   OPTIONAL { ?hminv tbfy:valueCurrency ?hminvcu } .
 
+#Object Property hasMilestone
   OPTIONAL { ?id tbfy:hasMilestone ?hmil } .
   OPTIONAL { ?hmil dcterms:description ?hmildes } .
   OPTIONAL { ?hmil dcterms:title ?hmiltit } .
@@ -58,6 +68,7 @@ WHERE {
   OPTIONAL { ?hmilhdoc dcterms:language ?hmilhdoclan } .
   OPTIONAL { ?hmilhdoc schema:URL ?hmilhdocurl } .
 
+#Object Property hasReceivedBid
   OPTIONAL { ?id tbfy:hasReceivedBid ?hrb } .
   OPTIONAL { ?hrb tbfy:valueAmount ?hrbvam } .
   OPTIONAL { ?hrb tbfy:valueCurrency ?hrbvcu } .
@@ -67,6 +78,7 @@ WHERE {
   OPTIONAL { ?hrbhdoc dcterms:language ?hrbhdoclan } .
   OPTIONAL { ?hrbhdoc schema:URL ?hrbhdocurl } .
 
+#Object Property hasTenderPeriod
   OPTIONAL { ?id tbfy:hasTenderPeriod ?htp } .
   OPTIONAL { ?htp tbfy:startDate ?htpstart } .
   OPTIONAL { ?htp tbfy:endDate ?htpend } .

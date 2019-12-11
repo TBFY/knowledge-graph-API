@@ -11,18 +11,32 @@ PREFIX bgh: <http://data.businessgraph.io/>
 PREFIX locn: <http://www.w3.org/ns/locn#>
 SELECT DISTINCT ( ?id as ?oid ) ?ln ?hn ?sad ?cp ?loc ?adc ?cpn ?eml ?tel ?jur ?fy ?nemp ?fullad
 WHERE {
-  ?id a tbfy:Organisation .
+
+#Organisation information
+  OPTIONAL { ?id a tbfy:Organisation } .
   OPTIONAL { ?id tbfy:legalName ?ln } .
   OPTIONAL { ?id tbfy:hasName ?hn } .
-  ?id tbfy:hasAddress ?adr .
+
+#Object Property hasAddress
+  OPTIONAL { ?id tbfy:hasAddress ?adr } .
   OPTIONAL { ?adr schema:streetAddress ?sad } .
   OPTIONAL { ?adr schema:postalCode ?cp } .
   OPTIONAL { ?adr schema:addressLocality ?loc } .
   OPTIONAL { ?adr schema:addressCountry ?adc } .
-  ?id tbfy:hasContactPoint ?hcp .
+
+#Object Property hasContactPoint
+  OPTIONAL { ?id tbfy:hasContactPoint ?hcp } .
   OPTIONAL { ?hcp schema:name ?cpn } .
   OPTIONAL { ?hcp schema:email ?eml } .
   OPTIONAL { ?hcp schema:telephone ?tel } .
+
+  #Object Property isBuyerFor
+  OPTIONAL { ?id tbfy:isBuyerFor ?ibf } .
+
+  #Object Property isSupplierFor
+  OPTIONAL { ?id tbfy:isSupplierFor ?isf } .
+
+#Eu Ontology
   ?id owl:sameAs ?ss .
   ?ss a regorg:RegisteredOrganization .
   OPTIONAL { ?ss dbp:jurisdiction ?jur} .
