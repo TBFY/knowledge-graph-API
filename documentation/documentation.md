@@ -59,6 +59,11 @@
     These six services will show all the information related to the awards. All the examples have been generated with the award id "ocds-0c46vo-0133-001579-2019_Award_20190103001579_A1" but you can use any of those shown in the first service by replacing the example identifier with one of your choice.
 
     [GET /award](http://tbfy.librairy.linkeddata.es/kg-api/award) - Gets a list of awards - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/award/get.sparql)
+    
+    It is possible to filter the resulting list using one parameters:
+    * Status of the award (pending, active, cancelled, unsuccessful): Adding the parameter ?status=xxx
+    
+    Here you are an example of the active awards [GET /award?status=active](https://tbfy.librairy.linkeddata.es/kg-api/award?status=active)
 
     [GET /award/{id}](http://tbfy.librairy.linkeddata.es/kg-api/award/ocds-0c46vo-0133-001579-2019_Award_20190103001579_A1) - Find an award by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/award/getById.sparql)
 
