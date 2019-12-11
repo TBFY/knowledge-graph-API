@@ -46,7 +46,7 @@
     
     Here you are another example of the organisations that belong to Germany [GET /organisation?jurisdiction=de](https://tbfy.librairy.linkeddata.es/kg-api/organisation?jurisdiction=de)
     
-    And, finally, the list of organisations that its name contains "met" and belong to Germany [GET /organisation?jurisdiction=gb+name=de](https://tbfy.librairy.linkeddata.es/kg-api/organisation?jurisdiction=de+name=met)
+    And, finally, the list of organisations that its name contains "met" and belong to Germany [GET /organisation?jurisdiction=de+name=met](https://tbfy.librairy.linkeddata.es/kg-api/organisation?jurisdiction=de+name=met)
 
     [GET /organisation/{id}](http://tbfy.librairy.linkeddata.es/kg-api/organisation/ocds-0c46vo-0001-509cac8d-c115-4587-af06-8e94214ba148_Award_068aaf69-f37c-4121-a334-a9c8649225b4_Supplier_Peugeot%20Motor%20Company%20PLC) - Find an organisation by ID - [See query](https://raw.githubusercontent.com/TBFY/knowledge-graph-API/master/resources/organisation/getById.sparql)
 
