@@ -12,18 +12,28 @@
               "id" : "$id"
               #set( $control_coma = true )
             #end
+
+            #if ( $tenders.title )
+              #if ( $control_coma )
+                ,
+              #end
+              "title" : "$tenders.title"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $tenders.description )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$tenders.description"
+              #set( $control_coma = true )
+            #end
+
             #if ( $tenders.stat )
               #if ( $control_coma )
                 ,
               #end
               "status" : "$tenders.stat"
-              #set( $control_coma = true )
-            #end
-            #if ( $tenders.tit )
-              #if ( $control_coma )
-                ,
-              #end
-              "title" : "$tenders.tit"
               #set( $control_coma = true )
             #end
         }

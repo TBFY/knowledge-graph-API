@@ -1,15 +1,12 @@
-PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?stat ?tit
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?s ?stat ?title ?description
 WHERE {
-	?s a tbfy:Tender .
-  ?s tbfy:tenderStatus ?stat .
-  OPTIONAL { ?s tbfy:tenderId ?tenid } .
-  OPTIONAL { ?s dcterms:title ?tit } .
+	?s a ocds:Tender .
+  ?s ocds:tenderStatus ?stat .
+  OPTIONAL { ?s ocds:tenderId ?tenid } .
+  OPTIONAL { ?s dct:title ?title } .
+	OPTIONAL { ?s dct:description ?description } .
   FILTER ( regex(?stat, ?status, "i") || !isLiteral(?status) ) .
 }

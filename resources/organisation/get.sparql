@@ -1,21 +1,15 @@
-PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX regorg: <http://www.w3.org/ns/regorg#>
-PREFIX bgh: <http://data.businessgraph.io/>
-SELECT DISTINCT ?s ?ln ?hn ?jur
+
+SELECT ?s ?legalName ?jur
 WHERE {
-  ?s a tbfy:Organisation .
-  OPTIONAL { ?s tbfy:legalName ?ln } .
-  OPTIONAL { ?s tbfy:hasName ?hn } .
-  ?s owl:sameAs ?ss .
+  ?s a ocds:Organisation .
+  ?s ocds:legalName ?legalName .
+  OPTIONAL { ?s owl:sameAs ?ss .
   ?ss a regorg:RegisteredOrganization .
-  OPTIONAL { ?ss dbp:jurisdiction ?jur} .
+  ?ss dbp:jurisdiction ?jur } .
   FILTER ( regex(?jur, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
-  FILTER ( regex(?ln, ?name, "i") || !isLiteral(?name) ) .
+  FILTER ( regex(?legalName, ?name, "i") || !isLiteral(?name) ) .
 }

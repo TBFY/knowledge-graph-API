@@ -2,10 +2,10 @@ PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT (?id as ?oid) ?hcn ?cst
+SELECT (?id as ?oid) ?hcn ?cst
 WHERE {
 	?id a tbfy:ContractingProcess .
 	?id tbfy:hasContract ?hcn .

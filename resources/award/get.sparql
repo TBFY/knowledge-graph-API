@@ -1,12 +1,12 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <https://theybuyforyou.eu/ontology/ocds/>
+PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT DISTINCT ?s ?tit ?des ?date ?stat WHERE {
+SELECT ?s ?tit ?des ?date ?stat WHERE {
 	?s a tbfy:Award .
-#  	OPTIONAL { ?s tbfy:awardId ?id } .
+  OPTIONAL { ?s tbfy:awardId ?id } .
   OPTIONAL { ?s dcterms:title ?tit } .
   OPTIONAL { ?s dcterms:description ?des } .
 	OPTIONAL { ?s tbfy:awardDate ?date } .

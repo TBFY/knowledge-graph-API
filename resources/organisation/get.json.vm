@@ -9,23 +9,15 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$id"
+              "id" : "$organisations.s"
               #set( $control_coma = true )
             #end
 
-            #if ( $organisations.ln )
+            #if ( $organisations.legalName )
               #if ( $control_coma )
                 ,
               #end
-              "legalName" : "$organisations.ln"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $organisations.hn )
-              #if ( $control_coma )
-                ,
-              #end
-              "name" : "$organisations.hn"
+              "legalName" : "$organisations.legalName"
               #set( $control_coma = true )
             #end
 
