@@ -11,62 +11,19 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $stat )
+  #if ( $startdate )
     #if ( $control_coma )
       ,
     #end
-    "status" : "$stat"
+    "startDate" : "$startdate"
     #set( $control_coma = true )
   #end
 
-  #if ( $dcs )
+  #if ( $enddate )
     #if ( $control_coma )
       ,
     #end
-    "dateContractSigned" : "$dcs"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $vala )
-    #if ( $control_coma )
-      ,
-    #end
-    "amount" : "$vala"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $valc )
-    #if ( $control_coma )
-      ,
-    #end
-    "currency" : "$valc"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $mildes )
-    #if ( $control_coma )
-      ,
-    #end
-    "milestoneDescription" : "$mildes"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $miltit )
-    #if ( $control_coma )
-      ,
-    #end
-    "milestoneTitle" : "$miltit"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $award )
-  #set ( $index = $award.lastIndexOf("/") )
-  #set ( $index = $index + 1 )
-  #set ( $c_award = $award.substring($index, $award.length()) )
-    #if ( $control_coma )
-      ,
-    #end
-    "award" : "$c_award"
+    "endDate" : "$enddate"
     #set( $control_coma = true )
   #end
 

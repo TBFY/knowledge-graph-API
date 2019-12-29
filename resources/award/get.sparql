@@ -1,15 +1,11 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
 SELECT ?s ?tit ?des ?date ?stat WHERE {
-	?s a tbfy:Award .
-  OPTIONAL { ?s tbfy:awardId ?id } .
-  OPTIONAL { ?s dcterms:title ?tit } .
-  OPTIONAL { ?s dcterms:description ?des } .
-	OPTIONAL { ?s tbfy:awardDate ?date } .
-  OPTIONAL {?s tbfy:awardStatus ?stat} .
+	?s a ocds:Award .
+  OPTIONAL { ?s dct:title ?tit } .
+  OPTIONAL { ?s dct:description ?des } .
+	OPTIONAL { ?s ocds:awardDate ?date } .
+  OPTIONAL { ?s ocds:awardStatus ?stat } .
   FILTER ( regex(?stat, ?status, "i") || !isLiteral(?status) ) .
 }

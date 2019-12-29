@@ -5,4 +5,5 @@ docker run -it --rm  \
     -v "$(pwd)/resources:/resources" \
     -e "SPARQL_ENDPOINT=http://52.19.213.234:7200/repositories/TBFY" \
     -e "RESOURCE_NAMESPACE=http://data.tbfy.eu/" \
+    -e "RESOURCE_NESTED=True" \
     cbadenes/r4r:latest

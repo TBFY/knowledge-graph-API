@@ -2,53 +2,39 @@ PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT ( ?id AS ?oid ) ?aid ?tit ?des ?dat ?stat ?startDate ?endDate ?haitbpid ?haitbpaic ?haitbpcs ?haitbpaics ?val ?cur ?hdocid ?hdoctype ?hdoclan ?hdocurl ?htpstart ?htpend ?tid
+SELECT ( ?id AS ?oid ) ?aid ?tit ?des ?dat ?stat ?startDate ?endDate ?val ?cur ?hdocid ?hdoctype ?hdoclan ?hdocurl ?tid
 WHERE {
 
 #Award information
-  ?id a tbfy:Award .
-  OPTIONAL { ?id tbfy:awardId ?aid } .
-  OPTIONAL { ?id dcterms:title ?tit } .
-  OPTIONAL { ?id dcterms:description ?des } .
-  OPTIONAL { ?id tbfy:awardDate ?dat } .
-  OPTIONAL { ?id tbfy:awardStatus ?stat } .
+  ?id a ocds:Award .
+  OPTIONAL { ?id ocds:awardId ?aid } .
+  OPTIONAL { ?id dct:title ?tit } .
+  OPTIONAL { ?id dct:description ?des } .
+  OPTIONAL { ?id ocds:awardDate ?dat } .
+  OPTIONAL { ?id ocds:awardStatus ?stat } .
 
 #Object Property hasAwardedContractPeriod
-  OPTIONAL { ?id tbfy:hasAwardedContractPeriod ?cperiod } .
-  OPTIONAL { ?cperiod tbfy:startDate ?startDate } .
-  OPTIONAL { ?cperiod tbfy:endDate ?endDate } .
-
-#Object Property hasAwardedItem
-  OPTIONAL { ?id tbfy:hasAwardedItem ?hait } .
-  OPTIONAL { ?hait tbfy:itemId ?haitbpid } .
-  OPTIONAL { ?hait tbfy:additionalItemClassificaton ?haitbpaic } .
-  OPTIONAL { ?hait tbfy:hasClassificaton ?haitbphc } .
-  OPTIONAL { ?hait tbfy:classificatonScheme ?haitbpcs } .
-  OPTIONAL { ?hait tbfy:additionalItemClassificatonScheme ?haitbpaics } .
+  OPTIONAL { ?id ocds:hasAwardedContractPeriod ?cperiod } .
+  OPTIONAL { ?cperiod ocds:startDate ?startDate } .
+  OPTIONAL { ?cperiod ocds:endDate ?endDate } .
 
 #Object Property hasAwardValue
-  OPTIONAL { ?id tbfy:hasAwardValue ?valr } .
-  OPTIONAL { ?valr tbfy:ValueAmount ?val } .
-  OPTIONAL { ?valr tbfy:ValueCurrency ?cur } .
+  OPTIONAL { ?id ocds:hasAwardValue ?valr } .
+  OPTIONAL { ?valr ocds:ValueAmount ?val } .
+  OPTIONAL { ?valr ocds:ValueCurrency ?cur } .
 
 #Object Property hasDocument
-  OPTIONAL { ?id tbfy:hasDocument ?hdoc } .
-  OPTIONAL { ?hdoc tbfy:documentId ?hdocid } .
-  OPTIONAL { ?hdoc tbfy:documentType ?hdoctype } .
-  OPTIONAL { ?hdoc dcterms:language ?hdoclan } .
+  OPTIONAL { ?id ocds:hasDocument ?hdoc } .
+  OPTIONAL { ?hdoc ocds:documentId ?hdocid } .
+  OPTIONAL { ?hdoc ocds:documentType ?hdoctype } .
+  OPTIONAL { ?hdoc dct:language ?hdoclan } .
   OPTIONAL { ?hdoc schema:URL ?hdocurl } .
 
 #Object Property isIssuedForTender
-  OPTIONAL { ?id tbfy:isIssuedForTender ?iift } .
-  OPTIONAL { ?id tbfy:tenderId ?tid } .
-
-#Object Property hasAwardPeriod
-  OPTIONAL { ?id tbfy:hasAwardPeriod ?htp } .
-  OPTIONAL { ?htp tbfy:startDate ?htpstart } .
-  OPTIONAL { ?htp tbfy:endDate ?htpend } .
-
+  OPTIONAL { ?id ocds:isIssuedForTender ?iift } .
+  OPTIONAL { ?iift ocds:tenderId ?tid } .
 
 }

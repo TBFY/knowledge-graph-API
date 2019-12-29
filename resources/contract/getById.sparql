@@ -2,21 +2,13 @@ PREFIX org: <http://www.w3.org/ns/org#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT ( ?id as ?oid ) ?stat ?dcs ?val ?vala ?valc ?milestone ?mildes ?miltit ?impl ?award ?hcp
+SELECT ( ?id as ?oid ) ?startdate ?enddate
 WHERE {
-    ?id a tbfy:Contract .
-    OPTIONAL { ?id tbfy:contractStatus ?stat } .
-    OPTIONAL { ?id tbfy:dateContractSigned ?dcs } .
-    ?id tbfy:hasContractValue ?val .
-  	OPTIONAL { ?val tbfy:valueAmount ?vala } .
-    OPTIONAL { ?val tbfy:valueCurrency ?valc } .
-    ?id tbfy:hasContractPeriod ?hcp .
-    OPTIONAL { ?id tbfy:hasMilestone ?milestone } .
-    OPTIONAL { ?milestone dcterms:description ?mildes } .
-    OPTIONAL { ?milestone dcterms:title ?miltit } .
-    OPTIONAL { ?id tbfy:hasContractImplementation ?impl } .
-    OPTIONAL { ?id tbfy:isIssuedForAward ?award }
+	?id a ocds:Contract .
+	?id ocds:hasContractPeriod ?hcp .
+  OPTIONAL { ?hcp ocds:startDate ?startdate .
+		?hcp ocds:endDate ?enddate } .
 }

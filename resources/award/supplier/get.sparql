@@ -1,12 +1,8 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+
 SELECT (?id as ?oid) ?s
 WHERE {
-  ?id a tbfy:Award .
-  ?s a tbfy:Organisation .
-  ?s tbfy:isSupplierFor ?id .
+  ?id a ocds:Award .
+  ?s a ocds:Organisation .
+  ?s ocds:isSupplierFor ?id .
 }

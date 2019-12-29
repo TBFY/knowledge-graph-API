@@ -1,18 +1,15 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
 SELECT (?id as ?oid) ?tit ?itm ?lot ?clas ?classch ?enq ?cl1
 WHERE {
-	?id a tbfy:Award .
-	OPTIONAL { ?id dcterms:title ?tit } .
-  ?id tbfy:hasAwardedItem ?itm .
-	OPTIONAL { ?itm a tbfy:Item } .
-	OPTIONAL { ?itm tbfy:isRelatedToLot ?lot } .
-	OPTIONAL { ?itm tbfy:hasAdditionalItemClassificaton ?clas } .
-	OPTIONAL { ?itm tbfy:additionalItemClassificatonScheme ?classch } .
-	OPTIONAL { ?itm tbfy:hasRelatedEnquiry ?enq } .
-	OPTIONAL { ?itm tbfy:classificatonScheme ?cl1 } .
+	?id a ocds:Award .
+	OPTIONAL { ?id dct:title ?tit } .
+  ?id ocds:hasAwardedItem ?itm .
+	OPTIONAL { ?itm a ocds:Item } .
+	OPTIONAL { ?itm ocds:isRelatedToLot ?lot } .
+	OPTIONAL { ?itm ocds:hasAdditionalItemClassificaton ?clas } .
+	OPTIONAL { ?itm ocds:additionalItemClassificatonScheme ?classch } .
+	OPTIONAL { ?itm ocds:hasRelatedEnquiry ?enq } .
+	OPTIONAL { ?itm ocds:classificatonScheme ?cl1 } .
 }

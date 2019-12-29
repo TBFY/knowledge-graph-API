@@ -1,12 +1,9 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
 SELECT (?id as ?oid) ?tit ?amend
 WHERE {
-	?id a tbfy:Award .
-  ?id dcterms:title ?tit .
-  ?id tbfy:hasAmendment ?amend .
+	?id a ocds:Award .
+  ?id dct:title ?tit .
+  ?id ocds:hasAmendment ?amend .
 }

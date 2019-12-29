@@ -68,38 +68,6 @@
     #set( $control_coma = true )
   #end
 
-#if ( $haitbpid )
-  #if ( $control_coma )
-    ,
-  #end
-  "itemId" : "$haitbpid"
-  #set( $control_coma = true )
-#end
-
-#if ( $haitbpaic )
-  #if ( $control_coma )
-    ,
-  #end
-  "additionalItemClassificaton" : "$haitbpaic"
-  #set( $control_coma = true )
-#end
-
-#if ( $haitbpcs )
-  #if ( $control_coma )
-    ,
-  #end
-  "classificatonScheme" : "$haitbpcs"
-  #set( $control_coma = true )
-#end
-
-#if ( $haitbpaics )
-  #if ( $control_coma )
-    ,
-  #end
-  "additionalItemClassificatonScheme" : "$haitbpaics"
-  #set( $control_coma = true )
-#end
-
 #if ( $val )
   #if ( $control_coma )
     ,
@@ -155,22 +123,5 @@
     "tenderId" : "$tid"
     #set( $control_coma = true )
   #end
-
-  #if ( $htpstart )
-    #if ( $control_coma )
-      ,
-    #end
-    "awardPeriodStartDate" : "$htpstart"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $htpend )
-    #if ( $control_coma )
-      ,
-    #end
-    "awardPeriodEndDate" : "$htpend"
-    #set( $control_coma = true )
-  #end
-
 
   }

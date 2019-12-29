@@ -11,100 +11,99 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $tid )
+  #if ( $tenderid )
     #if ( $control_coma )
       ,
     #end
-    "tenderId" : "$tid"
+    "tenderId" : "$tenderid"
     #set( $control_coma = true )
   #end
 
-  #if ( $des )
+  #if ( $tendertitle )
     #if ( $control_coma )
       ,
     #end
-    "description" : "$des"
+    "title" : "$tendertitle"
     #set( $control_coma = true )
   #end
 
-  #if ( $stat )
+  #if ( $tenderdescription )
     #if ( $control_coma )
       ,
     #end
-    "status" : "$stat"
+    "description" : "$tenderdescription"
     #set( $control_coma = true )
   #end
 
-#if ( $hdocid )
+  #if ( $tenderstatus )
+    #if ( $control_coma )
+      ,
+    #end
+    "status" : "$tenderstatus"
+    #set( $control_coma = true )
+  #end
+
+#if ( $hasdocid )
   #if ( $control_coma )
     ,
   #end
-  "documentId" : "$hdocid"
+  "documentId" : "$hasdocid"
   #set( $control_coma = true )
 #end
 
-#if ( $hdoctype )
+#if ( $hasdoctype )
   #if ( $control_coma )
     ,
   #end
-  "documentType" : "$hdoctype"
+  "documentType" : "$hasdoctype"
   #set( $control_coma = true )
 #end
 
-#if ( $hdoclan )
+#if ( $hasdoclan )
   #if ( $control_coma )
     ,
   #end
-  "documentLanguage" : "$hdoclan"
+  "documentLanguage" : "$hasdoclan"
   #set( $control_coma = true )
 #end
 
-#if ( $hdocurl )
+#if ( $hasdocurl )
   #if ( $control_coma )
     ,
   #end
-  "documentURL" : "$hdocurl"
+  "documentURL" : "$hasdocurl"
   #set( $control_coma = true )
 #end
 
-#if ( $henqpstart )
+#if ( $henqperiodstart )
   #if ( $control_coma )
     ,
   #end
-  "enquiryStartDate" : "$henqpstart"
+  "enquiryStartDate" : "$henqperiodstart"
   #set( $control_coma = true )
 #end
 
-#if ( $henqpend )
+#if ( $henqperiodend )
   #if ( $control_coma )
     ,
   #end
-  "enquiryEndDate" : "$henqpend"
+  "enquiryEndDate" : "$henqperiodend"
   #set( $control_coma = true )
 #end
-
-#if ( $hestcpstart )
-  #if ( $control_coma )
-    ,
-  #end
-  "estimatedContractStartDate" : "$hestcpstart"
-  #set( $control_coma = true )
-#end
-
-#if ( $hestcpend )
-  #if ( $control_coma )
-    ,
-  #end
-  "estimatedContractEndDate" : "$hestcpend"
-  #set( $control_coma = true )
-#end
-
 
 #if ( $hitbpid )
   #if ( $control_coma )
     ,
   #end
   "itemId" : "$hitbpid"
+  #set( $control_coma = true )
+#end
+
+#if ( $hitbpdes )
+  #if ( $control_coma )
+    ,
+  #end
+  "itemDescription" : "$hitbpdes"
   #set( $control_coma = true )
 #end
 
@@ -116,14 +115,6 @@
   #set( $control_coma = true )
 #end
 
-#if ( $hitbphc )
-  #if ( $control_coma )
-    ,
-  #end
-  "hasClassificaton" : "$hitbphc"
-  #set( $control_coma = true )
-#end
-
 #if ( $hitbpcs )
   #if ( $control_coma )
     ,
@@ -132,43 +123,19 @@
   #set( $control_coma = true )
 #end
 
+#if ( $hitbphc )
+  #if ( $control_coma )
+    ,
+  #end
+  "hasClassificaton" : "$hitbphc"
+  #set( $control_coma = true )
+#end
+
 #if ( $hitbpaics )
   #if ( $control_coma )
     ,
   #end
   "additionalItemClassificatonScheme" : "$hitbpaics"
-  #set( $control_coma = true )
-#end
-
-#if ( $hlotdes )
-  #if ( $control_coma )
-    ,
-  #end
-  "lotDescription" : "$hlotdes"
-  #set( $control_coma = true )
-#end
-
-#if ( $hlottit )
-  #if ( $control_coma )
-    ,
-  #end
-  "lotTitle" : "$hlottit"
-  #set( $control_coma = true )
-#end
-
-#if ( $hlotvam )
-  #if ( $control_coma )
-    ,
-  #end
-  "lotAmount" : "$hlotvam"
-  #set( $control_coma = true )
-#end
-
-#if ( $hlotvcu )
-  #if ( $control_coma )
-    ,
-  #end
-  "lotCurrency" : "$hlotvcu"
   #set( $control_coma = true )
 #end
 

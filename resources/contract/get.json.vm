@@ -12,18 +12,20 @@
               "id" : "$id"
               #set( $control_coma = true )
             #end
-            #if ( $contracts.stat )
+
+            #if ( $contracts.startdate )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$contracts.stat"
+              "startDate" : "$contracts.startdate"
               #set( $control_coma = true )
             #end
-            #if ( $contracts.dcs )
+
+            #if ( $contracts.enddate )
               #if ( $control_coma )
                 ,
               #end
-              "dateContractSigned" : "$contracts.dcs"
+              "endDate" : "$contracts.enddate"
               #set( $control_coma = true )
             #end
 
