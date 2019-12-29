@@ -1,0 +1,5 @@
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+
+SELECT ?s WHERE {
+		?s a ocds:ContractingProcess .
+}

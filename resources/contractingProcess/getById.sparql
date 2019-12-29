@@ -1,0 +1,36 @@
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+
+SELECT ( ?id as ?cpid ) ?contractstartdate ?contractenddate ?hasaward ?hasawardtit ?hasawarddes ?hasawarddat ?hasawardstat ?hastender ?tendertitle ?tenderdescription ?tenderstatus ?hasdocid ?hasdoctype ?hasdoclan ?hasdocurl
+WHERE {
+?id a ocds:ContractingProcess .
+
+#Object Property hasContract
+OPTIONAL { ?id ocds:hasContract ?hascont }.
+?hascont ocds:hasContractPeriod ?hcperiod .
+OPTIONAL { ?hcperiod ocds:startDate ?contractstartdate .
+  ?hcperiod ocds:endDate ?contractenddate } .
+
+#Object Property hasAward
+OPTIONAL { ?id ocds:hasAward ?hasaward }
+OPTIONAL { ?hasaward dct:title ?hasawardtit } .
+OPTIONAL { ?hasaward dct:description ?hasawarddes } .
+OPTIONAL { ?hasaward ocds:awardDate ?hasawarddat } .
+OPTIONAL { ?hasaward ocds:awardStatus ?hasawardstat } .
+
+#Object Property hasTender
+OPTIONAL { ?id ocds:hasTender ?hastender } .
+OPTIONAL { ?hastender dct:title ?tendertitle } .
+OPTIONAL { ?hastender dct:description ?tenderdescription } .
+OPTIONAL { ?hastender ocds:tenderStatus ?tenderstatus } .
+
+#Object Property hasPlan
+OPTIONAL { ?id ocds:hasPlan ?plan } .
+OPTIONAL { ?plan ocds:hasDocument ?hasdoc } .
+OPTIONAL { ?hasdoc ocds:documentId ?hasdocid } .
+OPTIONAL { ?hasdoc ocds:documentType ?hasdoctype } .
+OPTIONAL { ?hasdoc dct:language ?hasdoclan } .
+OPTIONAL { ?hasdoc schema:URL ?hasdocurl } .
+
+}
