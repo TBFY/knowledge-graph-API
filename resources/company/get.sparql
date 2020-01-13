@@ -1,0 +1,10 @@
+PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX dbp: <http://dbpedia.org/ontology/>
+
+SELECT ?s ?ln ?jur WHERE {
+  ?s a regorg:RegisteredOrganization .
+  ?s regorg:legalName ?ln .
+  ?s dbp:jurisdiction ?jur .
+  FILTER ( regex(?jur, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
+  FILTER ( regex(?ln, ?name, "i") || !isLiteral(?name) ) .
+}

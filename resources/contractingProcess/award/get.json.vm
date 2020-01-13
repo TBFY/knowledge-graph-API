@@ -4,10 +4,10 @@
         {
             #set( $control_coma = false )
 
-            #if ( $award.isf )
-              #set ( $indexd = $award.isf.lastIndexOf("/") )
+            #if ( $award.hasaw )
+              #set ( $indexd = $award.hasaw.lastIndexOf("/") )
               #set ( $indexd = $indexd + 1 )
-              #set ( $id1 = $award.isf.substring($indexd, $award.isf.length()) )
+              #set ( $id1 = $award.hasaw.substring($indexd, $award.hasaw.length()) )
               #if ( $control_coma )
                 ,
               #end
@@ -15,82 +15,35 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $award.dat )
+            #if ( $award.tit )
               #if ( $control_coma )
                 ,
               #end
-              "date" : "$award.dat"
+              "title" : "$award.tit"
               #set( $control_coma = true )
             #end
 
-            #if ( $award.status )
+            #if ( $award.des )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$award.status"
+              "description" : "$award.des"
               #set( $control_coma = true )
             #end
 
-            #if ( $award.doc )
-              #set ( $indexd = $award.doc.lastIndexOf("/") )
-              #set ( $indexd = $indexd + 1 )
-              #set ( $doc = $award.doc.substring($indexd, $award.doc.length()) )
+            #if ( $award.date )
               #if ( $control_coma )
                 ,
               #end
-              "document" : "$doc"
+              "date" : "$award.date"
               #set( $control_coma = true )
             #end
 
-            #if ( $award.period )
-              #set ( $indexp = $award.period.lastIndexOf("/") )
-              #set ( $indexp = $indexp + 1 )
-              #set ( $period = $award.period.substring($indexp, $award.period.length()) )
+            #if ( $award.stat )
               #if ( $control_coma )
                 ,
               #end
-              "awardPeriod" : "$period"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $award.value )
-              #set ( $indexv = $award.value.lastIndexOf("/") )
-              #set ( $indexv = $indexv + 1 )
-              #set ( $value = $award.value.substring($indexv, $award.value.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "value" : "$value"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $award.cperiod )
-              #set ( $indexcp = $award.cperiod.lastIndexOf("/") )
-              #set ( $indexcp = $indexcp + 1 )
-              #set ( $cperiod = $award.cperiod.substring($indexcp, $award.cperiod.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "contractPeriod" : "$cperiod"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $award.item )
-              #set ( $indexi = $award.item.lastIndexOf("/") )
-              #set ( $indexi = $indexi + 1 )
-              #set ( $item = $award.item.substring($indexi, $award.item.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "item" : "$item"
-              #set( $control_coma = true )
-            #end
-
-            #if ( $award.itemcs )
-              #if ( $control_coma )
-                ,
-              #end
-              "additionalItemClassificatonScheme" : "$award.itemcs"
+              "status" : "$award.stat"
               #set( $control_coma = true )
             #end
 

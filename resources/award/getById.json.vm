@@ -12,14 +12,6 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $aid )
-    #if ( $control_coma )
-      ,
-    #end
-    "awardId" : "$aid"
-    #set( $control_coma = true )
-  #end
-
   #if ( $tit )
     #if ( $control_coma )
       ,

@@ -6,25 +6,6 @@ SELECT ( ?id as ?cpid ) ?contractstartdate ?contractenddate ?hasaward ?hasawardt
 WHERE {
 ?id a ocds:ContractingProcess .
 
-#Object Property hasContract
-OPTIONAL { ?id ocds:hasContract ?hascont }.
-?hascont ocds:hasContractPeriod ?hcperiod .
-OPTIONAL { ?hcperiod ocds:startDate ?contractstartdate .
-  ?hcperiod ocds:endDate ?contractenddate } .
-
-#Object Property hasAward
-OPTIONAL { ?id ocds:hasAward ?hasaward }
-OPTIONAL { ?hasaward dct:title ?hasawardtit } .
-OPTIONAL { ?hasaward dct:description ?hasawarddes } .
-OPTIONAL { ?hasaward ocds:awardDate ?hasawarddat } .
-OPTIONAL { ?hasaward ocds:awardStatus ?hasawardstat } .
-
-#Object Property hasTender
-OPTIONAL { ?id ocds:hasTender ?hastender } .
-OPTIONAL { ?hastender dct:title ?tendertitle } .
-OPTIONAL { ?hastender dct:description ?tenderdescription } .
-OPTIONAL { ?hastender ocds:tenderStatus ?tenderstatus } .
-
 #Object Property hasPlan
 OPTIONAL { ?id ocds:hasPlan ?plan } .
 OPTIONAL { ?plan ocds:hasDocument ?hasdoc } .

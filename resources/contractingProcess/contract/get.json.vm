@@ -3,10 +3,10 @@
         {
             #set( $control_coma = false )
 
-            #if ( $contracts.hcn )
-            #set ( $index = $contracts.hcn.lastIndexOf("/") )
+            #if ( $contracts.hascont )
+            #set ( $index = $contracts.hascont.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $cn1 = $contracts.hcn.substring($index, $contracts.hcn.length()) )
+            #set ( $cn1 = $contracts.hascont.substring($index, $contracts.hascont.length()) )
               #if ( $control_coma )
                 ,
               #end
@@ -14,11 +14,35 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $ontracts.cst )
+            #if ( $contracts.hascontid )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$contracts.cst"
+              "id2" : "$contracts.hascontid"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contracts.hascontstat )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$contracts.hascontstat"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contracts.startdate )
+              #if ( $control_coma )
+                ,
+              #end
+              "startDate" : "$contracts.startdate"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $contracts.enddate )
+              #if ( $control_coma )
+                ,
+              #end
+              "endDate" : "$contracts.enddate"
               #set( $control_coma = true )
             #end
 

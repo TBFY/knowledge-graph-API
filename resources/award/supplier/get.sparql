@@ -1,8 +1,11 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT (?id as ?oid) ?s
+SELECT (?id as ?oid) ?ss
 WHERE {
   ?id a ocds:Award .
   ?s a ocds:Organisation .
   ?s ocds:isSupplierFor ?id .
+  ?s owl:sameAs ?ss
 }

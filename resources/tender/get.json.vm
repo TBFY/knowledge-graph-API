@@ -13,19 +13,19 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $tenders.title )
+            #if ( $tenders.tit )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$tenders.title"
+              "title" : "$tenders.tit"
               #set( $control_coma = true )
             #end
 
-            #if ( $tenders.description )
+            #if ( $tenders.des )
               #if ( $control_coma )
                 ,
               #end
-              "description" : "$tenders.description"
+              "description" : "$tenders.des"
               #set( $control_coma = true )
             #end
 

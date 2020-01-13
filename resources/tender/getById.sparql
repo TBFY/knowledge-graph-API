@@ -22,7 +22,7 @@ WHERE {
              ?hasdoc dct:language ?hasdoclan  .
              ?hasdoc schema:URL ?hasdocurl } .
 
-#Object Property hasEnquiryPeriod
+#Object Property hasEnquiryPeriod (none for the time being, only URL)
   OPTIONAL { ?id ocds:hasEnquiryPeriod ?henqperiod  .
              ?henqperiod ocds:startDate ?henqperiodstart  .
              OPTIONAL { ?henqperiod ocds:endDate ?henqperiodend } } .
@@ -30,7 +30,7 @@ WHERE {
 #Object Property hasItemToBeProcured
   OPTIONAL { ?id ocds:hasItemToBeProcured ?hitbp  .
              ?hitbp ocds:itemId ?hitbpid   .
-             ?hitbp dct:description ?hitbpdes .
+             OPTIONAL { ?hitbp dct:description ?hitbpdes } .
              ?hitbp ocds:classificatonScheme ?hitbpcs  .
              ?hitbp ocds:hasClassificaton ?hitbphc .
              OPTIONAL { ?hitbp ocds:hasRelatedEnquiry ?hitbphre } .
@@ -49,10 +49,10 @@ WHERE {
 
 #Object Property hasMilestone
   OPTIONAL { ?id ocds:hasMilestone ?hmil  .
-             ?hmil dct:description ?hmildes  .
-             ?hmil dct:title ?hmiltit  .
-             ?hmil ocds:milestoneDueDate ?hmildued  .
-             ?hmil ocds:hasDocument ?hmilhdoc  .
+             OPTIONAL { ?hmil dct:description ?hmildes} .
+             OPTIONAL { ?hmil dct:title ?hmiltit } .
+             OPTIONAL { ?hmil ocds:milestoneDueDate ?hmildued } .
+             OPTIONAL { ?hmil ocds:hasDocument ?hmilhdoc } .
              ?hmilhdoc ocds:documentId ?hmilhdocid  .
              ?hmilhdoc ocds:documentType ?hmilhdoctype  .
              ?hmilhdoc dct:language ?hmilhdoclan  .
@@ -71,5 +71,5 @@ WHERE {
 #Object Property hasTenderPeriod
   OPTIONAL { ?id ocds:hasTenderPeriod ?htp  .
              ?htp ocds:startDate ?htpstart  .
-             ?htp ocds:endDate ?htpend } .
+             OPTIONAL { ?htp ocds:endDate ?htpend }} .
 }

@@ -1,15 +1,12 @@
-PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
-SELECT (?id as ?oid) ?hcn ?cst
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+
+SELECT (?id as ?oid) ?hascont ?hascontiid ?hascontstat ?startdate ?enddate
 WHERE {
-	?id a tbfy:ContractingProcess .
-	?id tbfy:hasContract ?hcn .
-  ?hcn a tbfy:Contract .
-  OPTIONAL { ?hcn tbfy:hasContractId ?cid } .
-  OPTIONAL { ?hcn tbfy:hasContractStatus ?cst } .
+	?id a ocds:ContractingProcess .
+	?id ocds:hasContract ?hascont .
+  OPTIONAL { ?hascont ocds:hasContractId ?hascontid } .
+  OPTIONAL { ?hascont ocds:hasContractStatus ?hascontstat } .
+	OPTIONAL { ?hascont ocds:hasContractPeriod ?hcperiod } .
+	OPTIONAL { ?hcperiod ocds:startDate ?startdate } .
+	OPTIONAL { ?hcperiod ocds:endDate ?enddate } .
 }

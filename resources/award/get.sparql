@@ -8,4 +8,5 @@ SELECT ?s ?tit ?des ?date ?stat WHERE {
 	OPTIONAL { ?s ocds:awardDate ?date } .
   OPTIONAL { ?s ocds:awardStatus ?stat } .
   FILTER ( regex(?stat, ?status, "i") || !isLiteral(?status) ) .
+  FILTER ( regex(?des, ?description, "i") || !isLiteral(?description) ) .
 }

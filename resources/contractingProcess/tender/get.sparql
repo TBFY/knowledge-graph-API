@@ -1,16 +1,11 @@
-PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
-SELECT (?id as ?oid) ?isf ?dat ?tit ?ddes ?status
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT (?id as ?oid) ?hasten ?tit ?des ?stat
 WHERE {
-	?id a tbfy:ContractingProcess .
-	OPTIONAL { ?id dcterms:title ?tit } .
-  ?id tbfy:hasTender ?isf .
-  ?isf a tbfy:Tender .
-  OPTIONAL {?isf dcterms:description ?ddes } .
-  OPTIONAL {?isf tbfy:tenderStatus ?status} .
+	?id a ocds:ContractingProcess .
+  OPTIONAL { ?id ocds:hasTender ?hasten } .
+  OPTIONAL { ?hasten dct:title ?tit } .
+  OPTIONAL { ?hasten dct:description ?des } .
+  OPTIONAL { ?hasten ocds:tenderStatus ?stat } .
 }

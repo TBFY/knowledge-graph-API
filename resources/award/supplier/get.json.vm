@@ -3,10 +3,10 @@
         {
             #set( $control_coma = false )
 
-            #if ( $suppliers.s )
-            #set ( $index = $suppliers.s.lastIndexOf("/") )
+            #if ( $suppliers.ss )
+            #set ( $index = $suppliers.ss.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $org = $suppliers.s.substring($index, $suppliers.s.length()) )
+            #set ( $org = $suppliers.ss.substring($index, $suppliers.ss.length()) )
               #if ( $control_coma )
                 ,
               #end

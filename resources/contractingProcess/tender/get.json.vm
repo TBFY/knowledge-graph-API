@@ -4,10 +4,10 @@
         {
             #set( $control_coma = false )
 
-            #if ( $tender.isf )
-              #set ( $indexd = $tender.isf.lastIndexOf("/") )
+            #if ( $tender.hasten )
+              #set ( $indexd = $tender.hasten.lastIndexOf("/") )
               #set ( $indexd = $indexd + 1 )
-              #set ( $id1 = $tender.isf.substring($indexd, $tender.isf.length()) )
+              #set ( $id1 = $tender.hasten.substring($indexd, $tender.hasten.length()) )
               #if ( $control_coma )
                 ,
               #end
@@ -15,19 +15,27 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $tender.ddes )
+            #if ( $tender.tit )
               #if ( $control_coma )
                 ,
               #end
-              "description" : "$tender.ddes"
+              "title" : "$tender.tit"
               #set( $control_coma = true )
             #end
 
-            #if ( $tender.status )
+            #if ( $tender.des )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$tender.status"
+              "description" : "$tender.des"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $tender.stat )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$tender.stat"
               #set( $control_coma = true )
             #end
 
