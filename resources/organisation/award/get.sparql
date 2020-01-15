@@ -5,13 +5,13 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT (?id as ?oid) ?dat ?tit ?isf ?stat
+SELECT (?id as ?oid) ?dat ?qtitle ?isf ?stat
 WHERE {
 	?id a tbfy:Organisation .
   ?id tbfy:isSupplierFor ?isf .
   ?isf a tbfy:Award .
   OPTIONAL { ?isf tbfy:awardDate ?dat } .
-  OPTIONAL { ?isf dcterms:title ?tit } .
+  OPTIONAL { ?isf dcterms:title ?qtitle } .
   OPTIONAL { ?isf dcterms:description ?des } .
   OPTIONAL { ?isf tbfy:awardStatus ?stat } .
 }

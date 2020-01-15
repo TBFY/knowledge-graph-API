@@ -1,11 +1,13 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 
-SELECT (?id as ?oid) ?hasten ?tit ?des ?stat
+SELECT ?hasten ?qtitle ?qdescription ?qstatus
 WHERE {
-	?id a ocds:ContractingProcess .
-  OPTIONAL { ?id ocds:hasTender ?hasten } .
-  OPTIONAL { ?hasten dct:title ?tit } .
-  OPTIONAL { ?hasten dct:description ?des } .
-  OPTIONAL { ?hasten ocds:tenderStatus ?stat } .
+  ?id ocds:hasTender ?hasten .
+  OPTIONAL { ?hasten dct:title ?qtitle } .
+  OPTIONAL { ?hasten dct:description ?qdescription } .
+  OPTIONAL { ?hasten ocds:tenderStatus ?qstatus } .
+	FILTER ( regex(?qstatus, ?status, "i") || !isLiteral(?status) ) .
+	FILTER ( regex(?qtitle, ?qtitlele, "i") || !isLiteral(?title) ) .
+	FILTER ( regex(?qdescription, ?description, "i") || !isLiteral(?description) ) .
 }

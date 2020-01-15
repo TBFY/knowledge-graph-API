@@ -1,12 +1,9 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 
-SELECT (?id as ?oid) ?hascont ?hascontiid ?hascontstat ?startdate ?enddate
+SELECT ?hascont ?startdate ?enddate
 WHERE {
-	?id a ocds:ContractingProcess .
 	?id ocds:hasContract ?hascont .
-  OPTIONAL { ?hascont ocds:hasContractId ?hascontid } .
-  OPTIONAL { ?hascont ocds:hasContractStatus ?hascontstat } .
-	OPTIONAL { ?hascont ocds:hasContractPeriod ?hcperiod } .
-	OPTIONAL { ?hcperiod ocds:startDate ?startdate } .
-	OPTIONAL { ?hcperiod ocds:endDate ?enddate } .
+	?hascont ocds:hasContractPeriod ?hcp .
+	OPTIONAL { ?hcp ocds:startDate ?startdate .
+						 ?hcp ocds:endDate ?enddate } .
 }

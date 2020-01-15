@@ -1,0 +1,8 @@
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+
+SELECT ?s
+WHERE {
+	?id a ocds:Tender .
+  ?s a ocds:ContractingProcess .
+	?s ocds:hasTender ?id .
+}

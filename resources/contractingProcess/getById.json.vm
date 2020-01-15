@@ -1,7 +1,7 @@
 {
-  #set ( $index = $cpid.lastIndexOf("/") )
+  #set ( $index = $ocid.lastIndexOf("/") )
   #set ( $index = $index + 1 )
-  #set ( $id = $cpid.substring($index, $cpid.length()) )
+  #set ( $id = $ocid.substring($index, $ocid.length()) )
   #set( $control_coma = false )
   #if ( $id )
     #if ( $control_coma )

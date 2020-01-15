@@ -15,27 +15,27 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $tender.tit )
+            #if ( $tender.qtitle )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$tender.tit"
+              "title" : "$tender.qtitle"
               #set( $control_coma = true )
             #end
 
-            #if ( $tender.des )
+            #if ( $tender.qdescription )
               #if ( $control_coma )
                 ,
               #end
-              "description" : "$tender.des"
+              "description" : "$tender.qdescription"
               #set( $control_coma = true )
             #end
 
-            #if ( $tender.stat )
+            #if ( $tender.qstatus )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$tender.stat"
+              "status" : "$tender.qstatus"
               #set( $control_coma = true )
             #end
 

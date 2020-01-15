@@ -12,101 +12,73 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $tit )
+  #if ( $qtitle )
     #if ( $control_coma )
       ,
     #end
-    "title" : "$tit"
+    "title" : "$qtitle"
     #set( $control_coma = true )
   #end
 
-  #if ( $des )
+  #if ( $qdescription )
     #if ( $control_coma )
       ,
     #end
-    "description" : "$des"
+    "description" : "$qdescription"
     #set( $control_coma = true )
   #end
 
-  #if ( $dat )
+  #if ( $qdate )
     #if ( $control_coma )
       ,
     #end
-    "date" : "$dat"
+    "date" : "$qdate"
     #set( $control_coma = true )
   #end
 
-  #if ( $stat )
+  #if ( $qstatus )
     #if ( $control_coma )
       ,
     #end
-    "status" : "$stat"
+    "status" : "$qstatus"
     #set( $control_coma = true )
   #end
 
-  #if ( $startDate )
+  #if ( $qstartdate )
     #if ( $control_coma )
       ,
     #end
-    "startDate" : "$startDate"
+    "contractPeriodStartDate" : "$qstartdate"
     #set( $control_coma = true )
   #end
 
-  #if ( $endDate )
+  #if ( $qenddate )
     #if ( $control_coma )
       ,
     #end
-    "endDate" : "$endDate"
+    "contractPeriodEndDate" : "$qenddate"
     #set( $control_coma = true )
   #end
 
-#if ( $val )
+#if ( $qamount )
   #if ( $control_coma )
     ,
   #end
-  "awardValue" : "$val"
+  "awardValue" : "$qamount"
   #set( $control_coma = true )
 #end
 
-#if ( $cur )
+#if ( $qcurrency )
   #if ( $control_coma )
     ,
   #end
-  "awardCurrency" : "$cur"
+  "awardCurrency" : "$qcurrency"
   #set( $control_coma = true )
 #end
 
-#if ( $hdocid )
-  #if ( $control_coma )
-    ,
-  #end
-  "documentId" : "$hdocid"
-  #set( $control_coma = true )
-#end
-
-#if ( $hdoctype )
-  #if ( $control_coma )
-    ,
-  #end
-  "documentType" : "$hdoctype"
-  #set( $control_coma = true )
-#end
-
-  #if ( $hdoclan )
-    #if ( $control_coma )
-      ,
-    #end
-    "documentLanguage" : "$hdoclan"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $hdocurl )
-    #if ( $control_coma )
-      ,
-    #end
-    "documentURL" : "$hdocurl"
-    #set( $control_coma = true )
-  #end
+  #set ( $index = $qtenderid.lastIndexOf("/") )
+  #set ( $index = $index + 1 )
+  #set ( $tid = $qtenderid.substring($index, $qtenderid.length()) )
 
   #if ( $tid )
     #if ( $control_coma )

@@ -1,19 +1,12 @@
-PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX schema: <http://schema.org/>
-SELECT (?id as ?oid) ?tit ?itm ?itid ?lot ?clas ?classch ?enq ?cl1
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?itm ?qdescription ?qclassificationscheme ?qclassification ?qadditclassificationscheme ?qadditclassification
 WHERE {
-	?id a ocds:Tender .
-  OPTIONAL { ?id dcterms:title ?tit } .
   ?id ocds:hasItemToBeProcured ?itm .
-	OPTIONAL { ?itm a ocds:Item } .
-	OPTIONAL { ?itm ocds:isRelatedToLot ?lot } .
-	OPTIONAL { ?itm ocds:hasAdditionalItemClassificaton ?clas } .
-	OPTIONAL { ?itm ocds:additionalItemClassificatonScheme ?classch } .
-	OPTIONAL { ?itm ocds:hasRelatedEnquiry ?enq } .
-	OPTIONAL { ?itm ocds:classificatonScheme ?cl1 } .
+	OPTIONAL { ?itm dct:description ?qdescription } .
+	OPTIONAL { ?itm ocds:classificatonScheme ?qclassificationscheme .
+	           ?itm ocds:hasClassificaton ?qclassification .
+  OPTIONAL { ?itm ocds:additionalItemClassificatonScheme ?qadditclassificationscheme .
+	           ?itm ocds:hasAdditionalItemClassificaton ?qadditclassification }} .
 }

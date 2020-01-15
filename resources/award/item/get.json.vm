@@ -14,39 +14,48 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $items.lot )
+            #if ( $items.qdescription )
               #if ( $control_coma )
                 ,
               #end
-              "isRelatedToLot" : "$items.lot"
+              "description" : "$items.qdescription"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.cl1 )
+            #if ( $items.qclassificationscheme )
               #if ( $control_coma )
                 ,
               #end
-              "classificaton" : "$items.cl1"
+              "classificationScheme" : "$items.qclassificationscheme"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.clas )
+            #if ( $items.qclassification )
               #if ( $control_coma )
                 ,
               #end
-              "additionalItemClassificaton" : "$items.clas"
+              "classification" : "$items.qclassification"
               #set( $control_coma = true )
             #end
 
-            #if ( $items.classch )
+            #if ( $items.qadditclassificationscheme )
               #if ( $control_coma )
                 ,
               #end
-              "additionalItemClassificatonScheme" : "$items.classch"
+              "additionalItemclassificationScheme" : "$items.qadditclassificationscheme"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $items.qadditclassification )
+              #if ( $control_coma )
+                ,
+              #end
+              "additionalItemclassification" : "$items.qadditclassification"
               #set( $control_coma = true )
             #end
 
         }
+        
          #if ( $velocityCount < ${results.size()} )
             ,
          #end

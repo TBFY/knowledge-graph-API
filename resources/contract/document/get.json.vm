@@ -3,38 +3,35 @@
         {
             #set( $control_coma = false )
 
-            #if ( $docs.doc )
-              #set ( $index = $docs.doc.lastIndexOf("/") )
-              #set ( $index = $index + 1 )
-              #set ( $idoc = $docs.doc.substring($index, $docs.doc.length()) )
+            #if ( $docs.qdocumentid )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$idoc"
+              "id" : "$docs.qdocumentid"
               #set( $control_coma = true )
             #end
 
-            #if ( $docs.lan )
+            #if ( $docs.qdocumenttype )
               #if ( $control_coma )
                 ,
               #end
-              "language" : "$docs.lan"
+              "type" : "$docs.qdocumenttype"
               #set( $control_coma = true )
             #end
 
-            #if ( $docs.url )
+            #if ( $docs.qdocumentlanguage )
               #if ( $control_coma )
                 ,
               #end
-              "url" : "$docs.url"
+              "language" : "$docs.qdocumentlanguage"
               #set( $control_coma = true )
             #end
 
-            #if ( $docs.type )
+            #if ( $docs.qdocumenturl )
               #if ( $control_coma )
                 ,
               #end
-              "type" : "$docs.type"
+              "url" : "$docs.qdocumenturl"
               #set( $control_coma = true )
             #end
 

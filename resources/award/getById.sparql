@@ -5,35 +5,29 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT ( ?id AS ?oid ) ?tit ?des ?dat ?stat ?startDate ?endDate ?val ?cur ?hdocid ?hdoctype ?hdoclan ?hdocurl ?tid
+SELECT ( ?id AS ?oid ) ?qtitle ?qdescription ?qdate ?qstatus ?qstartdate ?qenddate ?qamount ?qcurrency ?qtenderid
 WHERE {
 
 #Award information
   ?id a ocds:Award .
-  OPTIONAL { ?id dct:title ?tit } .
-  OPTIONAL { ?id dct:description ?des } .
-  OPTIONAL { ?id ocds:awardDate ?dat } .
-  OPTIONAL { ?id ocds:awardStatus ?stat } .
+  OPTIONAL { ?id dct:title ?qtitle } .
+  OPTIONAL { ?id dct:description ?qdescription } .
+  OPTIONAL { ?id ocds:awardDate ?qdate } .
+  OPTIONAL { ?id ocds:awardStatus ?qstatus } .
 
 #Object Property hasAwardedContractPeriod
   OPTIONAL { ?id ocds:hasAwardedContractPeriod ?cperiod .
-  OPTIONAL { ?cperiod ocds:startDate ?startDate .
-             ?cperiod ocds:endDate ?endDate }} .
+  OPTIONAL { ?cperiod ocds:startDate ?qstartdate .
+             ?cperiod ocds:endDate ?qenddate }} .
 
 #Object Property hasAwardValue
   OPTIONAL { ?id ocds:hasAwardValue ?valr .
-  OPTIONAL { ?valr ocds:ValueAmount ?val .
-             ?valr ocds:ValueCurrency ?cur }} .
+  OPTIONAL { ?valr ocds:ValueAmount ?qamount .
+             ?valr ocds:ValueCurrency ?qcurrency }} .
 
-#Object Property hasDocument
-  OPTIONAL { ?id ocds:hasDocument ?hdoc .
-  OPTIONAL { ?hdoc ocds:documentId ?hdocid  .
-  ?hdoc ocds:documentType ?hdoctype .
-  ?hdoc dct:language ?hdoclan .
-  ?hdoc schema:URL ?hdocurl }} .
+#Object Property hasDocument not implemented here, second level resource
 
 #Object Property isIssuedForTender
-  OPTIONAL { ?id ocds:isIssuedForTender ?iift } .
-  OPTIONAL { ?iift ocds:tenderId ?tid } .
+  ?id ocds:isIssuedForTender ?qtenderid .
 
 }

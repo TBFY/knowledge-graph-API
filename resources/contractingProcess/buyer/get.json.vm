@@ -1,11 +1,13 @@
 [
-    #foreach( $tenders in $results )
+    #foreach( $buyers in $results )
         {
             #set( $control_coma = false )
-            #if ( $tenders.qid )
-              #set ( $index = $tenders.qid.lastIndexOf("/") )
+
+            #if ( $buyers.sas )
+              #set ( $index = $buyers.sas.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $id = $tenders.qid.substring($index, $tenders.qid.length()) )
+              #set ( $id = $buyers.sas.substring($index, $buyers.sas.length()) )
+
               #if ( $control_coma )
                 ,
               #end
@@ -13,29 +15,30 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $tenders.qtitle )
+            #if ( $buyers.s )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$tenders.qtitle"
+              "uri" : "$buyers.s"
               #set( $control_coma = true )
             #end
 
-            #if ( $tenders.qdescription )
+            #if ( $buyers.qname )
               #if ( $control_coma )
                 ,
               #end
-              "description" : "$tenders.qdescription"
+              "legalName" : "$buyers.qname"
               #set( $control_coma = true )
             #end
 
-            #if ( $tenders.qstatus )
+            #if ( $buyers.qjurisdiction )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$tenders.qstatus"
+              "jursidiction" : "$buyers.qjurisdiction"
               #set( $control_coma = true )
             #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,

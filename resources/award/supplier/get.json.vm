@@ -3,14 +3,39 @@
         {
             #set( $control_coma = false )
 
-            #if ( $suppliers.ss )
-            #set ( $index = $suppliers.ss.lastIndexOf("/") )
-            #set ( $index = $index + 1 )
-            #set ( $org = $suppliers.ss.substring($index, $suppliers.ss.length()) )
+            #if ( $suppliers.sas )
+              #set ( $index = $suppliers.sas.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $suppliers.sas.substring($index, $suppliers.sas.length()) )
+
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$org"
+              "id" : "$id"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.s )
+              #if ( $control_coma )
+                ,
+              #end
+              "uri" : "$suppliers.s"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qname )
+              #if ( $control_coma )
+                ,
+              #end
+              "legalName" : "$suppliers.qname"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qjurisdiction )
+              #if ( $control_coma )
+                ,
+              #end
+              "jursidiction" : "$suppliers.qjurisdiction"
               #set( $control_coma = true )
             #end
 

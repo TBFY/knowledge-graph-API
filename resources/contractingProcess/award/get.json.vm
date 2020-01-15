@@ -15,35 +15,35 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $award.tit )
+            #if ( $award.qtitle )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$award.tit"
+              "title" : "$award.qtitle"
               #set( $control_coma = true )
             #end
 
-            #if ( $award.des )
+            #if ( $award.qdescription )
               #if ( $control_coma )
                 ,
               #end
-              "description" : "$award.des"
+              "description" : "$award.qdescription"
               #set( $control_coma = true )
             #end
 
-            #if ( $award.date )
+            #if ( $award.qdate )
               #if ( $control_coma )
                 ,
               #end
-              "date" : "$award.date"
+              "date" : "$award.qdate"
               #set( $control_coma = true )
             #end
 
-            #if ( $award.stat )
+            #if ( $award.qstatus )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$award.stat"
+              "status" : "$award.qstatus"
               #set( $control_coma = true )
             #end
 

@@ -1,19 +1,32 @@
 [
     #foreach( $amendments in $results )
-        {
-            #set( $control_coma = false )
+    {
+        #set( $control_coma = false )
 
-            #if ( $amendments.amend )
-            #set ( $index = $damendments.amend.lastIndexOf("/") )
-            #set ( $index = $index + 1 )
-            #set ( $ident = $amendments.amend.substring($index, $damendments.amend.length()) )
-              #if ( $control_coma )
-                ,
-              #end
-              "id" : "$ident"
-              #set( $control_coma = true )
-            #end
-            
+        #if ( $docs.qid )
+          #if ( $control_coma )
+            ,
+          #end
+          "id" : "$docs.qid"
+          #set( $control_coma = true )
+        #end
+
+        #if ( $docs.qdescription )
+          #if ( $control_coma )
+            ,
+          #end
+          "id" : "$docs.qdescription"
+          #set( $control_coma = true )
+        #end
+
+        #if ( $docs.qdate )
+          #if ( $control_coma )
+            ,
+          #end
+          "id" : "$docs.qdate"
+          #set( $control_coma = true )
+        #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,

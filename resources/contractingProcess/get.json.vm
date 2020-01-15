@@ -2,9 +2,9 @@
     #foreach( $contractingp in $results )
         {
             #set( $control_coma = false )
-            #set ( $index = $contractingp.s.lastIndexOf("/") )
+            #set ( $index = $contractingp.qid.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $id = $contractingp.s.substring($index, $contractingp.s.length()) )
+            #set ( $id = $contractingp.qid.substring($index, $contractingp.qid.length()) )
             #if ( $control_coma )
               ,
             #end

@@ -2,7 +2,7 @@ PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 
-SELECT ( ?id as ?cpid ) ?contractstartdate ?contractenddate ?hasaward ?hasawardtit ?hasawarddes ?hasawarddat ?hasawardstat ?hastender ?tendertitle ?tenderdescription ?tenderstatus ?hasdocid ?hasdoctype ?hasdoclan ?hasdocurl
+SELECT ( ?id as ?ocid ) ?contractstartdate ?contractenddate ?hasaward ?hasawardtit ?hasawarddes ?hasawarddat ?hasawardstat ?hastender ?tendertitle ?tenderdescription ?tenderstatus ?hasdocid ?hasdoctype ?hasdoclan ?hasdocurl
 WHERE {
 ?id a ocds:ContractingProcess .
 

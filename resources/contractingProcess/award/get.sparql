@@ -1,12 +1,15 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 
-SELECT (?id as ?oid) ?hasaw ?tit ?des ?date ?stat
+SELECT ?hasaw ?qtitle ?qdescription ?qdate ?qstatus
 WHERE {
 	?id a ocds:ContractingProcess .
   ?id ocds:hasAward ?hasaw .
-	OPTIONAL { ?hasaw dct:title ?tit } .
-	OPTIONAL { ?hasaw dct:description ?des } .
-	OPTIONAL { ?hasaw ocds:awardDate ?date } .
-	OPTIONAL { ?hasaw ocds:awardStatus ?stat } .
+	OPTIONAL { ?hasaw dct:title ?qtitle } .
+	OPTIONAL { ?hasaw dct:description ?qdescription } .
+	OPTIONAL { ?hasaw ocds:awardDate ?qdate } .
+	OPTIONAL { ?hasaw ocds:awardStatus ?qstatus } .
+  FILTER ( regex(?qtitle, ?title, "i") || !isLiteral(?title) ) .
+  FILTER ( regex(?qstatus, ?status, "i") || !isLiteral(?status) ) .
+  FILTER ( regex(?qdescription, ?description, "i") || !isLiteral(?description) ) .
 }

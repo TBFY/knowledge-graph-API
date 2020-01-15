@@ -8,8 +8,8 @@ PREFIX schema: <http://schema.org/>
 SELECT ?s ?sas ?qname ?qjurisdiction
 WHERE {
   ?s a ocds:Organisation .
-  ?s ocds:isSupplierFor ?id .
-  ?s owl:sameAs ?sas .
-  ?sas regorg:legalName ?qname .
-  ?sas dbp:jurisdiction ?qjurisdiction .
+  ?s ocds:isBuyerFor ?id .
+  OPTIONAL { ?s owl:sameAs ?sas .
+  OPTIONAL { ?sas regorg:legalName ?qname .
+             ?sas dbp:jurisdiction ?qjurisdiction }} .
 }
