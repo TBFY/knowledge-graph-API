@@ -1,4 +1,4 @@
-[[
+
     #foreach( $buyers in $results )
         {
             #set( $control_coma = false )
