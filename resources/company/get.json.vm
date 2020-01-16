@@ -14,19 +14,19 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $companies.ln )
+            #if ( $companies.qlegalname )
               #if ( $control_coma )
                 ,
               #end
-              "legalName" : "$companies.ln"
+              "legalName" : "$companies.qlegalname"
               #set( $control_coma = true )
             #end
 
-            #if ( $companies.jur )
+            #if ( $companies.qjurisdiction )
               #if ( $control_coma )
                 ,
               #end
-              "jurisdiction" : "$companies.jur"
+              "jurisdiction" : "$companies.qjurisdiction"
               #set( $control_coma = true )
             #end
 
