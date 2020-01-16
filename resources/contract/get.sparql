@@ -5,5 +5,5 @@ WHERE {
 	?s a ocds:Contract .
 	?s ocds:hasContractPeriod ?hcp .
   OPTIONAL { ?hcp ocds:startDate ?startdate .
-		?hcp ocds:endDate ?enddate } .
+						 ?hcp ocds:endDate ?enddate } .
 }

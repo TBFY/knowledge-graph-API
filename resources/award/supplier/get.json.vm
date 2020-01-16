@@ -3,10 +3,10 @@
         {
             #set( $control_coma = false )
 
-            #if ( $suppliers.sas )
-              #set ( $index = $suppliers.sas.lastIndexOf("/") )
+            #if ( $suppliers.s )
+              #set ( $index = $suppliers.s.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $id = $suppliers.sas.substring($index, $suppliers.sas.length()) )
+              #set ( $id = $suppliers.s.substring($index, $suppliers.s.length()) )
 
               #if ( $control_coma )
                 ,
@@ -15,19 +15,23 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $suppliers.s )
+            #if ( $suppliers.sas )
+              #set ( $index = $suppliers.sas.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $suppliers.sas.substring($index, $suppliers.sas.length()) )
+
               #if ( $control_coma )
                 ,
               #end
-              "uri" : "$suppliers.s"
+              "organisation" : "$id"
               #set( $control_coma = true )
             #end
 
-            #if ( $suppliers.qname )
+            #if ( $suppliers.qlegalname )
               #if ( $control_coma )
                 ,
               #end
-              "legalName" : "$suppliers.qname"
+              "legalName" : "$suppliers.qlegalname"
               #set( $control_coma = true )
             #end
 
@@ -36,6 +40,78 @@
                 ,
               #end
               "jursidiction" : "$suppliers.qjurisdiction"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qstreet )
+              #if ( $control_coma )
+                ,
+              #end
+              "street" : "$suppliers.qstreet"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qpostalcode )
+              #if ( $control_coma )
+                ,
+              #end
+              "postalCode" : "$suppliers.qpostalcode"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qlocality )
+              #if ( $control_coma )
+                ,
+              #end
+              "localty" : "$suppliers.qlocality"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qcountry )
+              #if ( $control_coma )
+                ,
+              #end
+              "country" : "$suppliers.qcountry"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qname )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactName" : "$suppliers.qname"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qemail )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactEmail" : "$suppliers.qemail"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qtelephone )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactTelephone" : "$suppliers.qtelephone"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qurl )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactURL" : "$suppliers.qurl"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $suppliers.qfax )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactFax" : "$suppliers.qfax"
               #set( $control_coma = true )
             #end
 

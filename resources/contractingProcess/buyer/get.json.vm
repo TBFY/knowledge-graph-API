@@ -3,23 +3,43 @@
         {
             #set( $control_coma = false )
 
-            #if ( $buyers.sas )
-              #set ( $index = $buyers.sas.lastIndexOf("/") )
-              #set ( $index = $index + 1 )
-              #set ( $id = $buyers.sas.substring($index, $buyers.sas.length()) )
-
+            #if ( $buyers.qlegalname )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$id"
+              "legalName" : "$buyers.qlegalname"
               #set( $control_coma = true )
             #end
 
-            #if ( $buyers.s )
+            #if ( $buyers.qstreet )
               #if ( $control_coma )
                 ,
               #end
-              "uri" : "$buyers.s"
+              "street" : "$buyers.qstreet"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qpostalcode )
+              #if ( $control_coma )
+                ,
+              #end
+              "postalCode" : "$buyers.qpostalcode"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qlocality )
+              #if ( $control_coma )
+                ,
+              #end
+              "localty" : "$buyers.qlocality"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qcountry )
+              #if ( $control_coma )
+                ,
+              #end
+              "country" : "$buyers.qcountry"
               #set( $control_coma = true )
             #end
 
@@ -27,15 +47,39 @@
               #if ( $control_coma )
                 ,
               #end
-              "legalName" : "$buyers.qname"
+              "contactName" : "$buyers.qname"
               #set( $control_coma = true )
             #end
 
-            #if ( $buyers.qjurisdiction )
+            #if ( $buyers.qemail )
               #if ( $control_coma )
                 ,
               #end
-              "jursidiction" : "$buyers.qjurisdiction"
+              "contactEmail" : "$buyers.qemail"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qtelephone )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactTelephone" : "$buyers.qtelephone"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qurl )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactURL" : "$buyers.qurl"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qfax )
+              #if ( $control_coma )
+                ,
+              #end
+              "contactFax" : "$buyers.qfax"
               #set( $control_coma = true )
             #end
 

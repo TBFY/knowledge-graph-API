@@ -5,8 +5,8 @@ PREFIX schema: <http://schema.org/>
 SELECT ?qdocumentid ?qdocumenttype ?qdocumentlanguage ?qdocumenturl
 WHERE {
 	?id ocds:hasDocument ?hdoc .
-	OPTIONAL { ?hdoc ocds:documentId ?qdocumentid .
-						 ?hdoc ocds:documentType ?qdocumenttype .
-						 ?hdoc dct:language ?qdocumentlanguage .
-						 ?hdoc schema:URL ?qdocumenturl } .
+	OPTIONAL { ?hdoc ocds:documentId ?qdocumentid ;
+						       ocds:documentType ?qdocumenttype ;
+						       dct:language ?qdocumentlanguage ;
+						       schema:URL ?qdocumenturl } .
 }

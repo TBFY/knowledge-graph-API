@@ -6,5 +6,5 @@ WHERE {
 	?id ocds:hasAmendment ?hamed .
 	OPTIONAL { ?hamed ocds:amendmentId ?qid .
 						 ?hamed dct:description ?qdescription .
-						 ?hamed ocds:amendmentDate ?qdate .
+						 ?hamed ocds:amendmentDate ?qdate } .
 }
