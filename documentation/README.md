@@ -95,8 +95,17 @@
 
    To show a list with only 5 organisations, it will be enough to request it this way: [GET /organisation?size=5](http://tbfy.librairy.linkeddata.es/kg-api/organisation?size=5)
 
-   and if the next page is needed, it is enough using:  [GET /organisation?size=5&offset=1](GET /organisation?size=5&offset=1)
+   and if the next page is needed, it is enough using:  [GET /organisation?size=5&offset=1](http://tbfy.librairy.linkeddata.es/kg-api/organisation?size=5&offset=1)
 
    When considering paginated queries it is necessary to set the `ORDER` option in the Sparql query.
+   
+   **Filters**
+
+   The API allows filtering in some fields of the resources that return lists such as name, title, description or status. The way in which a list can be filtered is by adding `?<name of the field to be filtered>=xxx` in the case o text fields. 
+   Example: 
+   
+   We need to obtain the list of tenders that contain the word "cluster": 
+   [GET /tender?title=cluster](https://tbfy.librairy.linkeddata.es/kg-api/tender?title=cluster)
+
 
    The API returns a JSON file for each service implemented. 
