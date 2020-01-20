@@ -31,7 +31,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "localty" : "$buyers.qlocality"
+              "locality" : "$buyers.qlocality"
               #set( $control_coma = true )
             #end
 

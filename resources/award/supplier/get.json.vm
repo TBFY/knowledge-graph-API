@@ -63,7 +63,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "localty" : "$suppliers.qlocality"
+              "locality" : "$suppliers.qlocality"
               #set( $control_coma = true )
             #end
 

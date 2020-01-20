@@ -1,0 +1,50 @@
+[
+    #foreach( $companies in $results )
+        {
+            #set( $control_coma = false )
+            #if ( $companies.ss )
+              #set ( $index = $companies.ss.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $companies.ss.substring($index, $companies.ss.length()) )
+
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$id"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $companies.qlegalname )
+              #if ( $control_coma )
+                ,
+              #end
+              "legalName" : "$companies.qlegalname"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $companies.qjurisdiction )
+              #if ( $control_coma )
+                ,
+              #end
+              "jurisdiction" : "$companies.qjurisdiction"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $companies.supaward )
+              #set ( $index = $companies.supaward.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $companies.supaward.substring($index, $companies.supaward.length()) )
+
+              #if ( $control_coma )
+                ,
+              #end
+              "awardId" : "$id"
+              #set( $control_coma = true )
+            #end
+
+        }
+         #if ( $velocityCount < ${results.size()} )
+            ,
+         #end
+    #end
+]
