@@ -1,15 +1,10 @@
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
-PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX dbp: <http://dbpedia.org/ontology/>
 
-SELECT ?s ?legalName ?jur
-WHERE {
-  ?s a ocds:Organisation .
-  ?s ocds:legalName ?legalName .
-  OPTIONAL { ?s owl:sameAs ?ss .
-  ?ss a regorg:RegisteredOrganization .
-  ?ss dbp:jurisdiction ?jur } .
-  FILTER ( regex(?jur, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
-  FILTER ( regex(?legalName, ?name, "i") || !isLiteral(?name) ) .
+SELECT ?s ?qlegalname ?qjurisdiction WHERE {
+  ?s a regorg:RegisteredOrganization .
+  ?s regorg:legalName ?qlegalname .
+  ?s dbp:jurisdiction ?qjurisdiction .
+  FILTER ( regex(?qjurisdiction, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
+  FILTER ( regex(?qlegalname, ?name, "i") || !isLiteral(?name) ) .
 }

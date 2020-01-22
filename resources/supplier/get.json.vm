@@ -30,6 +30,14 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $companies.qnumemployees )
+              #if ( $control_coma )
+                ,
+              #end
+              "numberOfEmployees" : "$companies.qnumemployees"
+              #set( $control_coma = true )
+            #end
+            
             #if ( $companies.supaward )
               #set ( $index = $companies.supaward.lastIndexOf("/") )
               #set ( $index = $index + 1 )
@@ -39,6 +47,14 @@
                 ,
               #end
               "awardId" : "$id"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $companies.qawdate )
+              #if ( $control_coma )
+                ,
+              #end
+              "awardDate" : "$companies.qawdate"
               #set( $control_coma = true )
             #end
 
