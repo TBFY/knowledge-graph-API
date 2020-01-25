@@ -22,8 +22,8 @@ WHERE {
 
 #Object Property hasAwardValue
   OPTIONAL { ?id ocds:hasAwardValue ?valr .
-  OPTIONAL { ?valr ocds:ValueAmount ?qamount .
-             ?valr ocds:ValueCurrency ?qcurrency }} .
+  OPTIONAL { ?valr ocds:valueAmount ?qamount .
+             ?valr ocds:valueCurrency ?qcurrency }} .
 
 #Object Property hasDocument not implemented here, second level resource
 
