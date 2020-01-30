@@ -44,37 +44,76 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $qstartdate )
+    #if ( $qstartdate || $qenddate )
+      #if ( $control_coma )
+        ,
+      #end
+        "contractPeriod" : {
+        #set( $control_sub = true )
+        #set( $control_coma = false )
+    #end
+
+    #if ( $qstartdate )
+      #if ( $control_coma )
+        ,
+      #end
+      "startDate" : "$qstartdate"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qenddate )
+      #if ( $control_coma )
+        ,
+      #end
+      "endDate" : "$qenddate"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $control_sub )
+      }
+    #end
+    #set( $control_sub = false )
+
+
+  #if ( $qamount || $qcurrency )
     #if ( $control_coma )
       ,
     #end
-    "contractPeriodStartDate" : "$qstartdate"
-    #set( $control_coma = true )
+      "value" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
   #end
 
-  #if ( $qenddate )
+  #if ( $qamount )
     #if ( $control_coma )
       ,
     #end
-    "contractPeriodEndDate" : "$qenddate"
+    "amount" : "$qamount"
     #set( $control_coma = true )
   #end
 
-#if ( $qamount )
-  #if ( $control_coma )
-    ,
+  #if ( $qcurrency )
+    #if ( $control_coma )
+      ,
+    #end
+    "currency" : "$qcurrency"
+    #set( $control_coma = true )
   #end
-  "awardValue" : "$qamount"
-  #set( $control_coma = true )
-#end
 
-#if ( $qcurrency )
-  #if ( $control_coma )
-    ,
+  #if ( $control_sub )
+    }
   #end
-  "awardCurrency" : "$qcurrency"
-  #set( $control_coma = true )
-#end
+  #set( $control_sub = false )
+
+
+  #if ( $qtenderid || $qtendertitle || $qtenderdescription || $qtenderstatus )
+    #if ( $control_coma )
+      ,
+    #end
+      "tender" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
+  #end
 
   #set ( $index = $qtenderid.lastIndexOf("/") )
   #set ( $index = $index + 1 )
@@ -84,8 +123,38 @@
     #if ( $control_coma )
       ,
     #end
-    "tenderId" : "$tid"
+    "id" : "$tid"
     #set( $control_coma = true )
   #end
+
+  #if ( $qtendertitle )
+    #if ( $control_coma )
+      ,
+    #end
+    "title" : "$qtendertitle"
+    #set( $control_coma = true )
+  #end
+
+  #if ( $qtenderdescription )
+    #if ( $control_coma )
+      ,
+    #end
+    "description" : "$qtenderdescription"
+    #set( $control_coma = true )
+  #end
+
+  #if ( $qtenderstatus )
+    #if ( $control_coma )
+      ,
+    #end
+    "status" : "$qtenderstatus"
+    #set( $control_coma = true )
+  #end
+
+
+  #if ( $control_sub )
+    }
+  #end
+  #set( $control_sub = false )
 
   }

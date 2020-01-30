@@ -1,9 +1,9 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 
-SELECT ?s ?startdate ?enddate
+SELECT ?qid ?qstartdate ?qenddate
 WHERE {
-	?s a ocds:Contract .
-	?s ocds:hasContractPeriod ?hcp .
-  OPTIONAL { ?hcp ocds:startDate ?startdate .
-						 ?hcp ocds:endDate ?enddate } .
+	?qid a ocds:Contract .
+	?qid ocds:hasContractPeriod ?hcp .
+  OPTIONAL { ?hcp ocds:startDate ?qstartdate .
+						 ?hcp ocds:endDate ?qenddate } .
 }

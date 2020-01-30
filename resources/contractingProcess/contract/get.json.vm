@@ -14,21 +14,25 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $contracts.startdate )
+
+
+            #if ( $contracts.qstartdate )
               #if ( $control_coma )
                 ,
               #end
-              "startDate" : "$contracts.startdate"
+              "startDate" : "$contracts.qstartdate"
               #set( $control_coma = true )
             #end
 
-            #if ( $contracts.enddate )
+            #if ( $contracts.qenddate )
               #if ( $control_coma )
                 ,
               #end
-              "endDate" : "$contracts.enddate"
+              "endDate" : "$contracts.qenddate"
               #set( $control_coma = true )
             #end
+
+
 
         }
          #if ( $velocityCount < ${results.size()} )

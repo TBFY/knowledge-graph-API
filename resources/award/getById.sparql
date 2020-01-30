@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT ( ?id AS ?oid ) ?qtitle ?qdescription ?qdate ?qstatus ?qstartdate ?qenddate ?qamount ?qcurrency ?qtenderid
+SELECT ( ?id AS ?oid ) ?qtitle ?qdescription ?qdate ?qstatus ?qstartdate ?qenddate ?qamount ?qcurrency ?qtenderid ?qtendertitle ?qtenderdescription ?qtenderstatus
 WHERE {
 
 #Award information
@@ -29,5 +29,8 @@ WHERE {
 
 #Object Property isIssuedForTender
   ?id ocds:isIssuedForTender ?qtenderid .
+  OPTIONAL { ?qtenderid dct:title ?qtendertitle } .
+  OPTIONAL { ?qtenderid dct:description ?qtenderdescription } .
+  OPTIONAL { ?qtenderid ocds:tenderStatus ?qtenderstatus } .
 
 }

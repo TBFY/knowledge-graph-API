@@ -2,10 +2,10 @@
     #foreach( $contracts in $results )
         {
             #set( $control_coma = false )
-            #if ( $contracts.s )
-            #set ( $index = $contracts.s.lastIndexOf("/") )
+            #if ( $contracts.qid )
+            #set ( $index = $contracts.qid.lastIndexOf("/") )
             #set ( $index = $index + 1 )
-            #set ( $id = $contracts.s.substring($index, $contracts.s.length()) )
+            #set ( $id = $contracts.qid.substring($index, $contracts.qid.length()) )
               #if ( $control_coma )
                 ,
               #end
@@ -13,21 +13,35 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $contracts.startdate )
+            #if ( $contracts.qstartdate || $contracts.qenddate )
               #if ( $control_coma )
                 ,
               #end
-              "startDate" : "$contracts.startdate"
+                "period" : {
+                #set( $control_sub = true )
+                #set( $control_coma = false )
+            #end
+
+            #if ( $contracts.qstartdate )
+              #if ( $control_coma )
+                ,
+              #end
+              "startDate" : "$contracts.qstartdate"
               #set( $control_coma = true )
             #end
 
-            #if ( $contracts.enddate )
+            #if ( $contracts.qenddate )
               #if ( $control_coma )
                 ,
               #end
-              "endDate" : "$contracts.enddate"
+              "endDate" : "$contracts.qenddate"
               #set( $control_coma = true )
             #end
+
+            #if ( $control_sub )
+              }
+            #end
+            #set( $control_sub = false )
 
         }
          #if ( $velocityCount < ${results.size()} )

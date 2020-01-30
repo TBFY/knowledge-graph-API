@@ -7,22 +7,22 @@ PREFIX schema: <http://schema.org/>
 
 SELECT ?qlegalname ?qstreet ?qpostalcode ?qlocality ?qcountry ?qname ?qemail ?qtelephone ?qurl ?qfax
 WHERE {
-  ?s a ocds:Organisation .
-  ?s ocds:isBuyerFor ?id .
-  ?s ocds:legalName ?qlegalname .
-  OPTIONAL { ?s ocds:hasAddress ?haddress .
+  ?id a ocds:Organisation .
+  ?id ocds:isBuyerFor ?id .
+  ?id ocds:legalName ?qlegalname .
+  OPTIONAL { ?id ocds:hasAddress ?haddress .
             OPTIONAL { ?haddress schema:streetAddress ?qstreet .
                        ?haddress schema:postalCode ?qpostalcode .
                        ?haddress schema:addressLocality ?qlocality .
                        ?haddress schema:addressCountry ?qcountry }} .
-  OPTIONAL { ?s ocds:hasContactPoint ?hcp .
+  OPTIONAL { ?id ocds:hasContactPoint ?hcp .
             OPTIONAL { ?hcp schema:name ?qname .
                        ?hcp schema:email ?qemail .
                        ?hcp schema:telephone ?qtelephone .
                        OPTIONAL { ?hcp schema:URL ?qurl .
                                   ?hcp schema:faxNumber ?qfax }}} .
 # So far, no buyer has correspondance with euBG
-#  OPTIONAL { ?s owl:sameAs ?sas .
-#  OPTIONAL { ?sas regorg:legalName ?qname .
-#             ?sas dbp:jurisdiction ?qjurisdiction }} .
+#  OPTIONAL { ?id owl:sameAs ?idas .
+#  OPTIONAL { ?idas regorg:legalName ?qname .
+#             ?idas dbp:jurisdiction ?qjurisdiction }} .
 }

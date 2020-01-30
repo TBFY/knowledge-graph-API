@@ -1,7 +1,7 @@
 {
-  #set ( $index = $oid.lastIndexOf("/") )
+  #set ( $index = $qid.lastIndexOf("/") )
   #set ( $index = $index + 1 )
-  #set ( $ident = $oid.substring($index, $oid.length()) )
+  #set ( $ident = $qid.substring($index, $qid.length()) )
   #set( $control_coma = false )
   #if ( $ident )
     #if ( $control_coma )
@@ -11,20 +11,34 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $startdate )
+  #if ( $qstartdate || $qenddate )
     #if ( $control_coma )
       ,
     #end
-    "startDate" : "$startdate"
+      "period" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
+  #end
+
+  #if ( $qstartdate )
+    #if ( $control_coma )
+      ,
+    #end
+    "startDate" : "$qstartdate"
     #set( $control_coma = true )
   #end
 
-  #if ( $enddate )
+  #if ( $qenddate )
     #if ( $control_coma )
       ,
     #end
-    "endDate" : "$enddate"
+    "endDate" : "$qenddate"
     #set( $control_coma = true )
   #end
+
+  #if ( $control_sub )
+    }
+  #end
+  #set( $control_sub = false )
 
 }

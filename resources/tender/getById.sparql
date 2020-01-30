@@ -5,7 +5,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT ( ?id AS ?oid ) ?qtitle ?qdescription ?qstatus ?qnumtenderers ?qprocurementmethod ?qprocurementmethoddetails
+SELECT (?id as ?oid) ?qtitle ?qdescription ?qstatus ?qnumtenderers ?qprocurementmethod ?qprocurementmethoddetails
 ?qawardcriteria ?qawardcriteriadetails ?qsubmissionmethod ?qsubmissionmethoddetails ?qenquiry ?qeligibilitycriteria
 ?qtenderperiodstartdate ?qtenderperiodenddate ?qawardperiodstartdate ?qawardperiodenddate ?qminvalueamount ?qminvaluecurrency
 ?qmaxvalueamount ?qmaxvaluecurrency ?qmildescription ?qmiltitle ?qmilduedate ?qmildocid ?qmildoctype ?qmildoclanguage
@@ -28,13 +28,13 @@ WHERE {
 
 #Object Property hasTenderPeriod
   OPTIONAL { ?id ocds:hasTenderPeriod ?htp .
-  OPTIONAL { ?htp ocds:startDate ?qtenderperiodstartdate ;
-                  ocds:endDate ?qtenderperiodenddate }} .
+  OPTIONAL { ?htp ocds:startDate ?qtenderperiodstartdate } .
+  OPTIONAL { ?htp ocds:endDate ?qtenderperiodenddate }} .
 
 #Object Property hasAwardPeriod
   OPTIONAL { ?id ocds:hasAwardPeriod ?hap .
-  OPTIONAL { ?hap ocds:startDate ?qawardperiodstartdate ;
-                  ocds:endDate ?qawardperiodenddate }} .
+  OPTIONAL { ?hap ocds:startDate ?qawardperiodstartdate } .
+  OPTIONAL { ?hap ocds:endDate ?qawardperiodenddate }} .
 
 #Object Property hasMinEstimatedValue
   OPTIONAL { ?id ocds:hasMinEstimatedValue ?hminev .

@@ -1,7 +1,7 @@
 {
-  #set ( $index = $ocid.lastIndexOf("/") )
+  #set ( $index = $qid.lastIndexOf("/") )
   #set ( $index = $index + 1 )
-  #set ( $id = $ocid.substring($index, $ocid.length()) )
+  #set ( $id = $qid.substring($index, $qid.length()) )
   #set( $control_coma = false )
   #if ( $id )
     #if ( $control_coma )
@@ -11,36 +11,68 @@
     #set( $control_coma = true )
   #end
 
-    #if ( $hasdocid )
-      #if ( $control_coma )
-        ,
-      #end
-      "documentId" : "$hasdocid"
-      #set( $control_coma = true )
-    #end
+#* Prueba de doble anindado *#
 
-    #if ( $hasdoctype )
-      #if ( $control_coma )
-        ,
-      #end
-      "documentType" : "$hasdoctype"
-      #set( $control_coma = true )
+  #if ( $hasdocid || $hasdoctype || $hasdoclan || $hasdocurl )
+    #if ( $control_coma )
+      ,
     #end
+      "plan" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
+  #end
 
-      #if ( $hasdoclan )
+      #if ( $hasdocid || $hasdoctype || $hasdoclan || $hasdocurl )
         #if ( $control_coma )
           ,
         #end
-        "documentLanguage" : "$hasdoclan"
-        #set( $control_coma = true )
+          "document" : {
+          #set( $control_sub2 = true )
+          #set( $control_coma = false )
       #end
 
-      #if ( $hasdocurl )
+      #if ( $hasdocid )
         #if ( $control_coma )
           ,
         #end
-        "documentURL" : "$hasdocurl"
+        "id" : "$hasdocid"
         #set( $control_coma = true )
       #end
+
+      #if ( $hasdoctype )
+        #if ( $control_coma )
+          ,
+        #end
+        "type" : "$hasdoctype"
+        #set( $control_coma = true )
+      #end
+
+        #if ( $hasdoclan )
+          #if ( $control_coma )
+            ,
+          #end
+          "language" : "$hasdoclan"
+          #set( $control_coma = true )
+        #end
+
+        #if ( $hasdocurl )
+          #if ( $control_coma )
+            ,
+          #end
+          "URL" : "$hasdocurl"
+          #set( $control_coma = true )
+        #end
+
+        #if ( $control_sub2 )
+          }
+        #end
+        #set( $control_sub2 = false )
+
+#* In case there were more elements in plan (milestone or budget), should be included in the same way as document *#
+
+      #if ( $control_sub )
+        }
+      #end
+      #set( $control_sub = false )
 
 }

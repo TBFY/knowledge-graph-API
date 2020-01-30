@@ -2,11 +2,10 @@ PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 
-SELECT ?qdocumentid ?qdocumenttype ?qdocumentlanguage ?qdocumenturl
+SELECT ?hdoc ?qdocumenttype ?qdocumentlanguage ?qdocumenturl
 WHERE {
 	?id ocds:hasDocument ?hdoc .
-	OPTIONAL { ?hdoc ocds:documentId ?qdocumentid ;
-						       ocds:documentType ?qdocumenttype ;
+	OPTIONAL { ?hdoc ocds:documentType ?qdocumenttype ;
 						       dct:language ?qdocumentlanguage ;
 						       schema:URL ?qdocumenturl } .
 }

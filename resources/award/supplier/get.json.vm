@@ -43,6 +43,15 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $suppliers.qstreet || $suppliers.qpostalcode || $suppliers.qlocality || $suppliers.qcountry )
+              #if ( $control_coma )
+                ,
+              #end
+                "address" : {
+                #set( $control_sub = true )
+                #set( $control_coma = false )
+            #end
+
             #if ( $suppliers.qstreet )
               #if ( $control_coma )
                 ,
@@ -75,11 +84,25 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $control_sub )
+              }
+            #end
+            #set( $control_sub = false )
+
+            #if ( $suppliers.qname || $suppliers.qemail || $suppliers.qtelephone || $suppliers.qurl || $suppliers.qfax )
+              #if ( $control_coma )
+                ,
+              #end
+                "contactPoint" : {
+                #set( $control_sub = true )
+                #set( $control_coma = false )
+            #end
+
             #if ( $suppliers.qname )
               #if ( $control_coma )
                 ,
               #end
-              "contactName" : "$suppliers.qname"
+              "name" : "$suppliers.qname"
               #set( $control_coma = true )
             #end
 
@@ -87,7 +110,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactEmail" : "$suppliers.qemail"
+              "email" : "$suppliers.qemail"
               #set( $control_coma = true )
             #end
 
@@ -95,7 +118,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactTelephone" : "$suppliers.qtelephone"
+              "telephone" : "$suppliers.qtelephone"
               #set( $control_coma = true )
             #end
 
@@ -103,7 +126,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactURL" : "$suppliers.qurl"
+              "URL" : "$suppliers.qurl"
               #set( $control_coma = true )
             #end
 
@@ -111,9 +134,14 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactFax" : "$suppliers.qfax"
+              "fax" : "$suppliers.qfax"
               #set( $control_coma = true )
             #end
+
+            #if ( $control_sub )
+              }
+            #end
+            #set( $control_sub = false )
 
         }
          #if ( $velocityCount < ${results.size()} )

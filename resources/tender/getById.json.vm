@@ -43,11 +43,21 @@
     #set( $control_coma = true )
   #end
 
+  #* Procurement *#
+  #if ( $qprocurementmethod || $qprocurementmethoddetails )
+    #if ( $control_coma )
+      ,
+    #end
+      "procurement" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
+  #end
+
   #if ( $qprocurementmethod )
     #if ( $control_coma )
       ,
     #end
-    "procurementMethod" : "$qprocurementmethod"
+    "method" : "$qprocurementmethod"
     #set( $control_coma = true )
   #end
 
@@ -55,95 +65,170 @@
     #if ( $control_coma )
       ,
     #end
-    "procurementMethodDetails" : "$qprocurementmethoddetails"
+    "methodDetails" : "$qprocurementmethoddetails"
     #set( $control_coma = true )
   #end
 
-  #if ( $qawardcriteria )
-    #if ( $control_coma )
-      ,
-    #end
-    "awardCriteria" : "$qawardcriteria"
-    #set( $control_coma = true )
+  #if ( $control_sub )
+    }
   #end
+  #set( $control_sub = false )
 
-  #if ( $qawardcriteriadetails )
+  #* Award *#
+    #if ( $qawardcriteria || $qawardcriteriadetails || $qawardperiodstartdate || $qawardperiodenddate )
+      #if ( $control_coma )
+        ,
+      #end
+        "award" : {
+        #set( $control_sub = true )
+        #set( $control_coma = false )
+    #end
+
+    #if ( $qawardcriteria )
+      #if ( $control_coma )
+        ,
+      #end
+      "criteria" : "$qawardcriteria"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qawardcriteriadetails )
+      #if ( $control_coma )
+        ,
+      #end
+      "criteriaDetails" : "$qawardcriteriadetails"
+      #set( $control_coma = true )
+    #end
+
+      #* Award period level 2 *#
+      #if ( $qawardperiodstartdate || $qawardperiodenddate )
+        #if ( $control_coma )
+          ,
+        #end
+          "period" : {
+          #set( $control_sub2 = true )
+          #set( $control_coma = false )
+      #end
+
+      #if ( $qawardperiodstartdate )
+        #if ( $control_coma )
+          ,
+        #end
+        "startDate" : "$qawardperiodstartdate"
+        #set( $control_coma = true )
+      #end
+
+      #if ( $qawardperiodenddate )
+        #if ( $control_coma )
+          ,
+        #end
+        "endDate" : "$qawardperiodenddate"
+        #set( $control_coma = true )
+      #end
+
+      #if ( $control_sub2 )
+        }
+      #end
+      #set( $control_sub2 = false )
+
+    #if ( $control_sub )
+      }
+    #end
+    #set( $control_sub = false )
+
+    #* Submission *#
+    #if ( $qsubmissionmethod || $qsubmissionmethoddetails )
+      #if ( $control_coma )
+        ,
+      #end
+        "submission" : {
+        #set( $control_sub = true )
+        #set( $control_coma = false )
+    #end
+
+    #if ( $qsubmissionmethod )
+      #if ( $control_coma )
+        ,
+      #end
+      "method" : "$qsubmissionmethod"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qsubmissionmethoddetails )
+      #if ( $control_coma )
+        ,
+      #end
+      "methodDetails" : "$qsubmissionmethoddetails"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $control_sub )
+      }
+    #end
+    #set( $control_sub = false )
+
+    #if ( $qenquiry )
+      #if ( $control_coma )
+        ,
+      #end
+      "enquiry" : "$qenquiry"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qeligibilitycriteria )
+      #if ( $control_coma )
+        ,
+      #end
+      "eligibilityCriteria" : "$qeligibilitycriteria"
+      #set( $control_coma = true )
+    #end
+
+    #* Tender Period *#
+    #if ( $qtenderperiodstartdate || $qtenderperiodenddate )
+      #if ( $control_coma )
+        ,
+      #end
+        "tenderPeriod" : {
+        #set( $control_sub = true )
+        #set( $control_coma = false )
+    #end
+
+    #if ( $qtenderperiodstartdate )
+      #if ( $control_coma )
+        ,
+      #end
+      "startDate" : "$qtenderperiodstartdate"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qtenderperiodenddate )
+      #if ( $control_coma )
+        ,
+      #end
+      "eEndDate" : "$qtenderperiodenddate"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $control_sub )
+      }
+    #end
+    #set( $control_sub = false )
+
+  #* Value *#
+  #if ( $qminvalueamount || $qminvaluecurrency || $qmaxvalueamount || $qmaxvaluecurrency)
     #if ( $control_coma )
       ,
     #end
-    "awardCriteriaDetails" : "$qawardcriteriadetails"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qsubmissionmethod )
-    #if ( $control_coma )
-      ,
-    #end
-    "submissionMethod" : "$qsubmissionmethod"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qsubmissionmethoddetails )
-    #if ( $control_coma )
-      ,
-    #end
-    "submissionMethodDetails" : "$qsubmissionmethoddetails"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qenquiry )
-    #if ( $control_coma )
-      ,
-    #end
-    "enquiry" : "$qenquiry"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qeligibilitycriteria )
-    #if ( $control_coma )
-      ,
-    #end
-    "eligibilityCriteria" : "$qeligibilitycriteria"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qtenderperiodstartdate )
-    #if ( $control_coma )
-      ,
-    #end
-    "tenderPeriodStartDate" : "$qtenderperiodstartdate"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qtenderperiodenddate )
-    #if ( $control_coma )
-      ,
-    #end
-    "tenderPeriodEndDate" : "$qtenderperiodenddate"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qawardperiodstartdate )
-    #if ( $control_coma )
-      ,
-    #end
-    "awardPeriodStartDate" : "$qawardperiodstartdate"
-    #set( $control_coma = true )
-  #end
-
-  #if ( $qawardperiodenddate )
-    #if ( $control_coma )
-      ,
-    #end
-    "awardPeriodEndDate" : "$qawardperiodenddate"
-    #set( $control_coma = true )
+      "value" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
   #end
 
   #if ( $qminvalueamount )
     #if ( $control_coma )
       ,
     #end
-    "minEstimatedValueAmount" : "$qminvalueamount"
+    "minEstimatedAmount" : "$qminvalueamount"
     #set( $control_coma = true )
   #end
 
@@ -151,7 +236,7 @@
     #if ( $control_coma )
       ,
     #end
-    "minEstimatedValueCurrency" : "$qminvaluecurrency"
+    "minEstimatedCurrency" : "$qminvaluecurrency"
     #set( $control_coma = true )
   #end
 
@@ -159,7 +244,7 @@
     #if ( $control_coma )
       ,
     #end
-    "maxEstimatedValueAmount" : "$qmaxvalueamount"
+    "maxEstimatedAmount" : "$qmaxvalueamount"
     #set( $control_coma = true )
   #end
 
@@ -167,15 +252,30 @@
     #if ( $control_coma )
       ,
     #end
-    "maxEstimatedValueCurrency" : "$qmaxvaluecurrency"
+    "maxEstimatedCurrency" : "$qmaxvaluecurrency"
     #set( $control_coma = true )
+  #end
+
+  #if ( $control_sub )
+    }
+  #end
+  #set( $control_sub = false )
+
+  #* Milestone level 1 *#
+  #if ( $qmiltitle || $qmildescription || $qmilduedate || $qmildocid || $qmildoctype || $qmildoclanguage || $qmildocurl)
+    #if ( $control_coma )
+      ,
+    #end
+      "milestone" : {
+      #set( $control_sub = true )
+      #set( $control_coma = false )
   #end
 
   #if ( $qmiltitle )
     #if ( $control_coma )
       ,
     #end
-    "milestoneTitle" : "$qmiltitle"
+    "title" : "$qmiltitle"
     #set( $control_coma = true )
   #end
 
@@ -183,7 +283,7 @@
     #if ( $control_coma )
       ,
     #end
-    "milestoneDescription" : "$qmildescription"
+    "description" : "$qmildescription"
     #set( $control_coma = true )
   #end
 
@@ -191,40 +291,60 @@
     #if ( $control_coma )
       ,
     #end
-    "milestoneDueDate" : "$qmilduedate"
+    "dueDate" : "$qmilduedate"
     #set( $control_coma = true )
   #end
 
-  #if ( $qmildocid )
-    #if ( $control_coma )
-      ,
+    #* Milestone document level 2 *#
+    #if ( $qmildocid || $qmildoctype || $qmildoclanguage || $qmildocurl )
+      #if ( $control_coma )
+        ,
+      #end
+        "document" : {
+        #set( $control_sub2 = true )
+        #set( $control_coma = false )
     #end
-    "milestoneDocumentId" : "$qmildocid"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $qmildoctype )
-    #if ( $control_coma )
-      ,
+    #if ( $qmildocid )
+      #if ( $control_coma )
+        ,
+      #end
+      "milestoneDocumentId" : "$qmildocid"
+      #set( $control_coma = true )
     #end
-    "milestoneDocumentType" : "$qmildoctype"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $qmildoclanguage )
-    #if ( $control_coma )
-      ,
+    #if ( $qmildoctype )
+      #if ( $control_coma )
+        ,
+      #end
+      "milestoneDocumentType" : "$qmildoctype"
+      #set( $control_coma = true )
     #end
-    "milestoneDocumentLanguage" : "$qmildoclanguage"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $qmildocurl )
-    #if ( $control_coma )
-      ,
+    #if ( $qmildoclanguage )
+      #if ( $control_coma )
+        ,
+      #end
+      "milestoneDocumentLanguage" : "$qmildoclanguage"
+      #set( $control_coma = true )
     #end
-    "milestoneDocumentURL" : "$qmildocurl"
-    #set( $control_coma = true )
+
+    #if ( $qmildocurl )
+      #if ( $control_coma )
+        ,
+      #end
+      "milestoneDocumentURL" : "$qmildocurl"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $control_sub2 )
+      }
+    #end
+    #set( $control_sub2 = false )
+
+  #if ( $control_sub )
+    }
   #end
+  #set( $control_sub = false )
 
   }
