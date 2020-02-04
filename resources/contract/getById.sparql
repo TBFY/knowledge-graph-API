@@ -5,10 +5,10 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
-SELECT ?qid ?qstartdate ?qenddate
+SELECT ( ?id AS ?oid ) ?qstartdate ?qenddate
 WHERE {
-	?qid a ocds:Contract .
-	?qid ocds:hasContractPeriod ?hcp .
+	?id a ocds:Contract .
+	?id ocds:hasContractPeriod ?hcp .
   OPTIONAL { ?hcp ocds:startDate ?qstartdate .
 		?hcp ocds:endDate ?qenddate } .
 }

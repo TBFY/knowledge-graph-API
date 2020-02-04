@@ -1,7 +1,7 @@
 {
-  #set ( $index = $qid.lastIndexOf("/") )
+  #set ( $index = $oid.lastIndexOf("/") )
   #set ( $index = $index + 1 )
-  #set ( $ident = $qid.substring($index, $qid.length()) )
+  #set ( $ident = $oid.substring($index, $oid.length()) )
   #set( $control_coma = false )
   #if ( $ident )
     #if ( $control_coma )
