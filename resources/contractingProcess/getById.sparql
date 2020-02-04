@@ -2,16 +2,16 @@ PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 
-SELECT ?qid ?hasdocid ?hasdoctype ?hasdoclan ?hasdocurl
+SELECT ( ?id AS ?oid ) ?hasdocid ?hasdoctype ?hasdoclan ?hasdocurl
 WHERE {
-?qid a ocds:ContractingProcess .
+?id a ocds:ContractingProcess .
 
 #Object Property hasPlan
-OPTIONAL { ?qid ocds:hasPlan ?plan } .
+OPTIONAL { ?id ocds:hasPlan ?plan .
 OPTIONAL { ?plan ocds:hasDocument ?hasdoc } .
 OPTIONAL { ?hasdoc ocds:documentId ?hasdocid } .
 OPTIONAL { ?hasdoc ocds:documentType ?hasdoctype } .
 OPTIONAL { ?hasdoc dct:language ?hasdoclan } .
-OPTIONAL { ?hasdoc schema:URL ?hasdocurl } .
+OPTIONAL { ?hasdoc schema:URL ?hasdocurl }} .
 
 }

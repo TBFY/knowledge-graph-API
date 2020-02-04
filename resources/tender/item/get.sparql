@@ -5,8 +5,8 @@ SELECT ?itm ?qdescription ?qclassificationscheme ?qclassification ?qadditclassif
 WHERE {
   ?id ocds:hasItemToBeProcured ?itm .
 	OPTIONAL { ?itm dct:description ?qdescription } .
-	OPTIONAL { ?itm ocds:classificatonScheme ?qclassificationscheme .
-	           ?itm ocds:hasClassificaton ?qclassification .
-  OPTIONAL { ?itm ocds:additionalItemClassificatonScheme ?qadditclassificationscheme .
-	           ?itm ocds:hasAdditionalItemClassificaton ?qadditclassification }} .
+	OPTIONAL { ?itm ocds:classificatonScheme ?qclassificationscheme } .
+  OPTIONAL { ?itm ocds:hasClassificaton ?qclassification } .
+  OPTIONAL { ?itm ocds:additionalItemClassificatonScheme ?qadditclassificationscheme }.
+	OPTIONAL { ?itm ocds:hasAdditionalItemClassificaton ?qadditclassification } .
 }
