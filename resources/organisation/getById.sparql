@@ -6,7 +6,7 @@ PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 PREFIX dbp: <http://dbpedia.org/ontology/>
-PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX rov: <http://www.w3.org/ns/regorg#>
 PREFIX bgh: <http://data.businessgraph.io/>
 PREFIX locn: <http://www.w3.org/ns/locn#>
 SELECT ( ?id as ?oid ) ?ln ?hn ?sad ?cp ?loc ?adc ?cpn ?eml ?tel ?jur ?fy ?nemp ?fullad
@@ -38,7 +38,7 @@ WHERE {
 
 #Eu Ontology
   ?id owl:sameAs ?ss .
-  ?ss a regorg:RegisteredOrganization .
+  ?ss a rov:RegisteredOrganization .
   OPTIONAL { ?ss dbp:jurisdiction ?jur} .
   OPTIONAL { ?ss bgh:foundingYear ?fy} .
   OPTIONAL { ?ss bgh:numberOfEmployees ?nemp} .

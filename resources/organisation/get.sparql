@@ -1,9 +1,9 @@
-PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX rov: <http://www.w3.org/ns/regorg#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
 
 SELECT ?s ?qlegalname ?qjurisdiction WHERE {
-  ?s a regorg:RegisteredOrganization .
-  ?s regorg:legalName ?qlegalname .
+  ?s a rov:RegisteredOrganization .
+  ?s rov:legalName ?qlegalname .
   ?s dbp:jurisdiction ?qjurisdiction .
   FILTER ( regex(?qjurisdiction, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
   FILTER ( regex(?qlegalname, ?name, "i") || !isLiteral(?name) ) .

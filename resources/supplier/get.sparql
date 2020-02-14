@@ -1,4 +1,4 @@
-PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX rov: <http://www.w3.org/ns/regorg#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -8,7 +8,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?ss ?supaward ?qlegalname ?qjurisdiction ?qnumemployees ?qawdate WHERE {
   ?s ocds:isSupplierFor ?supaward .
   ?s owl:sameAs ?ss .
-  ?ss regorg:legalName ?qlegalname .
+  ?ss rov:legalName ?qlegalname .
   ?ss dbp:jurisdiction ?qjurisdiction .
   ?ss ebg:numberOfEmployees ?qnumemployees .
   ?supaward ocds:awardDate ?qawdate .

@@ -1,5 +1,5 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
-PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX rov: <http://www.w3.org/ns/regorg#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX bgh: <http://data.businessgraph.io/>
@@ -23,6 +23,6 @@ WHERE {
                                   ?hcp schema:faxNumber ?qfax }}} .
 # So far, no buyer has correspondance with euBG
 #  OPTIONAL { ?id owl:sameAs ?idas .
-#  OPTIONAL { ?idas regorg:legalName ?qname .
+#  OPTIONAL { ?idas rov:legalName ?qname .
 #             ?idas dbp:jurisdiction ?qjurisdiction }} .
 }
