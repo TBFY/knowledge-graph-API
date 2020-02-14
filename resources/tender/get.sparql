@@ -7,7 +7,7 @@ WHERE {
 	OPTIONAL { ?qid dct:title ?qtitle } .
 	OPTIONAL { ?qid dct:description ?qdescription } .
 	OPTIONAL { ?qid ocds:tenderStatus ?qstatus } .
-  FILTER ( regex(?qstatus, ?status, "i") || !isLiteral(?status) ) .
-  FILTER ( regex(?qtitle, ?title, "i") || !isLiteral(?title) ) .
-  FILTER ( regex(?qdescription, ?description, "i") || !isLiteral(?description) ) .
+	FILTER ( isNumeric(?status) = True || regex(?qstatus, ?status, "i") ) .
+	FILTER ( isNumeric(?title) = True || regex(?qtitle, ?title, "i") ) .
+	FILTER ( isNumeric(?description) = True || regex(?qdescription, ?description, "i") ) .
 }

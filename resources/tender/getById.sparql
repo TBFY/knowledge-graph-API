@@ -33,8 +33,8 @@ WHERE {
 
 #Object Property hasAwardPeriod
   OPTIONAL { ?id ocds:hasAwardPeriod ?hap .
-  OPTIONAL { ?hap ocds:startDate ?qawardperiodstartdate } .
-  OPTIONAL { ?hap ocds:endDate ?qawardperiodenddate }} .
+  OPTIONAL { ?hap ocds:periodStartDate ?qawardperiodstartdate } .
+  OPTIONAL { ?hap ocds:periodEndDate ?qawardperiodenddate }} .
 
 #Object Property hasMinEstimatedValue
   OPTIONAL { ?id ocds:hasMinEstimatedValue ?hminev .

@@ -11,107 +11,129 @@
     #set( $control_coma = true )
   #end
 
-  #if ( $ln )
+  #if ( $qlegalname )
     #if ( $control_coma )
       ,
     #end
-    "legalName" : "$ln"
+    "legalName" : "$qlegalname"
     #set( $control_coma = true )
   #end
 
-  #if ( $hn )
+  #if ( $qjurisdiction )
     #if ( $control_coma )
       ,
     #end
-    "name" : "$hn"
+    "jurisdiction" : "$qjurisdiction"
     #set( $control_coma = true )
   #end
 
-  #if ( $sad )
+  #if ( $qfoundingdate )
     #if ( $control_coma )
       ,
     #end
-    "streetAddress" : "$sad"
+    "foundingDate" : "$qfoundingdate"
     #set( $control_coma = true )
   #end
 
-  #if ( $cp )
+  #if ( $qdissolutiondate )
     #if ( $control_coma )
       ,
     #end
-    "postalCode" : "$cp"
+    "dissolutionDate" : "$qdissolutiondate"
     #set( $control_coma = true )
   #end
 
-  #if ( $loc )
-    #if ( $control_coma )
-      ,
+    #if ( $qnofemployees )
+      #if ( $control_coma )
+        ,
+      #end
+      "numberOfEmployees" : "$qnofemployees"
+      #set( $control_coma = true )
     #end
-    "locality" : "$loc"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $adc )
-    #if ( $control_coma )
-      ,
+    #if ( $qactivitytext )
+      #if ( $control_coma )
+        ,
+      #end
+      "activity" : "$qactivitytext"
+      #set( $control_coma = true )
     #end
-    "country" : "$adc"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $cpn )
-    #if ( $control_coma )
-      ,
+    #if ( $qidentifier )
+      #if ( $control_coma )
+        ,
+      #end
+      "qidentifier" : "$qidentifier"
+      #set( $control_coma = true )
     #end
-    "contact" : "$cpn"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $eml )
-    #if ( $control_coma )
-      ,
+    #if ( $qstatustext )
+      #if ( $control_coma )
+        ,
+      #end
+      "status" : "$qstatustext"
+      #set( $control_coma = true )
     #end
-    "email" : "$eml"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $tel )
-    #if ( $control_coma )
-      ,
+    #if ( $qtypetext )
+      #if ( $control_coma )
+        ,
+      #end
+      "type" : "$qtypetext"
+      #set( $control_coma = true )
     #end
-    "telephone" : "$tel"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $jur )
-    #if ( $control_coma )
-      ,
-    #end
-    "jurisdiction" : "$jur"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $fy )
-    #if ( $control_coma )
-      ,
+    #if ( $control_sub )
+      }
     #end
-    "foundationYear" : "$fy"
-    #set( $control_coma = true )
-  #end
+    #set( $control_sub = false )
 
-  #if ( $nemp )
-    #if ( $control_coma )
-      ,
-    #end
-    "numberOfmployees" : "$nemp"
-    #set( $control_coma = true )
-  #end
 
-  #if ( $fullad )
-    #if ( $control_coma )
-      ,
+    #if ( $qfulladdress || $qpostcode || $qpostname || $qthoroughfare )
+      #if ( $control_coma )
+        ,
+      #end
+        "fullAddress" : {
+        #set( $control_sub = true )
+        #set( $control_coma = false )
     #end
-    "fullAddress" : "$fullad"
-    #set( $control_coma = true )
-  #end
+
+    #if ( $qfulladdress )
+      #if ( $control_coma )
+        ,
+      #end
+      "address" : "$qfulladdress"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qpostcode )
+      #if ( $control_coma )
+        ,
+      #end
+      "postCode" : "$qpostcode"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qpostname )
+      #if ( $control_coma )
+        ,
+      #end
+      "postName" : "$qpostname"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $qthoroughfare )
+      #if ( $control_coma )
+        ,
+      #end
+      "thoroughfare" : "$qthoroughfare"
+      #set( $control_coma = true )
+    #end
+
+    #if ( $control_sub )
+      }
+    #end
+    #set( $control_sub = false )
+
 }

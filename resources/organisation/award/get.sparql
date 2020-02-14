@@ -14,4 +14,9 @@ WHERE {
   OPTIONAL { ?isf dcterms:title ?qtitle } .
   OPTIONAL { ?isf dcterms:description ?des } .
   OPTIONAL { ?isf tbfy:awardStatus ?stat } .
+	FILTER ( isNumeric(?status) = True || regex(?qstatus, ?status, "i") ) .
+	FILTER ( isNumeric(?title) = True || regex(?qtitle, ?title, "i") ) .
+	FILTER ( isNumeric(?description) = True || regex(?qdescription, ?description, "i") ) .
+	FILTER ( isNumeric(?end_dt) = True || STRDT( ?qdate , xsd:dateTime) < ?end_dt) .
+	FILTER ( isNumeric(?start_dt) = True || STRDT( ?qdate , xsd:dateTime) > ?start_dt) .
 }

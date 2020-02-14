@@ -7,7 +7,7 @@ WHERE {
   OPTIONAL { ?hasten dct:title ?qtitle } .
   OPTIONAL { ?hasten dct:description ?qdescription } .
   OPTIONAL { ?hasten ocds:tenderStatus ?qstatus } .
-	FILTER ( regex(?qstatus, ?status, "i") || !isLiteral(?status) ) .
-	FILTER ( regex(?qtitle, ?qtitlele, "i") || !isLiteral(?title) ) .
-	FILTER ( regex(?qdescription, ?description, "i") || !isLiteral(?description) ) .
+  FILTER ( isNumeric(?status) = True || regex(?qstatus, ?status, "i") ) .
+	FILTER ( isNumeric(?title) = True || regex(?qtitle, ?title, "i") ) .
+	FILTER ( isNumeric(?description) = True || regex(?qdescription, ?description, "i") ) .
 }

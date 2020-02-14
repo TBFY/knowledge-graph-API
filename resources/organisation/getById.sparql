@@ -1,47 +1,32 @@
 PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX tbfy: <http://data.tbfy.eu/ontology/ocds/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX rov: <http://www.w3.org/ns/regorg#>
-PREFIX bgh: <http://data.businessgraph.io/>
 PREFIX locn: <http://www.w3.org/ns/locn#>
-SELECT ( ?id as ?oid ) ?ln ?hn ?sad ?cp ?loc ?adc ?cpn ?eml ?tel ?jur ?fy ?nemp ?fullad
+PREFIX ebg: <http://data.businessgraph.io/ontology#>
+
+SELECT ( ?id as ?oid ) ?qlegalname ?qjurisdiction ?qfoundingdate ?qdissolutiondate ?qnofemployees
+?qactivitytext ?qstatustext ?qidentifier ?qtypetext ?qfulladdress ?qpostcode ?qpostname ?qthoroughfare ?qadminUnitL1
 WHERE {
 
 #Organisation information
-  OPTIONAL { ?id a tbfy:Organisation } .
-  OPTIONAL { ?id tbfy:legalName ?ln } .
-  OPTIONAL { ?id tbfy:hasName ?hn } .
+  ?id a rov:RegisteredOrganization ;
+      rov:legalName ?qlegalname ;
+      dbp:jurisdiction ?qjurisdiction ;
+      schema:foundingDate ?qfoundingdate ;
+      schema:dissolutionDate ?qdissolutiondate ;
+      ebg:numberOfEmployees ?qnofemployees ;
+      ebg:orgActivityText ?qactivitytext ;
+      ebg:orgStatusText ?qstatustext ;
+      ebg:orgTypeText ?qtypetext .
 
-#Object Property hasAddress
-  OPTIONAL { ?id tbfy:hasAddress ?adr } .
-  OPTIONAL { ?adr schema:streetAddress ?sad } .
-  OPTIONAL { ?adr schema:postalCode ?cp } .
-  OPTIONAL { ?adr schema:addressLocality ?loc } .
-  OPTIONAL { ?adr schema:addressCountry ?adc } .
+#Object Property hasSite and hasRegisteredSite (both are the same)
+  ?id rov:hasSite ?qhassite .
+  ?qhassite org:siteAddress ?qsiteaddress ;
+           locn:fullAddress ?qfulladdress ;
+           locn:postCode ?qpostcode ;
+           locn:postName ?qpostname ;
+           locn:thoroughfare ?qthoroughfare ;
 
-#Object Property hasContactPoint
-  OPTIONAL { ?id tbfy:hasContactPoint ?hcp } .
-  OPTIONAL { ?hcp schema:name ?cpn } .
-  OPTIONAL { ?hcp schema:email ?eml } .
-  OPTIONAL { ?hcp schema:telephone ?tel } .
-
-  #Object Property isBuyerFor
-  OPTIONAL { ?id tbfy:isBuyerFor ?ibf } .
-
-  #Object Property isSupplierFor
-  OPTIONAL { ?id tbfy:isSupplierFor ?isf } .
-
-#Eu Ontology
-  ?id owl:sameAs ?ss .
-  ?ss a rov:RegisteredOrganization .
-  OPTIONAL { ?ss dbp:jurisdiction ?jur} .
-  OPTIONAL { ?ss bgh:foundingYear ?fy} .
-  OPTIONAL { ?ss bgh:numberOfEmployees ?nemp} .
-#  ?ss a locn:Address .
-#  OPTIONAL { ?ss locn:fullAddress ?fullad} .
 }

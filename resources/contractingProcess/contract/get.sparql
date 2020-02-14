@@ -4,6 +4,6 @@ SELECT ?hascont ?qstartdate ?qenddate
 WHERE {
 	?id ocds:hasContract ?hascont .
 	?hascont ocds:hasContractPeriod ?hcp .
-	OPTIONAL { ?hcp ocds:startDate ?qstartdate .
-						 ?hcp ocds:endDate ?qenddate } .
+	OPTIONAL { ?hcp ocds:periodStartDate ?qstartdate .
+						 ?hcp ocds:periodEndDate ?qenddate } .
 }

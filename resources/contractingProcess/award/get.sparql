@@ -9,7 +9,9 @@ WHERE {
 	OPTIONAL { ?hasaw dct:description ?qdescription } .
 	OPTIONAL { ?hasaw ocds:awardDate ?qdate } .
 	OPTIONAL { ?hasaw ocds:awardStatus ?qstatus } .
-  FILTER ( regex(?qtitle, ?title, "i") || !isLiteral(?title) ) .
-  FILTER ( regex(?qstatus, ?status, "i") || !isLiteral(?status) ) .
-  FILTER ( regex(?qdescription, ?description, "i") || !isLiteral(?description) ) .
+	FILTER ( isNumeric(?status) = True || regex(?qstatus, ?status, "i") ) .
+	FILTER ( isNumeric(?title) = True || regex(?qtitle, ?title, "i") ) .
+	FILTER ( isNumeric(?description) = True || regex(?qdescription, ?description, "i") ) .
+	FILTER ( isNumeric(?end_dt) = True || STRDT( ?qdate , xsd:dateTime) < ?end_dt) .
+	FILTER ( isNumeric(?start_dt) = True || STRDT( ?qdate , xsd:dateTime) > ?start_dt) .
 }

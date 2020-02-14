@@ -1,5 +1,6 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 
-SELECT ?qid WHERE {
-		?qid a ocds:ContractingProcess .
+SELECT ?qid
+WHERE {
+		?qid a ocds:ContractingProcess ;
 }

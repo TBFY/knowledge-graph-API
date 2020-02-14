@@ -11,6 +11,14 @@
     #set( $control_coma = true )
   #end
 
+  #if ( $qprojectid )
+    #if ( $control_coma )
+      ,
+    #end
+    "projectId" : "$qprojectid"
+    #set( $control_coma = true )
+  #end
+
 #* Prueba de doble anindado *#
 
   #if ( $hasdocid || $hasdoctype || $hasdoclan || $hasdocurl )

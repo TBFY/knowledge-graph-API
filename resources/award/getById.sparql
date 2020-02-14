@@ -17,8 +17,8 @@ WHERE {
 
 #Object Property hasAwardedContractPeriod
   OPTIONAL { ?id ocds:hasAwardedContractPeriod ?cperiod .
-  OPTIONAL { ?cperiod ocds:startDate ?qstartdate .
-             ?cperiod ocds:endDate ?qenddate }} .
+  OPTIONAL { ?cperiod ocds:periodStartDate ?qstartdate .
+             ?cperiod ocds:periodEndDate ?qenddate }} .
 
 #Object Property hasAwardValue
   OPTIONAL { ?id ocds:hasAwardValue ?valr .

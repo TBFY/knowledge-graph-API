@@ -9,6 +9,6 @@ SELECT ( ?id AS ?oid ) ?qstartdate ?qenddate
 WHERE {
 	?id a ocds:Contract .
 	?id ocds:hasContractPeriod ?hcp .
-  OPTIONAL { ?hcp ocds:startDate ?qstartdate .
-		?hcp ocds:endDate ?qenddate } .
+  OPTIONAL { ?hcp ocds:periodStartDate ?qstartdate .
+		?hcp ocds:periodEndDate ?qenddate } .
 }
