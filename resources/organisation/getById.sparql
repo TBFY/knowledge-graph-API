@@ -17,16 +17,16 @@ WHERE {
       schema:foundingDate ?qfoundingdate ;
       schema:dissolutionDate ?qdissolutiondate ;
       ebg:numberOfEmployees ?qnofemployees ;
-      ebg:orgActivityText ?qactivitytext ;
       ebg:orgStatusText ?qstatustext ;
       ebg:orgTypeText ?qtypetext .
+      OPTIONAL { ?id ebg:orgActivityText ?qactivitytext } .
 
 #Object Property hasSite and hasRegisteredSite (both are the same)
-  ?id rov:hasSite ?qhassite .
-  ?qhassite org:siteAddress ?qsiteaddress ;
+  OPTIONAL { ?id rov:hasSite ?qhassite .
+  OPTIONAL { ?qhassite org:siteAddress ?qsiteaddress ;
            locn:fullAddress ?qfulladdress ;
            locn:postCode ?qpostcode ;
            locn:postName ?qpostname ;
-           locn:thoroughfare ?qthoroughfare ;
+           locn:thoroughfare ?qthoroughfare }} .
 
 }
