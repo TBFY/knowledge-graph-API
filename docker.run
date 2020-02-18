@@ -1,0 +1,15 @@
+if [ -z "$1" ]
+  then
+    echo -e "\nVERSION required!\n"
+    echo -e "\nPlease call '$0 <version>' to run this command\n"
+    exit 1
+fi
+docker pull cbadenes/r4r:latest
+docker run -it --rm  \
+    -p 7777:7777  \
+    -e "JAVA_OPTS=-Xmx512m" \
+    -e "SPARQL_ENDPOINT=http://52.19.213.234:3030/tbfy/query" \
+    -e "RESOURCE_NAMESPACE=http://data.tbfy.eu/" \
+    -e "SERVER_PATH=/kg-api" \
+    -e "RESOURCE_NESTED=True" \
+    tbfy/kg-api:$1
