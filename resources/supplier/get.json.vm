@@ -10,7 +10,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$id"
+              "organisation" : "$id"
               #set( $control_coma = true )
             #end
 
@@ -37,7 +37,18 @@
               "numberOfEmployees" : "$companies.qnumemployees"
               #set( $control_coma = true )
             #end
-            
+
+
+            #* Award *#
+            #if ( $companies.supaward || $companies.qawardtitle || $companies.qawarddescription || $companies.qawardstatus || $companies.qawarddate )
+              #if ( $control_coma )
+                ,
+              #end
+                "award" : {
+                #set( $control_sub = true )
+                #set( $control_coma = false )
+            #end
+
             #if ( $companies.supaward )
               #set ( $index = $companies.supaward.lastIndexOf("/") )
               #set ( $index = $index + 1 )
@@ -46,17 +57,108 @@
               #if ( $control_coma )
                 ,
               #end
-              "awardId" : "$id"
+              "id" : "$id"
               #set( $control_coma = true )
             #end
 
-            #if ( $companies.qawdate )
+            #if ( $companies.qawardtitle )
               #if ( $control_coma )
                 ,
               #end
-              "awardDate" : "$companies.qawdate"
+              "title" : "$companies.qawardtitle"
               #set( $control_coma = true )
             #end
+
+            #if ( $companies.qawarddescription )
+              #if ( $control_coma )
+                ,
+              #end
+              "description" : "$companies.qawarddescription"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $companies.qawardstatus )
+              #if ( $control_coma )
+                ,
+              #end
+              "status" : "$companies.qawardstatus"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $companies.qawarddate )
+              #if ( $control_coma )
+                ,
+              #end
+              "date" : "$companies.qawarddate"
+              #set( $control_coma = true )
+            #end
+
+               #* Segundo Nivel anidamiento *#
+
+                #if ( $companies.qawardstartdate || $companies.qawardenddate )
+                  #if ( $control_coma )
+                    ,
+                  #end
+                    "period" : {
+                    #set( $control_sub2 = true )
+                    #set( $control_coma = false )
+                #end
+
+                #if ( $companies.qawardstartdate )
+                  #if ( $control_coma )
+                    ,
+                  #end
+                  "startDate" : "$companies.qawardstartdate"
+                  #set( $control_coma = true )
+                #end
+
+                #if ( $companies.qawardenddate )
+                  #if ( $control_coma )
+                    ,
+                  #end
+                  "endDate" : "$companies.qawardenddate"
+                  #set( $control_coma = true )
+                #end
+
+                #if ( $control_sub2 )
+                  }
+                #end
+                #set( $control_sub2 = false )
+
+                #if ( $companies.qawardamount || $companies.qawardcurrency )
+                  #if ( $control_coma )
+                    ,
+                  #end
+                    "value" : {
+                    #set( $control_sub2 = true )
+                    #set( $control_coma = false )
+                #end
+
+                #if ( $companies.qawardamount )
+                  #if ( $control_coma )
+                    ,
+                  #end
+                  "amount" : "$companies.qawardamount"
+                  #set( $control_coma = true )
+                #end
+
+                #if ( $companies.qawardcurrency )
+                  #if ( $control_coma )
+                    ,
+                  #end
+                  "currency" : "$companies.qawardcurrency"
+                  #set( $control_coma = true )
+                #end
+
+                #if ( $control_sub2 )
+                  }
+                #end
+                #set( $control_sub2 = false )
+
+            #if ( $control_sub )
+              }
+            #end
+            #set( $control_sub = false )
 
         }
          #if ( $velocityCount < ${results.size()} )

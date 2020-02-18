@@ -4,16 +4,38 @@ PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ebg: <http://data.businessgraph.io/ontology#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
 
-SELECT ?ss ?supaward ?qlegalname ?qjurisdiction ?qnumemployees ?qawdate WHERE {
+SELECT ?ss ?supaward ?qlegalname ?qjurisdiction ?qnumemployees ?qawarddate ?qawardtitle
+?qawarddescription ?qawardstatus ?qawardstartdate ?qawardenddate ?qawardamount ?qawardcurrency
+WHERE {
   ?s ocds:isSupplierFor ?supaward .
   ?s owl:sameAs ?ss .
   ?ss rov:legalName ?qlegalname .
   ?ss dbp:jurisdiction ?qjurisdiction .
   ?ss ebg:numberOfEmployees ?qnumemployees .
-  ?supaward ocds:awardDate ?qawdate .
-  FILTER ( regex(?qjurisdiction, ?jurisdiction, "i") || !isLiteral(?jurisdiction) ) .
-  FILTER ( regex(?qlegalname, ?name, "i") || !isLiteral(?name) ) .
-#  FILTER ( ?qawdate > "2018-05-23T00:00:00Z"^^xsd:dateTime || !isLiteral(?dateini) )
-#  FILTER ( regex(?qawdate > "2014-05-23T10:20:13+05:30"^^xsd:dateTime, ?date, "i") || !isLiteral(?date) ) .
+
+  OPTIONAL { ?supaward dct:title ?qawardtitle } .
+  OPTIONAL { ?supaward dct:description ?qawarddescription } .
+  OPTIONAL { ?supaward ocds:awardDate ?qawarddate } .
+  OPTIONAL { ?supaward ocds:awardStatus ?qawardstatus } .
+
+  #Object Property hasAwardedContractPeriod
+  OPTIONAL { ?supaward ocds:hasAwardedContractPeriod ?cperiod .
+  OPTIONAL { ?cperiod ocds:periodStartDate ?qawardstartdate .
+             ?cperiod ocds:periodEndDate ?qawardenddate }} .
+
+  #Object Property hasAwardValue
+  OPTIONAL { ?supaward ocds:hasAwardValue ?valr .
+  OPTIONAL { ?valr ocds:valueAmount ?qawardamount .
+             ?valr ocds:valueCurrency ?qawardcurrency }} .
+
+  FILTER ( isNumeric(?jurisdiction) = True || regex( ?qjurisdiction, ?jurisdiction, "i" ) ) .
+  FILTER ( isNumeric(?minemployees) = True || ?minemployees < ?qnumemployees ) .
+  FILTER ( isNumeric(?status) = True || regex(?qawardstatus, ?status, "i") ) .
+  FILTER ( isNumeric(?title) = True || regex(?qawardtitle, ?title, "i") ) .
+  FILTER ( isNumeric(?description) = True || regex(?qawarddescription, ?description, "i") ) .
+  FILTER ( isNumeric(?currency) = True || regex(?qawardcurrency, ?currency, "i") ) .
+  FILTER ( isNumeric(?start_dt) = True || ?qawarddate > ?start_dt )
+  FILTER ( isNumeric(?end_dt) = True || ?qawarddate < ?end_dt )
 }
