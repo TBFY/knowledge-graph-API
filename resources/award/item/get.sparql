@@ -3,10 +3,10 @@ PREFIX dct: <http://purl.org/dc/terms/>
 
 SELECT ?itm ?qdescription ?qclassificationscheme ?qclassification ?qadditclassificationscheme ?qadditclassification
 WHERE {
-  ?id ocds:hasItemToBeProcured ?itm .
+  ?id ocds:hasAwardedItem ?itm .
 	OPTIONAL { ?itm dct:description ?qdescription } .
-	OPTIONAL { ?itm ocds:classificatonScheme ?qclassificationscheme .
+	OPTIONAL { ?itm ocds:classificationScheme ?qclassificationscheme .
 	           ?itm ocds:hasClassificaton ?qclassification .
-  OPTIONAL { ?itm ocds:additionalItemClassificatonScheme ?qadditclassificationscheme .
+  OPTIONAL { ?itm ocds:additionalItemClassificationScheme ?qadditclassificationscheme .
 	           ?itm ocds:hasAdditionalItemClassificaton ?qadditclassification }} .
 }
