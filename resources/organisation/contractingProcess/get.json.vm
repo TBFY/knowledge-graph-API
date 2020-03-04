@@ -2,7 +2,7 @@
     #foreach( $contractingp in $results )
         {
             #set( $control_coma = false )
-            
+
             #if ( $contractingp.pri )
               #set ( $index = $$contractingp.pri.lastIndexOf("/") )
               #set ( $index = $index + 1 )
@@ -14,7 +14,14 @@
               #set( $control_coma = true )
             #end
 
-
+            #if ( $contractingp.releasepublisheddate )
+              #if ( $control_coma )
+                ,
+              #end
+              "releasePublishedDate" : "$contractingp.releasepublisheddate"
+              #set( $control_coma = true )
+            #end
+    
         }
          #if ( $velocityCount < ${results.size()} )
             ,

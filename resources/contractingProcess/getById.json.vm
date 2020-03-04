@@ -11,6 +11,14 @@
     #set( $control_coma = true )
   #end
 
+  #if ( $releasepublisheddate )
+    #if ( $control_coma )
+      ,
+    #end
+    "releasePublishedDate" : "$releasepublisheddate"
+    #set( $control_coma = true )
+  #end
+
   #if ( $qprojectid )
     #if ( $control_coma )
       ,

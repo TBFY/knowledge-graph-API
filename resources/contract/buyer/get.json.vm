@@ -3,12 +3,53 @@
         {
             #set( $control_coma = false )
 
+            #if ( $buyers.s )
+              #set ( $index = $buyers.s.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $buyers.s.substring($index, $buyers.s.length()) )
+
+              #if ( $control_coma )
+                ,
+              #end
+              "id" : "$id"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.sas )
+              #set ( $index = $buyers.sas.lastIndexOf("/") )
+              #set ( $index = $index + 1 )
+              #set ( $id = $buyers.sas.substring($index, $buyers.sas.length()) )
+
+              #if ( $control_coma )
+                ,
+              #end
+              "organisation" : "$id"
+              #set( $control_coma = true )
+            #end
+
             #if ( $buyers.qlegalname )
               #if ( $control_coma )
                 ,
               #end
               "legalName" : "$buyers.qlegalname"
               #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qjurisdiction )
+              #if ( $control_coma )
+                ,
+              #end
+              "jursidiction" : "$buyers.qjurisdiction"
+              #set( $control_coma = true )
+            #end
+
+            #if ( $buyers.qstreet || $buyers.qpostalcode || $buyers.qlocality || $buyers.qcountry )
+              #if ( $control_coma )
+                ,
+              #end
+                "address" : {
+                #set( $control_sub = true )
+                #set( $control_coma = false )
             #end
 
             #if ( $buyers.qstreet )
@@ -43,11 +84,25 @@
               #set( $control_coma = true )
             #end
 
+            #if ( $control_sub )
+              }
+            #end
+            #set( $control_sub = false )
+
+            #if ( $buyers.qname || $buyers.qemail || $buyers.qtelephone || $buyers.qurl || $buyers.qfax )
+              #if ( $control_coma )
+                ,
+              #end
+                "contactPoint" : {
+                #set( $control_sub = true )
+                #set( $control_coma = false )
+            #end
+
             #if ( $buyers.qname )
               #if ( $control_coma )
                 ,
               #end
-              "contactName" : "$buyers.qname"
+              "name" : "$buyers.qname"
               #set( $control_coma = true )
             #end
 
@@ -55,7 +110,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactEmail" : "$buyers.qemail"
+              "email" : "$buyers.qemail"
               #set( $control_coma = true )
             #end
 
@@ -63,7 +118,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactTelephone" : "$buyers.qtelephone"
+              "telephone" : "$buyers.qtelephone"
               #set( $control_coma = true )
             #end
 
@@ -71,7 +126,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactURL" : "$buyers.qurl"
+              "URL" : "$buyers.qurl"
               #set( $control_coma = true )
             #end
 
@@ -79,9 +134,14 @@
               #if ( $control_coma )
                 ,
               #end
-              "contactFax" : "$buyers.qfax"
+              "fax" : "$buyers.qfax"
               #set( $control_coma = true )
             #end
+
+            #if ( $control_sub )
+              }
+            #end
+            #set( $control_sub = false )
 
         }
          #if ( $velocityCount < ${results.size()} )

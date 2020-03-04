@@ -1,0 +1,15 @@
+PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rov: <http://www.w3.org/ns/regorg#>
+PREFIX tbfy: <http://data.tbfy.eu/ontology/tbfy#>
+
+SELECT (?id as ?oid) ?pri ?releasepublisheddate
+WHERE {
+	?id a rov:RegisteredOrganization .
+  ?s a ocds:Organisation .
+  ?s owl:sameAs ?id .
+	?s ocds:playsRoleIn ?pri .
+	?pri ocds:hasRelease ?hasrelease .
+	?hasrelease tbfy:releasePublishedDate ?releasepublisheddate .
+}

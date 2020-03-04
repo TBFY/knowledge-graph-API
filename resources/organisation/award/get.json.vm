@@ -14,35 +14,35 @@
               #set( $control_coma = true )
             #end
 
-            #if ( $awards.tit )
+            #if ( $awards.qtitle )
               #if ( $control_coma )
                 ,
               #end
-              "title" : "$awards.tit"
+              "title" : "$awards.qtitle"
               #set( $control_coma = true )
             #end
 
-            #if ( $awards.des )
+            #if ( $awards.qdescription )
               #if ( $control_coma )
                 ,
               #end
-              "description" : "$awards.des"
+              "description" : "$awards.qdescription"
               #set( $control_coma = true )
             #end
 
-            #if ( $awards.dat )
+            #if ( $awards.qdate )
               #if ( $control_coma )
                 ,
               #end
-              "date" : "$awards.dat"
+              "date" : "$awards.qdate"
               #set( $control_coma = true )
             #end
 
-            #if ( $awards.stat )
+            #if ( $awards.qstatus )
               #if ( $control_coma )
                 ,
               #end
-              "status" : "$awards.stat"
+              "status" : "$awards.qstatus"
               #set( $control_coma = true )
             #end
 

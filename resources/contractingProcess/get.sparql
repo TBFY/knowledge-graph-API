@@ -1,6 +1,11 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX tbfy: <http://data.tbfy.eu/ontology/tbfy#>
 
-SELECT ?qid
+SELECT ?qid ?releasepublisheddate
 WHERE {
-		?qid a ocds:ContractingProcess ;
+		?qid a ocds:ContractingProcess .
+		?qid ocds:hasRelease ?hasrelease .
+ 		?hasrelease tbfy:releasePublishedDate ?releasepublisheddate .
+		FILTER ( isNumeric(?start_dt) = True || ?releasepublisheddate > ?start_dt ) .
+    FILTER ( isNumeric(?end_dt) = True || ?releasepublisheddate < ?end_dt )
 }

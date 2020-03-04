@@ -9,7 +9,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$docs.hdoc"
+              "id" : "$id"
               #set( $control_coma = true )
             #end
 

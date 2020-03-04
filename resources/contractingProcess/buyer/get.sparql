@@ -5,11 +5,14 @@ PREFIX dbp: <http://dbpedia.org/ontology/>
 PREFIX bgh: <http://data.businessgraph.io/>
 PREFIX schema: <http://schema.org/>
 
-SELECT ?qlegalname ?qstreet ?qpostalcode ?qlocality ?qcountry ?qname ?qemail ?qtelephone ?qurl ?qfax
+SELECT ?qjurisdiction ?qlegalname ?qstreet ?qpostalcode ?qlocality ?qcountry ?qname ?qemail ?qtelephone ?qurl ?qfax
 WHERE {
   ?s a ocds:Organisation .
   ?s ocds:isBuyerFor ?id .
   ?s ocds:legalName ?qlegalname .
+  OPTIONAL { ?s owl:sameAs ?sas .
+             ?sas rov:legalName ?qlegalname ;
+                  dbp:jurisdiction ?qjurisdiction } .
   OPTIONAL { ?s ocds:hasAddress ?haddress .
             OPTIONAL { ?haddress schema:streetAddress ?qstreet .
                        ?haddress schema:postalCode ?qpostalcode .
