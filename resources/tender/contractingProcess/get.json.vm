@@ -1,19 +1,27 @@
 [
-    #foreach( $contracting in $results )
+    #foreach( $contractingp in $results )
         {
             #set( $control_coma = false )
 
-            #if ( $contracting.s )
-              #set ( $index = $contracting.s.lastIndexOf("/") )
+            #if ( $contractingp.pri )
+              #set ( $index = $$contractingp.pri.lastIndexOf("/") )
               #set ( $index = $index + 1 )
-              #set ( $idoc = $contracting.s.substring($index, $contracting.s.length()) )
+              #set ( $id = $$contractingp.pri.substring($index, $$contractingp.pri.length()) )
               #if ( $control_coma )
                 ,
               #end
-              "id" : "$idoc"
+              "id" : "$id"
               #set( $control_coma = true )
             #end
-            
+
+            #if ( $contractingp.releasepublisheddate )
+              #if ( $control_coma )
+                ,
+              #end
+              "releasePublishedDate" : "$contractingp.releasepublisheddate"
+              #set( $control_coma = true )
+            #end
+
         }
 
          #if ( $velocityCount < ${results.size()} )

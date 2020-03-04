@@ -1,8 +1,11 @@
 PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
+PREFIX tbfy: <http://data.tbfy.eu/ontology/tbfy#>
 
-SELECT ?s
+SELECT (?id as ?oid) ?pri ?releasepublisheddate
 WHERE {
 	?id a ocds:Tender .
-  ?s a ocds:ContractingProcess .
-	?s ocds:hasTender ?id .
+  ?pri a ocds:ContractingProcess .
+	?pri ocds:hasTender ?id .
+	?pri ocds:hasRelease ?hasrelease .
+	?hasrelease tbfy:releasePublishedDate ?releasepublisheddate .
 }
