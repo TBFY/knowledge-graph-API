@@ -9,7 +9,8 @@ SELECT (?id as ?oid) ?qtitle ?qdescription ?qstatus ?qnumtenderers ?qprocurement
 ?qawardcriteria ?qawardcriteriadetails ?qsubmissionmethod ?qsubmissionmethoddetails ?qenquiry ?qeligibilitycriteria
 ?qtenderperiodstartdate ?qtenderperiodenddate ?qawardperiodstartdate ?qawardperiodenddate ?qminvalueamount ?qminvaluecurrency
 ?qmaxvalueamount ?qmaxvaluecurrency ?qmildescription ?qmiltitle ?qmilduedate ?qmildocid ?qmildoctype ?qmildoclanguage
-?qmildocurl
+?qmildocurl ?qamendmentdate
+
 WHERE {
 #Tender information
   ?id a ocds:Tender .
@@ -56,6 +57,10 @@ WHERE {
                                   ocds:documentType ?qmildoctype ;
                                   dct:language ?qmildoclanguage ;
                                   schema:URL ?qmildocurl }} .
+
+#Object Property hasAmendment
+  OPTIONAL { ?id ocds:hasAmendment ?hasAmendment .
+             ?hasAmendment ocds:amendmentDate ?qamendmentdate } .
 
 #Object Property hasDocument not implemented here, second level resource
 

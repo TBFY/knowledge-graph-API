@@ -205,7 +205,7 @@
       #if ( $control_coma )
         ,
       #end
-      "eEndDate" : "$qtenderperiodenddate"
+      "endDate" : "$qtenderperiodenddate"
       #set( $control_coma = true )
     #end
 
@@ -346,5 +346,13 @@
     }
   #end
   #set( $control_sub = false )
+
+  #if ( $qamendmentdate )
+    #if ( $control_coma )
+      ,
+    #end
+    "amendmentDate" : "$qamendmentdate"
+    #set( $control_coma = true )
+  #end
 
   }
