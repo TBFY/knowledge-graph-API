@@ -32,7 +32,7 @@ The API is organised around REST and uses [R4R tool](https://github.com/TBFY/r4r
 
 1. The API returns a JSON file for each resource implemented. 
 
-1. [Click here](http://tbfy.librairy.linkeddata.es/kg-api/organisation) to get an example of the listing of organisatios.
+1. [Click here](http://tbfy.librairy.linkeddata.es/kg-api/organisation) to get an example of the listing of organisations.
 
 1. The whole documentation for developers of the API, with examples, can be found in the following link:
 
