@@ -13,7 +13,15 @@
 
 ## Basic Overview
 
-This repository contains the API documentation of the TheyBuyForYou project. So far, 25 GET resources have been identified for the API, divided into 5 main categories: Contract, Contracting Process, Tender, Award and Organisation. These services gather all the information from the knowledge graph built within TheyBuyForYou project.
+This repository contains the API documentation of the TheyBuyForYou project. The core API has been built to allow developers to obtain public procurement data from the TheyBuyForYou project knowledge graph.
+
+The API is organised around REST and uses [R4R tool](https://github.com/TBFY/r4r). All API calls should be made to the http://tbfy.librairy.linkeddata.es/kg-api/ base domain. A JSON file will be returned in all responses from the API. The API allows you 27 different resources organised in 5 main groups:
+* Contracting processes
+* Awards
+* Tenders
+* Contracts
+* Organisations
+
 
 ## Quick Start
 
@@ -22,7 +30,9 @@ This repository contains the API documentation of the TheyBuyForYou project. So 
     
 1. The whole information available in the knowledge graph project from each of the five main categories can be extracted (Contract, Contracting Process, Tender, Award and Organisation) including complete listings, searches by identifier and second level of nesting. 
 
-1. The API returns a JSON file for each service implemented. 
+1. The API returns a JSON file for each resource implemented. 
+
+1. [Click here](http://tbfy.librairy.linkeddata.es/kg-api/organisation) to get an example of the listing of organisatios.
 
 1. The whole documentation for developers of the API, with examples, can be found in the following link:
 
