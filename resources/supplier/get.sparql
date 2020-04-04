@@ -30,7 +30,7 @@ WHERE {
   OPTIONAL { ?valr ocds:valueAmount ?qawardamount .
              ?valr ocds:valueCurrency ?qawardcurrency }} .
 
-  FILTER ( isNumeric(?name) = True || regex( ?qlegalname, ?name, "i" ) ) .
+  FILTER ( isNumeric(?name) = True || regex(?qlegalname, ?name, "i") ) .
   FILTER ( isNumeric(?jurisdiction) = True || regex( ?qjurisdiction, ?jurisdiction, "i" ) ) .
   FILTER ( isNumeric(?minemployees) = True || ?minemployees < ?qnumemployees ) .
   FILTER ( isNumeric(?status) = True || regex(?qawardstatus, ?status, "i") ) .
