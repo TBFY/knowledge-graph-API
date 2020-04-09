@@ -13,9 +13,9 @@ WHERE {
 	OPTIONAL { ?isf dct:description ?qdescription } .
 	OPTIONAL { ?isf ocds:awardDate ?qdate } .
 	OPTIONAL { ?isf ocds:awardStatus ?qstatus } .
-	FILTER ( isNumeric(?status) = True || regex(?qstatus, ?status, "i") ) .
-	FILTER ( isNumeric(?title) = True || regex(?qtitle, ?title, "i") ) .
-	FILTER ( isNumeric(?description) = True || regex(?qdescription, ?description, "i") ) .
-	FILTER ( isNumeric(?start_dt) = True || ?qdate > ?start_dt ) .
-	FILTER ( isNumeric(?end_dt) = True || ?qdate < ?end_dt ) .
+	FILTER ( ?status = xsd:string("_empty_") || regex(?qstatus, ?status, "i") ) .
+	FILTER ( ?title = xsd:string("_empty_") || regex(?qtitle, ?title, "i") ) .
+	FILTER ( ?description = xsd:string("_empty_") || regex(?qdescription, ?description, "i") ) .
+	FILTER ( ?start_dt = xsd:string("_empty_") || ?qdate > ?start_dt ) .
+	FILTER ( ?end_dt = xsd:string("_empty_") || ?qdate < ?end_dt ) .
 }

@@ -5,6 +5,6 @@ SELECT ?s ?qlegalname ?qjurisdiction WHERE {
   ?s a rov:RegisteredOrganization .
   ?s rov:legalName ?qlegalname .
   ?s dbp:jurisdiction ?qjurisdiction .
-  FILTER ( isNumeric(?jurisdiction) = True || regex(?qjurisdiction, ?jurisdiction, "i") ) .
-  FILTER ( isNumeric(?name) = True || regex(?qlegalname, ?name, "i") ) .
+  FILTER ( ?name = xsd:string("_empty_") || regex( ?qlegalname, ?name, "i") ) .
+  FILTER ( ?jurisdiction = xsd:string("_empty_") || regex( ?qjurisdiction, ?jurisdiction, "i" ) ) .
 }

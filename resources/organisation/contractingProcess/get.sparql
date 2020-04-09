@@ -12,4 +12,6 @@ WHERE {
 	?s ocds:playsRoleIn ?pri .
 	?pri ocds:hasRelease ?hasrelease .
 	?hasrelease tbfy:releasePublishedDate ?releasepublisheddate .
+	FILTER ( ?start_dt = xsd:string("_empty_") || ?releasepublisheddate > ?start_dt ) .
+	FILTER ( ?end_dt = xsd:string("_empty_") || ?releasepublisheddate < ?end_dt ) .
 }
