@@ -1,5 +1,6 @@
 PREFIX rov: <http://www.w3.org/ns/regorg#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?s ?qlegalname ?qjurisdiction WHERE {
   ?s a rov:RegisteredOrganization .
