@@ -51,6 +51,14 @@
       #set( $control_coma = true )
     #end
 
+    #if ( $qstatustext )
+      #if ( $control_coma )
+        ,
+      #end
+      "status" : "$qstatustext"
+      #set( $control_coma = true )
+    #end
+    
     #if ( $qactivitytext )
       #if ( $control_coma )
         ,
@@ -59,27 +67,11 @@
       #set( $control_coma = true )
     #end
 
-    #if ( $qidentifier )
-      #if ( $control_coma )
-        ,
-      #end
-      "qidentifier" : "$qidentifier"
-      #set( $control_coma = true )
-    #end
-
-    #if ( $qstatustext )
-      #if ( $control_coma )
-        ,
-      #end
-      "status" : "$qstatustext"
-      #set( $control_coma = true )
-    #end
-
     #if ( $qtypetext )
       #if ( $control_coma )
         ,
       #end
-      "type" : "$qtypetext"
+      "activityType" : "$qtypetext"
       #set( $control_coma = true )
     #end
 
