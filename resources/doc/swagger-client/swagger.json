@@ -46,7 +46,9 @@
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "$ref" : "#/definitions/ListContractingProcess"
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
