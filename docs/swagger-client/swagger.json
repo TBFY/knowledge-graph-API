@@ -20,20 +20,20 @@
     "/contractingProcess" : {
       "get" : {
         "tags" : [ "contractingProcess" ],
-        "summary" : "Gets a list of contracting processes",
-        "description" : "Returns a list contracting process",
+        "summary" : "List of contracting processes",
+        "description" : "Returns a list of contracting processes from the TheyBuyForYou knowledge graph",
         "operationId" : "getContractingProcess",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "end_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "start_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "start date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
@@ -47,7 +47,10 @@
           "200" : {
             "description" : "OK",
             "schema" : {
-              "$ref" : "#/definitions/ListContractingProcess"
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContractingProcess"
+              }
             }
           },
           "400" : {
@@ -63,13 +66,13 @@
       "get" : {
         "tags" : [ "contractingProcess" ],
         "summary" : "Find contracting process by ID",
-        "description" : "Returns a single contracting process",
+        "description" : "Returns a single contracting process from the TheyBuyForYou knowledge graph",
         "operationId" : "getContractingProcessById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contracting process id",
+          "description" : "contrating process identifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -92,14 +95,14 @@
     "/contractingProcess/{id}/award" : {
       "get" : {
         "tags" : [ "contractingProcess" ],
-        "summary" : "Awards of a contracting process to return",
-        "description" : "Returns the list of awards of a contracting process",
+        "summary" : "List of awards of a contracting process",
+        "description" : "Returns the list of awards of a contracting process from the TheyBuyForYou knowledge graph",
         "operationId" : "getAwardContractingProcessById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contracting process id",
+          "description" : "contrating process identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -124,20 +127,25 @@
         }, {
           "name" : "end_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "start_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "start date - ISO 8601",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListAward"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -151,21 +159,26 @@
     "/contractingProcess/{id}/buyer" : {
       "get" : {
         "tags" : [ "contractingProcess" ],
-        "summary" : "Buyers of a contracting process to return",
-        "description" : "Returns all the buyers of a contracting process",
+        "summary" : "List of buyers of a contracting process",
+        "description" : "Returns the list of buyers of a contracting process from the TheyBuyForYou knowledge graph",
         "operationId" : "getBuyerContractingProcessById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contracting process id",
+          "description" : "contrating process identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Buyer"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -179,21 +192,26 @@
     "/contractingProcess/{id}/contract" : {
       "get" : {
         "tags" : [ "contractingProcess" ],
-        "summary" : "Contracts of a contracting process to return",
-        "description" : "Returns the list of contracts of a contracting process",
+        "summary" : "List of contracts of a contracting process",
+        "description" : "Returns the list of contracts of a contracting process from the TheyBuyForYou knowledge graph",
         "operationId" : "getContractContractingProcessById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contracting process id",
+          "description" : "contrating process identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContract"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -207,14 +225,14 @@
     "/contractingProcess/{id}/tender" : {
       "get" : {
         "tags" : [ "contractingProcess" ],
-        "summary" : "Tenders of a contracting process to return",
-        "description" : "Returns the list of tenders of a contracting process",
+        "summary" : "List of tenders of a contracting process",
+        "description" : "Returns the list of tenders of a contracting process from the TheyBuyForYou knowledge graph",
         "operationId" : "getTenderContractingProcessById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contracting process id",
+          "description" : "contrating process identifier",
           "required" : true,
           "type" : "string"
         }, {
@@ -240,7 +258,12 @@
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListTender"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -254,15 +277,20 @@
     "/contract" : {
       "get" : {
         "tags" : [ "contract" ],
-        "summary" : "Gets a list of contracts",
-        "description" : "Returns the list of contracts",
+        "summary" : "List of contracts",
+        "description" : "Returns a list of contracts from the TheyBuyForYou knowledge graph",
         "operationId" : "getContract",
         "produces" : [ "application/json" ],
         "parameters" : [ ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContract"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -277,13 +305,13 @@
       "get" : {
         "tags" : [ "contract" ],
         "summary" : "Find contract by ID",
-        "description" : "Returns a single contract",
+        "description" : "Returns a single contract from the TheyBuyForYou knowledge graph",
         "operationId" : "getContractById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contract id",
+          "description" : "contract identifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -306,21 +334,26 @@
     "/contract/{id}/amendment" : {
       "get" : {
         "tags" : [ "contract" ],
-        "summary" : "Amendments of a contract to return",
-        "description" : "Returns a the amendments of a contract",
+        "summary" : "List of amendments of a contract",
+        "description" : "Returns the list of amendments of a contract from the TheyBuyForYou knowledge graph",
         "operationId" : "getAmendmentContractById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contract id",
+          "description" : "contract identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Amendment"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -334,21 +367,26 @@
     "/contract/{id}/buyer" : {
       "get" : {
         "tags" : [ "contract" ],
-        "summary" : "Buyers of a contract to return",
-        "description" : "Returns all the buyers of a contract",
+        "summary" : "List of buyers of a contract",
+        "description" : "Returns the list of buyers of a contract from the TheyBuyForYou knowledge graph",
         "operationId" : "getBuyerContractById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contract id",
+          "description" : "contract identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Buyer"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -362,21 +400,26 @@
     "/contract/{id}/document" : {
       "get" : {
         "tags" : [ "contract" ],
-        "summary" : "Documents of a contract to return",
-        "description" : "Returns a the documents of a contract",
+        "summary" : "List of documents of a contract",
+        "description" : "Returns the list of documents of a contract from the TheyBuyForYou knowledge graph",
         "operationId" : "getDocumentContractById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contract id",
+          "description" : "contract identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -390,21 +433,26 @@
     "/contract/{id}/item" : {
       "get" : {
         "tags" : [ "contract" ],
-        "summary" : "Items of a contract to return",
-        "description" : "Returns a list of items of a contract",
+        "summary" : "List of items of a contract",
+        "description" : "Returns the list of items of a contract from the TheyBuyForYou knowledge graph",
         "operationId" : "getItemContractById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "contract id",
+          "description" : "contract identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Item"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -418,8 +466,8 @@
     "/organisation" : {
       "get" : {
         "tags" : [ "organisation" ],
-        "summary" : "Gets a list of organisations",
-        "description" : "Returns a list of organisations",
+        "summary" : "List of organisations",
+        "description" : "Returns a list of organiations from the TheyBuyForYou knowledge graph",
         "operationId" : "getOrganisation",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -438,7 +486,12 @@
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListOrganisation"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -453,13 +506,13 @@
       "get" : {
         "tags" : [ "organisation" ],
         "summary" : "Find an organisation by ID",
-        "description" : "Returns a single organisation",
+        "description" : "Returns a single organisation from the TheyBuyForYou knowledge graph",
         "operationId" : "getOrganisationById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "organisation id",
+          "description" : "organisation identifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -482,33 +535,38 @@
     "/organisation/{id}/contractingProcess" : {
       "get" : {
         "tags" : [ "organisation" ],
-        "summary" : "Contracting-processes of an organisation to return",
-        "description" : "Returns a list of contracting-process of an organisation",
+        "summary" : "List of contracting processes of an organisation",
+        "description" : "Returns the list of contracting processes of an organisation from the TheyBuyForYou knowledge graph",
         "operationId" : "getContractingProcessOrganisationById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "organisation id",
+          "description" : "organisation identifier",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "start_dt",
           "in" : "query",
-          "description" : "name",
+          "description" : "start date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "end_dt",
           "in" : "query",
-          "description" : "name",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContractingProcess"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -522,51 +580,57 @@
     "/organisation/{id}/award" : {
       "get" : {
         "tags" : [ "organisation" ],
-        "summary" : "Awards of an organisation to return",
-        "description" : "Returns a list of awards of an organisation",
+        "summary" : "List of awards of an organisation",
+        "description" : "Returns the list of awards of an organisation from the TheyBuyForYou knowledge graph",
         "operationId" : "getAwardOrganisationById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "organisation id",
+          "description" : "organisation identifier",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "status",
           "in" : "query",
-          "description" : "name",
+          "description" : "award status",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "pending", "active", "cancelled", "unsuccessful" ]
         }, {
           "name" : "title",
           "in" : "query",
-          "description" : "name",
+          "description" : "title",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "description",
           "in" : "query",
-          "description" : "name",
+          "description" : "description",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "end_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "start_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "start date - ISO 8601",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListAward"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -580,8 +644,8 @@
     "/award" : {
       "get" : {
         "tags" : [ "award" ],
-        "summary" : "Gets a list of awards",
-        "description" : "Returns a list of awards",
+        "summary" : "List of awards",
+        "description" : "Returns a list of awards from the TheyBuyForYou knowledge graph",
         "operationId" : "getAward",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -606,20 +670,25 @@
         }, {
           "name" : "end_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "start_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "start date - ISO 8601",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListAward"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -634,13 +703,13 @@
       "get" : {
         "tags" : [ "award" ],
         "summary" : "Find an award by ID",
-        "description" : "Returns a single award",
+        "description" : "Returns a single award from the TheyBuyForYou knowledge graph",
         "operationId" : "getAwardById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "award id",
+          "description" : "award identifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -663,21 +732,26 @@
     "/award/{id}/amendment" : {
       "get" : {
         "tags" : [ "award" ],
-        "summary" : "Amendments of an award to return",
-        "description" : "Returns a list of amendments of an award",
+        "summary" : "List of amendments of an award",
+        "description" : "Returns the list of amendments of an award from the TheyBuyForYou knowledge graph",
         "operationId" : "getsAmendmentAwardById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "award id",
+          "description" : "award identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Amendment"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -691,21 +765,26 @@
     "/award/{id}/item" : {
       "get" : {
         "tags" : [ "award" ],
-        "summary" : "Items of an award to return",
-        "description" : "Returns a list of amendments of an award",
+        "summary" : "List of items of an award",
+        "description" : "Returns the list of items of an award from the TheyBuyForYou knowledge graph",
         "operationId" : "getItemAwardById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "award id",
+          "description" : "award identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Item"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -719,21 +798,26 @@
     "/award/{id}/supplier" : {
       "get" : {
         "tags" : [ "award" ],
-        "summary" : "Suppliers of an award to return",
-        "description" : "Returns a list of suppliers of an award",
+        "summary" : "List of suppliers of an award",
+        "description" : "Returns the list of suppliers of an award from the TheyBuyForYou knowledge graph",
         "operationId" : "getSupplierAwardById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "award id",
+          "description" : "award identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Supplier"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -747,21 +831,26 @@
     "/award/{id}/document" : {
       "get" : {
         "tags" : [ "award" ],
-        "summary" : "Documents of an award to return",
-        "description" : "Returns a list of documents of an award",
+        "summary" : "List of documents of an award",
+        "description" : "Returns the list of documents of an award from the TheyBuyForYou knowledge graph",
         "operationId" : "getDocumentAwardById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "award id",
+          "description" : "award identifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -775,8 +864,8 @@
     "/tender" : {
       "get" : {
         "tags" : [ "tender" ],
-        "summary" : "Gets a list of tenders",
-        "description" : "Returns a list of tenders",
+        "summary" : "List of tenders",
+        "description" : "Returns a list of tenders from the TheyBuyForYou knowledge graph",
         "operationId" : "getTender",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -802,7 +891,12 @@
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListTender"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -817,13 +911,13 @@
       "get" : {
         "tags" : [ "tender" ],
         "summary" : "Find tender by ID",
-        "description" : "Returns a single tender",
+        "description" : "Returns a single tender from the TheyBuyForYou knowledge graph",
         "operationId" : "getTenderById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender id",
+          "description" : "tender idenrifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -846,21 +940,26 @@
     "/tender/{id}/item" : {
       "get" : {
         "tags" : [ "tender" ],
-        "summary" : "Items of a tender to return",
-        "description" : "Returns a list of items of a tender",
+        "summary" : "List of items of a tender",
+        "description" : "Returns the list of items of a tender from the TheyBuyForYou knowledge graph",
         "operationId" : "getItemTenderById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender id",
+          "description" : "tender idenrifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Item"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -874,21 +973,26 @@
     "/tender/{id}/contractingProcess" : {
       "get" : {
         "tags" : [ "tender" ],
-        "summary" : "Contracting-processes of a tender to return",
-        "description" : "Returns a list of contracting-process of a tender",
+        "summary" : "List of contracting processes of a tender",
+        "description" : "Returns the list of contracting processes of a tender from the TheyBuyForYou knowledge graph",
         "operationId" : "getContractingProcessTenderById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender id",
+          "description" : "tender idenrifier",
           "required" : true,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListContractingProcess"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -902,14 +1006,14 @@
     "/tender/{id}/document" : {
       "get" : {
         "tags" : [ "tender" ],
-        "summary" : "Documents of a tender to return",
-        "description" : "Returns a list of documents of a tender",
+        "summary" : "List of documents of a tender",
+        "description" : "Returns the list of documents of a tender from the TheyBuyForYou knowledge graph",
         "operationId" : "getDocumentTenderById",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "tender id",
+          "description" : "tender idenrifier",
           "required" : true,
           "type" : "string"
         } ],
@@ -917,7 +1021,10 @@
           "200" : {
             "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/Document"
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
             }
           },
           "400" : {
@@ -932,8 +1039,8 @@
     "/supplier" : {
       "get" : {
         "tags" : [ "supplier" ],
-        "summary" : "Gets a list of suppliers",
-        "description" : "Returns a list of suppliers",
+        "summary" : "List of suppliers",
+        "description" : "Returns  the list of suppliers from the TheyBuyForYou knowledge graph",
         "operationId" : "getSupplier",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -973,7 +1080,7 @@
           "description" : "name",
           "required" : false,
           "type" : "integer",
-          "format" : "int64"
+          "format" : "int 64"
         }, {
           "name" : "currency",
           "in" : "query",
@@ -983,20 +1090,25 @@
         }, {
           "name" : "start_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "start date - ISO 8601",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "end_dt",
           "in" : "query",
-          "description" : "ISO 8601",
+          "description" : "end date - ISO 8601",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
           "200" : {
             "description" : "OK",
-            "schema" : { }
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ListTender"
+              }
+            }
           },
           "400" : {
             "description" : "Invalid ID supplied"
@@ -1498,7 +1610,7 @@
       "description" : "name",
       "required" : false,
       "type" : "integer",
-      "format" : "int64"
+      "format" : "int 64"
     },
     "currency" : {
       "name" : "currency",
@@ -1510,14 +1622,14 @@
     "start_dt" : {
       "name" : "start_dt",
       "in" : "query",
-      "description" : "ISO 8601",
+      "description" : "start date - ISO 8601",
       "required" : false,
       "type" : "string"
     },
     "end_dt" : {
       "name" : "end_dt",
       "in" : "query",
-      "description" : "ISO 8601",
+      "description" : "end date - ISO 8601",
       "required" : false,
       "type" : "string"
     },
@@ -1550,6 +1662,41 @@
       "in" : "query",
       "description" : "classification code",
       "required" : false,
+      "type" : "string"
+    },
+    "contractingp_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "contrating process identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "contract_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "contract identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "organisation_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "organisation identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "award_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "award identifier",
+      "required" : true,
+      "type" : "string"
+    },
+    "tender_id" : {
+      "name" : "id",
+      "in" : "path",
+      "description" : "tender idenrifier",
+      "required" : true,
       "type" : "string"
     }
   }

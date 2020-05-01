@@ -45,7 +45,7 @@ parameters:
     description: name
     required: false
     type: integer
-    format: int64
+    format: int 64
   currency:
     in: query
     name: currency
@@ -57,13 +57,13 @@ parameters:
     name: start_dt
     required: false
     type: string
-    description: ISO 8601
+    description: start date - ISO 8601
   end_dt:
     in: query
     name: end_dt
     required: false
     type: string
-    description: ISO 8601
+    description: end date - ISO 8601
   contract_status:
     in: query
     name: status
@@ -106,13 +106,43 @@ parameters:
     required: false
     type: string
     description: classification code
+  contractingp_id:
+    name: id
+    in: path
+    description: contrating process identifier
+    required: true
+    type: string
+  contract_id:
+    name: id
+    in: path
+    description: contract identifier
+    required: true
+    type: string
+  organisation_id:
+    name: id
+    in: path
+    description: organisation identifier
+    required: true
+    type: string
+  award_id:
+    name: id
+    in: path
+    description: award identifier
+    required: true
+    type: string
+  tender_id:
+    name: id
+    in: path
+    description: tender idenrifier
+    required: true
+    type: string
 paths:
   '/contractingProcess':
     get:
       tags:
         - contractingProcess
-      summary: Gets a list of contracting processes
-      description: Returns a list contracting process
+      summary: List of contracting processes
+      description: Returns a list of contracting processes from the TheyBuyForYou knowledge graph
       operationId: getContractingProcess
       produces:
         - application/json
@@ -124,6 +154,7 @@ paths:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListContractingProcess'
         '400':
@@ -135,16 +166,12 @@ paths:
       tags:
         - contractingProcess
       summary: Find contracting process by ID
-      description: Returns a single contracting process
+      description: Returns a single contracting process from the TheyBuyForYou knowledge graph
       operationId: getContractingProcessById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contracting process id
-          required: true
-          type: string
+        - $ref: '#/parameters/contractingp_id'
       responses:
         '200':
           description: successful operation
@@ -158,17 +185,13 @@ paths:
     get:
       tags:
         - contractingProcess
-      summary: Awards of a contracting process to return
-      description: Returns the list of awards of a contracting process
+      summary: List of awards of a contracting process
+      description: Returns the list of awards of a contracting process from the TheyBuyForYou knowledge graph
       operationId: getAwardContractingProcessById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contracting process id
-          required: true
-          type: string
+        - $ref: '#/parameters/contractingp_id'
         - $ref: '#/parameters/title'
         - $ref: '#/parameters/description'
         - $ref: '#/parameters/award_status'
@@ -178,6 +201,7 @@ paths:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListAward'
         '400':
@@ -188,21 +212,18 @@ paths:
     get:
       tags:
         - contractingProcess
-      summary: Buyers of a contracting process to return
-      description: Returns all the buyers of a contracting process
+      summary: List of buyers of a contracting process
+      description: Returns the list of buyers of a contracting process from the TheyBuyForYou knowledge graph
       operationId: getBuyerContractingProcessById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contracting process id
-          required: true
-          type: string
+        - $ref: '#/parameters/contractingp_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/Buyer'
         '400':
@@ -213,21 +234,18 @@ paths:
     get:
       tags:
         - contractingProcess
-      summary: Contracts of a contracting process to return
-      description: Returns the list of contracts of a contracting process
+      summary: List of contracts of a contracting process
+      description: Returns the list of contracts of a contracting process from the TheyBuyForYou knowledge graph
       operationId: getContractContractingProcessById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contracting process id
-          required: true
-          type: string
+        - $ref: '#/parameters/contractingp_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListContract'
         '400':
@@ -238,17 +256,13 @@ paths:
     get:
       tags:
         - contractingProcess
-      summary: Tenders of a contracting process to return
-      description: Returns the list of tenders of a contracting process
+      summary: List of tenders of a contracting process
+      description: Returns the list of tenders of a contracting process from the TheyBuyForYou knowledge graph
       operationId: getTenderContractingProcessById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contracting process id
-          required: true
-          type: string
+        - $ref: '#/parameters/contractingp_id'
         - $ref: '#/parameters/title'
         - $ref: '#/parameters/description'
         - $ref: '#/parameters/tender_status'
@@ -256,6 +270,7 @@ paths:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListTender'
         '400':
@@ -266,8 +281,8 @@ paths:
     get:
       tags:
         - contract
-      summary: Gets a list of contracts
-      description: Returns the list of contracts
+      summary: List of contracts
+      description: Returns a list of contracts from the TheyBuyForYou knowledge graph
       operationId: getContract
       produces:
         - application/json
@@ -275,6 +290,7 @@ paths:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListContract'
         '400':
@@ -286,16 +302,12 @@ paths:
       tags:
         - contract
       summary: Find contract by ID
-      description: Returns a single contract
+      description: Returns a single contract from the TheyBuyForYou knowledge graph
       operationId: getContractById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contract id
-          required: true
-          type: string
+        - $ref: '#/parameters/contract_id'
       responses:
         '200':
           description: successful operation
@@ -309,21 +321,18 @@ paths:
     get:
       tags:
         - contract
-      summary: Amendments of a contract to return
-      description: Returns a the amendments of a contract
+      summary: List of amendments of a contract
+      description: Returns the list of amendments of a contract from the TheyBuyForYou knowledge graph
       operationId: getAmendmentContractById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contract id
-          required: true
-          type: string
+        - $ref: '#/parameters/contract_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/Amendment'
         '400':
@@ -334,21 +343,18 @@ paths:
     get:
       tags:
         - contract
-      summary: Buyers of a contract to return
-      description: Returns all the buyers of a contract
+      summary: List of buyers of a contract
+      description: Returns the list of buyers of a contract from the TheyBuyForYou knowledge graph
       operationId: getBuyerContractById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contract id
-          required: true
-          type: string
+        - $ref: '#/parameters/contract_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/Buyer'
         '400':
@@ -359,21 +365,18 @@ paths:
     get:
       tags:
         - contract
-      summary: Documents of a contract to return
-      description: Returns a the documents of a contract
+      summary: List of documents of a contract
+      description: Returns the list of documents of a contract from the TheyBuyForYou knowledge graph
       operationId: getDocumentContractById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contract id
-          required: true
-          type: string
+        - $ref: '#/parameters/contract_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/Document'
         '400':
@@ -384,21 +387,18 @@ paths:
     get:
       tags:
         - contract
-      summary: Items of a contract to return
-      description: Returns a list of items of a contract
+      summary: List of items of a contract
+      description: Returns the list of items of a contract from the TheyBuyForYou knowledge graph
       operationId: getItemContractById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: contract id
-          required: true
-          type: string
+        - $ref: '#/parameters/contract_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/Item'
         '400':
@@ -409,8 +409,8 @@ paths:
     get:
       tags:
         - organisation
-      summary: Gets a list of organisations
-      description: Returns a list of organisations
+      summary: List of organisations
+      description: Returns a list of organiations from the TheyBuyForYou knowledge graph
       operationId: getOrganisation
       produces:
         - application/json
@@ -421,6 +421,7 @@ paths:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListOrganisation'
         '400':
@@ -432,16 +433,12 @@ paths:
       tags:
         - organisation
       summary: Find an organisation by ID
-      description: Returns a single organisation
+      description: Returns a single organisation from the TheyBuyForYou knowledge graph
       operationId: getOrganisationById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: organisation id
-          required: true
-          type: string
+        - $ref: '#/parameters/organisation_id'
       responses:
         '200':
           description: successful operation
@@ -455,31 +452,20 @@ paths:
     get:
       tags:
         - organisation
-      summary: Contracting-processes of an organisation to return
-      description: Returns a list of contracting-process of an organisation
+      summary: List of contracting processes of an organisation
+      description: Returns the list of contracting processes of an organisation from the TheyBuyForYou knowledge graph
       operationId: getContractingProcessOrganisationById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: organisation id
-          required: true
-          type: string
-        - name: start_dt
-          in: query
-          description: name
-          required: false
-          type: string 
-        - name: end_dt
-          in: query
-          description: name
-          required: false
-          type: string 
+        - $ref: '#/parameters/organisation_id'
+        - $ref: '#/parameters/start_dt'
+        - $ref: '#/parameters/end_dt'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListContractingProcess'
         '400':
@@ -490,38 +476,23 @@ paths:
     get:
       tags:
         - organisation
-      summary: Awards of an organisation to return
-      description: Returns a list of awards of an organisation
+      summary: List of awards of an organisation
+      description: Returns the list of awards of an organisation from the TheyBuyForYou knowledge graph
       operationId: getAwardOrganisationById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: organisation id
-          required: true
-          type: string
-        - name: status
-          in: query
-          description: name
-          required: false
-          type: string
-        - name: title
-          in: query
-          description: name
-          required: false
-          type: string
-        - name: description
-          in: query
-          description: name
-          required: false
-          type: string
+        - $ref: '#/parameters/organisation_id'
+        - $ref: '#/parameters/award_status'
+        - $ref: '#/parameters/title'
+        - $ref: '#/parameters/description'
         - $ref: '#/parameters/end_dt'
         - $ref: '#/parameters/start_dt'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListAward'
         '400':
@@ -532,8 +503,8 @@ paths:
     get:
       tags:
         - award
-      summary: Gets a list of awards
-      description: Returns a list of awards
+      summary: List of awards
+      description: Returns a list of awards from the TheyBuyForYou knowledge graph
       operationId: getAward
       produces:
         - application/json
@@ -547,6 +518,7 @@ paths:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListAward'
         '400':
@@ -558,16 +530,12 @@ paths:
       tags:
         - award
       summary: Find an award by ID
-      description: Returns a single award
+      description: Returns a single award from the TheyBuyForYou knowledge graph
       operationId: getAwardById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: award id
-          required: true
-          type: string
+        - $ref: '#/parameters/award_id'
       responses:
         '200':
           description: successful operation
@@ -581,21 +549,18 @@ paths:
     get:
       tags:
         - award
-      summary: Amendments of an award to return
-      description: Returns a list of amendments of an award
+      summary: List of amendments of an award
+      description: Returns the list of amendments of an award from the TheyBuyForYou knowledge graph
       operationId: getsAmendmentAwardById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: award id
-          required: true
-          type: string
+        - $ref: '#/parameters/award_id'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/Amendment'
         '400':
@@ -606,21 +571,18 @@ paths:
     get:
       tags:
         - award
-      summary: Items of an award to return
-      description: Returns a list of amendments of an award
+      summary: List of items of an award
+      description: Returns the list of items of an award from the TheyBuyForYou knowledge graph
       operationId: getItemAwardById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: award id
-          required: true
-          type: string
+        - $ref: '#/parameters/award_id'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/Item'
         '400':
@@ -631,21 +593,18 @@ paths:
     get:
       tags:
         - award
-      summary: Suppliers of an award to return
-      description: Returns a list of suppliers of an award
+      summary: List of suppliers of an award
+      description: Returns the list of suppliers of an award from the TheyBuyForYou knowledge graph
       operationId: getSupplierAwardById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: award id
-          required: true
-          type: string
+        - $ref: '#/parameters/award_id'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/Supplier'
         '400':
@@ -656,21 +615,18 @@ paths:
     get:
       tags:
         - award
-      summary: Documents of an award to return
-      description: Returns a list of documents of an award
+      summary: List of documents of an award
+      description: Returns the list of documents of an award from the TheyBuyForYou knowledge graph
       operationId: getDocumentAwardById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: award id
-          required: true
-          type: string
+        - $ref: '#/parameters/award_id'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/Document'
         '400':
@@ -681,8 +637,8 @@ paths:
     get:
       tags:
         - tender
-      summary: Gets a list of tenders
-      description: Returns a list of tenders
+      summary: List of tenders
+      description: Returns a list of tenders from the TheyBuyForYou knowledge graph
       operationId: getTender
       produces:
         - application/json
@@ -694,6 +650,7 @@ paths:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListTender'
         '400':
@@ -705,16 +662,12 @@ paths:
       tags:
         - tender
       summary: Find tender by ID
-      description: Returns a single tender
+      description: Returns a single tender from the TheyBuyForYou knowledge graph
       operationId: getTenderById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: tender id
-          required: true
-          type: string
+        - $ref: '#/parameters/tender_id'
       responses:
         '200':
           description: successful operation
@@ -728,21 +681,18 @@ paths:
     get:
       tags:
         - tender
-      summary: Items of a tender to return
-      description: Returns a list of items of a tender
+      summary: List of items of a tender
+      description: Returns the list of items of a tender from the TheyBuyForYou knowledge graph
       operationId: getItemTenderById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: tender id
-          required: true
-          type: string
+        - $ref: '#/parameters/tender_id'
       responses:
         '200':
           description: successful operation
           schema:
+            type: array
             items:
               $ref: '#/definitions/Item'
         '400':
@@ -753,21 +703,18 @@ paths:
     get:
       tags:
         - tender
-      summary: Contracting-processes of a tender to return
-      description: Returns a list of contracting-process of a tender
+      summary: List of contracting processes of a tender
+      description: Returns the list of contracting processes of a tender from the TheyBuyForYou knowledge graph
       operationId: getContractingProcessTenderById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: tender id
-          required: true
-          type: string
+        - $ref: '#/parameters/tender_id'
       responses:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListContractingProcess'
         '400':
@@ -778,22 +725,20 @@ paths:
     get:
       tags:
         - tender
-      summary: Documents of a tender to return
-      description: Returns a list of documents of a tender
+      summary: List of documents of a tender
+      description: Returns the list of documents of a tender from the TheyBuyForYou knowledge graph
       operationId: getDocumentTenderById
       produces:
         - application/json
       parameters:
-        - name: id
-          in: path
-          description: tender id
-          required: true
-          type: string
+        - $ref: '#/parameters/tender_id'
       responses:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/Document'
+            type: array
+            items:
+              $ref: '#/definitions/Document'
         '400':
           description: Invalid ID supplied
         '404':
@@ -802,8 +747,8 @@ paths:
     get:
       tags:
         - supplier
-      summary: Gets a list of suppliers
-      description: Returns a list of suppliers
+      summary: List of suppliers
+      description: Returns  the list of suppliers from the TheyBuyForYou knowledge graph
       operationId: getSupplier
       produces:
         - application/json
@@ -821,6 +766,7 @@ paths:
         '200':
           description: OK
           schema:
+            type: array
             items:
               $ref: '#/definitions/ListTender'
         '400':
