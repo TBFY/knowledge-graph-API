@@ -8,7 +8,7 @@ WHERE {
   OPTIONAL { ?hasten dct:title ?qtitle } .
   OPTIONAL { ?hasten dct:description ?qdescription } .
   OPTIONAL { ?hasten ocds:tenderStatus ?qstatus } .
-  FILTER ( ?status = xsd:string("_empty_") || regex( ?status, ?status, "i") ) .
-  FILTER ( ?title = xsd:string("_empty_") || regex( ?title, ?title, "i") ) .
-  FILTER ( ?description = xsd:string("_empty_") || regex( ?description, ?description, "i") ) .
+  FILTER ( ?status = xsd:string("_empty_") || regex( ?qstatus, ?status, "i") ) .
+  FILTER ( ?title = xsd:string("_empty_") || regex( ?qtitle, ?title, "i") ) .
+  FILTER ( ?description = xsd:string("_empty_") || regex( ?qdescription, ?description, "i") ) .
 }
