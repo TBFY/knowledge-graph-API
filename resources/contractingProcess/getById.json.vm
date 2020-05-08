@@ -15,7 +15,7 @@
     #if ( $control_coma )
       ,
     #end
-    "releasePublishedDate" : "$releasepublisheddate"
+    "_creationDate" : "$releasepublisheddate"
     #set( $control_coma = true )
   #end
 

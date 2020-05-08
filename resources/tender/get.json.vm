@@ -36,6 +36,15 @@
               "status" : "$tenders.qstatus"
               #set( $control_coma = true )
             #end
+
+            #if ( $tenders.releasepublisheddate )
+              #if ( $control_coma )
+                ,
+              #end
+              "_creationDate" : "$tenders.releasepublisheddate"
+              #set( $control_coma = true )
+            #end
+
         }
          #if ( $velocityCount < ${results.size()} )
             ,
