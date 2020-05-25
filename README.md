@@ -13,7 +13,7 @@
 
 ## Basic Overview
 
-This repository contains the API documentation and SPARQ queries of the TheyBuyForYou project. The core API has been built to allow developers to obtain public procurement data from the TheyBuyForYou project knowledge graph.
+This repository contains the API documentation and SPARQL queries of the TheyBuyForYou project. The core API has been built to allow developers to obtain public procurement data from the TheyBuyForYou project knowledge graph.
 
 The API is organised around REST and uses [R4R tool](https://github.com/TBFY/r4r). All API calls should be made to the http://tbfy.librairy.linkeddata.es/kg-api/ base domain. A JSON file will be returned in all responses from the API. The API allows you 27 different resources organised in 5 main groups:
 * Contracting processes
