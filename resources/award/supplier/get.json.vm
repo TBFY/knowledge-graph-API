@@ -39,7 +39,7 @@
               #if ( $control_coma )
                 ,
               #end
-              "jursidiction" : "$suppliers.qjurisdiction"
+              "jurisdiction" : "$suppliers.qjurisdiction"
               #set( $control_coma = true )
             #end
 
