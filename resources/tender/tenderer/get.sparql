@@ -2,6 +2,7 @@ PREFIX ocds: <http://data.tbfy.eu/ontology/ocds#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rov: <http://www.w3.org/ns/regorg#>
 PREFIX dbp: <http://dbpedia.org/ontology/>
+PREFIX schema: <http://schema.org/>
 
 SELECT ?s ?sas ?qlegalname ?qjurisdiction
 WHERE {
