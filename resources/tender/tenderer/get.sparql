@@ -11,4 +11,9 @@ WHERE {
   OPTIONAL { ?s owl:sameAs ?sas .
              ?sas rov:legalName ?qlegalname ;
                   dbp:jurisdiction ?qjurisdiction } .
+  OPTIONAL { ?s ocds:hasAddress ?haddress .
+            OPTIONAL { ?haddress schema:streetAddress ?qstreet } .
+            OPTIONAL { ?haddress schema:postalCode ?qpostalcode } .
+            OPTIONAL { ?haddress schema:addressLocality ?qlocality } .
+            OPTIONAL { ?haddress schema:addressCountry ?qcountry }} .
 }
